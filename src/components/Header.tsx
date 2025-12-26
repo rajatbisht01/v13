@@ -53,7 +53,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+            <div className="w-15 h-10 rounded-lg gradient-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">Vi-3</span>
             </div>
             <span className="text-xl font-bold text-foreground">
