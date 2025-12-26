@@ -7,7 +7,7 @@ const navItems = [
   { label: "Home", href: "/" },
   {
     label: "Services",
-    href: "services",
+    href: "/services",
     submenu: [
       { label: "AI Services", href: "/services/ai" },
       { label: "Cloud Solutions", href: "/services/cloud" },
