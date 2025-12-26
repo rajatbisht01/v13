@@ -54,7 +54,7 @@ export const Header = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">Vi3</span>
+              <span className="text-primary-foreground font-bold text-xl">Vi-3</span>
             </div>
             <span className="text-xl font-bold text-foreground">
               <span className="text-primary">Technology</span>

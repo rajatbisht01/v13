@@ -29,7 +29,7 @@ export const StatsSection = () => {
         <FadeIn>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Meet V13 Technology
+              Meet Vi-3 Technology
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Trusted by enterprises worldwide for digital transformation excellence

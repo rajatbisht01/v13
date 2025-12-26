@@ -6,28 +6,28 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "V13 Technology's cloud expertise helped us seamlessly migrate our infrastructure and achieve 40% cost savings. Their team is professional and always delivers on time.",
+      "Vi-3 Technology's cloud expertise helped us seamlessly migrate our infrastructure and achieve 40% cost savings. Their team is professional and always delivers on time.",
     author: "Rajesh Kumar",
     title: "CTO, TechVentures India",
     company: "TechVentures",
   },
   {
     quote:
-      "The AI solutions implemented by V13 have transformed our customer service operations. We've seen a 60% improvement in response times and customer satisfaction.",
+      "The AI solutions implemented by Vi-3 have transformed our customer service operations. We've seen a 60% improvement in response times and customer satisfaction.",
     author: "Sarah Chen",
     title: "Head of Digital, Global Finance Corp",
     company: "GFC",
   },
   {
     quote:
-      "Working with V13 on our DevSecOps transformation has been invaluable. Their expertise in security-first development practices has strengthened our entire pipeline.",
+      "Working with Vi-3 on our DevSecOps transformation has been invaluable. Their expertise in security-first development practices has strengthened our entire pipeline.",
     author: "Michael Thompson",
     title: "VP Engineering, SecureNet Systems",
     company: "SecureNet",
   },
   {
     quote:
-      "The data analytics platform V13 built for us has revolutionized how we make business decisions. Real-time insights are now at our fingertips.",
+      "The data analytics platform Vi-3 built for us has revolutionized how we make business decisions. Real-time insights are now at our fingertips.",
     author: "Priya Sharma",
     title: "Director of Analytics, DataDriven Inc",
     company: "DataDriven",
@@ -51,7 +51,7 @@ export const TestimonialsSection = () => {
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              The V13 Technology edge:{" "}
+              The Vi-3 Technology edge:{" "}
               <span className="text-gradient">What our clients say</span>
             </h2>
           </div>

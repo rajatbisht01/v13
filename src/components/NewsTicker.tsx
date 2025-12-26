@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 const newsItems = [
   {
     type: "News",
-    title: "V13 Technology Launches Next-Gen AI Solutions for Enterprise",
+    title: "Vi-3 Technology Launches Next-Gen AI Solutions for Enterprise",
     link: "#",
   },
   {
@@ -14,7 +14,7 @@ const newsItems = [
   },
   {
     type: "News",
-    title: "V13 Technology Achieves AWS Advanced Partner Status",
+    title: "Vi-3 Technology Achieves AWS Advanced Partner Status",
     link: "#",
   },
 ];

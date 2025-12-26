@@ -59,7 +59,7 @@ export const Footer = () => {
                 <span className="text-primary-foreground font-bold text-xl">V</span>
               </div>
               <span className="text-hero-foreground font-bold text-xl tracking-tight">
-                V13<span className="text-primary">Tech</span>
+                Vi-3<span className="text-primary">Tech</span>
               </span>
             </motion.a>
 
@@ -161,7 +161,7 @@ export const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-hero-muted text-sm">
-              © {new Date().getFullYear()} V13 Technology. All rights reserved.
+              © {new Date().getFullYear()} Vi-3 Technology. All rights reserved.
             </p>
             <p className="text-hero-muted text-sm">
               Business Transformation Done Right

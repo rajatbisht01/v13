@@ -62,7 +62,7 @@ const About = () => {
         <div className="container mx-auto px-6 relative z-10">
           <FadeIn>
             <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-              About V13 Technology
+              About Vi-3 Technology
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Transforming Businesses
@@ -90,7 +90,7 @@ const About = () => {
               </h2>
               <p className="text-muted-foreground mb-4">
                 Founded with a vision to bridge the gap between cutting-edge technology and 
-                practical business applications, V13 Technology has grown from a small 
+                practical business applications, Vi-3 Technology has grown from a small 
                 consulting firm to a trusted partner for enterprises worldwide.
               </p>
               <p className="text-muted-foreground mb-4">
@@ -109,7 +109,7 @@ const About = () => {
               <div className="relative">
                 <img
                   src={aboutTeam}
-                  alt="V13 Technology Team"
+                  alt="Vi-3 Technology Team"
                   className="rounded-2xl shadow-2xl w-full"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-xl">
