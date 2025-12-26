@@ -200,7 +200,7 @@ const Services = () => {
                       ))}
                     </ul>
                      <Link to={service.link || "#"}>
-                      <Button variant="outline" className="gap-2">
+                      <Button variant="outline" className="gap-2 hover:bg-primary">
                         Learn More
                         <ArrowRight size={16} />
                       </Button>
@@ -217,7 +217,7 @@ const Services = () => {
                           alt={service.title}
                           className="w-full h-80 object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
                       </motion.div>
                     ) : (
                       <motion.div
