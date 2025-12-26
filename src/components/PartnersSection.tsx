@@ -2,11 +2,11 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { InfiniteScroll } from "@/components/ui/InfiniteScroll";
 
 const partners = [
-  { name: "AWS", color: "#FF9900" },
-  { name: "Azure", color: "#0078D4" },
   { name: "Google Cloud", color: "#4285F4" },
   { name: "Kubernetes", color: "#326CE5" },
+  { name: "AWS", color: "#FF9900" },
   { name: "Docker", color: "#2496ED" },
+  { name: "Azure", color: "#0078D4" },
   { name: "HashiCorp", color: "#7B42BC" },
   { name: "Terraform", color: "#623CE4" },
   { name: "Databricks", color: "#FF3621" },
