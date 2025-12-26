@@ -25,15 +25,15 @@ export const HeroSection = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentImageIndex}
-          initial={{ opacity: 0, scale: 1 }}
+          initial={{ opacity: 0.4, scale: 1.01 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          exit={{ opacity: 0.7, scale: 1.01 }}
+          transition={{ duration: 1.1, ease: "easeInOut" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-background/40 to-transparent" />
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" /> */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-background/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
@@ -44,7 +44,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-lg md:text-2xl text-foreground/80 mb-4 font-medium"
+            className="text-lg md:text-2xl text-foreground/90 mb-4 font-medium"
           >
             Powering your
           </motion.p>
@@ -58,8 +58,8 @@ export const HeroSection = () => {
             <span className="relative ">
               <TextType
                 text={transformWords}
-                typingSpeed={80}
-                deletingSpeed={50}
+                typingSpeed={120}
+                deletingSpeed={120}
                 pauseDuration={2000}
                 loop={true}
                 showCursor={true}
@@ -77,7 +77,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-base tracking-[0.3em] uppercase text-black/60 mb-8 font-semibold"
+            className="text-sm md:text-lg tracking-[0.3em] uppercase text-foreground/90 mb-8 font-semibold"
           >
             Business Transformation Done Right
           </motion.p>
