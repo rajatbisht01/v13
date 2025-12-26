@@ -89,7 +89,7 @@ export const HeroSection = () => {
             className="flex flex-wrap gap-4"
           >
             <a
-              href="#services"
+              href="/services"
               className="inline-flex items-center gap-2 px-8 py-4 btn-primary font-semibold rounded-lg glow-primary hover:opacity-90 transition-opacity"
             >
               Explore Services
