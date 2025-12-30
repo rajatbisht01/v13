@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   { label: "Home", href: "/" },
   {
-    label: "Services",
+    label: "What We Do",
     href: "/services",
     submenu: [
       { label: "AI Services", href: "/services/ai" },
@@ -21,8 +21,8 @@ const navItems = [
       { label: "Quantum Computing", href: "/services/quantum-computing" }
     ],
   },
-  { label: "About Us", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Who We Are", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const Header = () => {
