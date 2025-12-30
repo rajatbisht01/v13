@@ -29,7 +29,7 @@ export const HeroSection = () => {
     animate={{ opacity: 1, scale: 1 }}
     exit={{ opacity: 0, scale: 1.005 }}
     transition={{
-      duration: 1.6,
+      duration: 1.8,
       ease: [0.4, 0.0, 0.2, 1],
     }}
     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -64,7 +64,7 @@ export const HeroSection = () => {
             <span className="relative inline-block">
               <TextType
                 text={transformWords}
-                typingSpeed={80}
+                typingSpeed={120}
                 deletingSpeed={50}
                 pauseDuration={2000}
                 loop={true}
