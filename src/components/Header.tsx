@@ -105,12 +105,12 @@ export const Header = () => {
                           transition={{ duration: 0.2 }}
                           className="absolute top-full left-0 pt-4 w-64"
                         >
-                          <div className="bg-secondary rounded-xl shadow-2xl">
+                          <div className="bg-gradient-to-r from-secondary/90 to-secondary p-2 rounded-xl shadow-2xl">
                             {item.submenu.map((subItem) => (
                               <a
                                 key={subItem.label}
                                 href={subItem.href}
-                                className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-200"
+                                className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-primary/15 rounded-lg transition-all duration-200"
                               >
                                 {subItem.label}
                               </a>
@@ -127,6 +127,8 @@ export const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
+           <a href="/contact">
+
             <Button
               variant="default"
               size="lg"
@@ -134,11 +136,12 @@ export const Header = () => {
             >
               Contact Us
             </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-foreground p-2"
+            className="lg:hidden text-secondary p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -157,7 +160,7 @@ export const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass-strong border-t border-border"
+            className="lg:hidden bg-white border-t border-border"
           >
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navItems.map((item) => (
@@ -193,9 +196,9 @@ export const Header = () => {
                 </div>
               ))}
 
-              <Button className="gradient-primary text-primary-foreground font-semibold mt-4">
+              <a href="/contact" className="gradient-primary text-primary-foreground font-semibold mt-4">
                 Contact Us
-              </Button>
+              </a>
             </nav>
           </motion.div>
         )}
