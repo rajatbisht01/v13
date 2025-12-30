@@ -11,9 +11,12 @@ import { NewsTicker } from "@/components/NewsTicker";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
-      <Header />
+    <main className="min-h-screen ">
+     
+        <Header />
+
       <HeroSection />
+
       <NewsTicker/>
       <ServicesSection />
       <StatsSection />

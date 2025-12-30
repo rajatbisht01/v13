@@ -20,7 +20,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative  min-h-screen flex items-center overflow-hidden">
       {/* Background Images with crossfade */}
       <AnimatePresence mode="sync">
         <motion.div
@@ -35,20 +35,22 @@ export const HeroSection = () => {
     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
     style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
   >
-    <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-background/20 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-  </motion.div>
+  {/* Image contrast scrim */}
+<div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/10" />
+<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+        </motion.div>
 
       </AnimatePresence>
 
       {/* Content */}
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-32 pb-20">
-        <div className="max-w-3xl">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-32 pb-20">
+        <div className="max-w-5xl">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-lg md:text-2xl text-foreground/90 mb-4 font-medium"
+            className="text-lg md:text-xl text-secondary mb-4 font-medium"
           >
             Powering your
           </motion.p>
@@ -57,13 +59,13 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 whitespace-nowrap"
+            className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6"
           >
-            <span className="relative ">
+            <span className="relative inline-block">
               <TextType
                 text={transformWords}
-                typingSpeed={120}
-                deletingSpeed={120}
+                typingSpeed={80}
+                deletingSpeed={50}
                 pauseDuration={2000}
                 loop={true}
                 showCursor={true}
@@ -72,16 +74,16 @@ export const HeroSection = () => {
                 className="text-primary"
                 onTextChange={handleTextChange}
               />
-              <span className="text-white ml-4">Transformation</span>
               <span className="absolute -bottom-1 left-0 w-full h-1 gradient-primary rounded-full" />
             </span>
+            <span className="text-secondary ml-4">transformation</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-lg tracking-[0.3em] uppercase text-foreground/90 mb-8 font-semibold"
+            className="text-sm md:text-base tracking-[0.3em] uppercase text-secondary mb-8 font-semibold"
           >
             Business Transformation Done Right
           </motion.p>
@@ -94,26 +96,16 @@ export const HeroSection = () => {
           >
             <a
               href="/services"
-              className="inline-flex items-center gap-2 px-8 py-4 btn-primary font-semibold rounded-lg glow-primary hover:opacity-90 transition-opacity"
+              className="inline-flex items-center border gap-2 px-8 py-4 gradient-primary text-primary-foreground font-semibold rounded-lg glow-primary hover:opacity-90 transition-opacity"
             >
               Explore Services
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 text-foreground font-semibold rounded-lg hover:bg-primary/10 transition-colors"
+              href="#services"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 text-primary font-semibold rounded-lg hover:bg-primary/10 transition-colors"
             >
               Get Started
             </a>
@@ -123,10 +115,7 @@ export const HeroSection = () => {
 
       {/* Decorative elements */}
       <div className="absolute top-1/4 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse-soft" />
-      <div
-        className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl animate-pulse-soft"
-        style={{ animationDelay: "1s" }}
-      />
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "1s" }} />
     </section>
-  );
+      );
 };

@@ -13,6 +13,7 @@
     /* Core brand colors - Deep tech navy with teal accents */
     --background: 220 25% 97%;
     --foreground: 222 47% 11%;
+  
 
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
@@ -44,7 +45,7 @@
     --radius: 0.75rem;
 
     /* Hero & dark section colors */
-    --hero-bg: 225 50% 12%;
+    --hero-bg: 220 30% 6%;;
     --hero-foreground: 0 0% 100%;
     --hero-muted: 220 20% 70%;
 
