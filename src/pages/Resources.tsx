@@ -924,7 +924,7 @@ const Resources = () => {
 
       {/* Resource Detail Modal */}
       <Dialog open={!!selectedResource} onOpenChange={() => setSelectedResource(null)}>
-        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-4xl h-[80vh] xl:h-[90vh] overflow-y-auto">
           {selectedResource && (
             <>
               <DialogHeader>
