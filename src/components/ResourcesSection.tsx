@@ -100,7 +100,7 @@ export const ResourcesSection = () => {
 
         <FadeInUp delay={0.3} className="text-center mt-12">
           <a
-            href="#"
+            href="/resources"
             className="inline-flex items-center gap-2 px-8 py-4 gradient-primary text-primary font-semibold rounded-lg glow-primary hover:opacity-90 transition-opacity"
           >
             See More Resources

@@ -17,6 +17,8 @@ const navItems = [
       { label: "Automation", href: "/services/automation" },
       { label: "Application Services", href: "/services/applications" },
       { label: "IT Infrastructure", href: "/services/infrastructure" },
+      { label: "Containerization", href: "/services/containerization" },
+      { label: "Quantum Computing", href: "/services/quantum-computing" }
     ],
   },
   { label: "About Us", href: "/about" },

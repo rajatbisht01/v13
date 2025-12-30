@@ -22,19 +22,23 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Images with crossfade */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync">
         <motion.div
-          key={currentImageIndex}
-          initial={{ opacity: 0.4, scale: 1.01 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0.7, scale: 1.01 }}
-          transition={{ duration: 1.1, ease: "easeInOut" }}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-background/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-        </motion.div>
+    key={currentImageIndex}
+    initial={{ opacity: 0, scale: 1.005 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 1.005 }}
+    transition={{
+      duration: 1.6,
+      ease: [0.4, 0.0, 0.2, 1],
+    }}
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
+  >
+    <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-background/20 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+  </motion.div>
+
       </AnimatePresence>
 
       {/* Content */}
@@ -68,7 +72,7 @@ export const HeroSection = () => {
                 className="text-primary"
                 onTextChange={handleTextChange}
               />
-              <span className="text-foreground ml-4">Transformation</span>
+              <span className="text-white ml-4">Transformation</span>
               <span className="absolute -bottom-1 left-0 w-full h-1 gradient-primary rounded-full" />
             </span>
           </motion.h1>
