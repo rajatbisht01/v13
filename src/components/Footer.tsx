@@ -33,6 +33,8 @@ const footerLinks = {
     "Terms & Conditions",
     "Security Policy",
     "Cookie Policy",
+    "Data Protection Policy",
+    "GDPR Compliance",
   ],
 };
 

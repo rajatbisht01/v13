@@ -18,9 +18,9 @@ export const HeroSection = () => {
   const handleTextChange = useCallback((_text: string, index: number) => {
     setCurrentImageIndex(index);
   }, []);
-
-  return (
-    <section className="relative  min-h-screen flex items-center overflow-hidden">
+// min-h-screen
+  return (   
+    <section className="relative h-[90vh]  flex items-center overflow-hidden">
       {/* Background Images with crossfade */}
       <AnimatePresence mode="sync">
         <motion.div

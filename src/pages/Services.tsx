@@ -217,7 +217,8 @@ const Services = () => {
                           alt={service.title}
                           className="w-full h-80 object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
+<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/10" />
+<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
                       </motion.div>
                     ) : (
                       <motion.div
