@@ -121,7 +121,7 @@ const CorePillars = () => {
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
             <div className="glass border border-border rounded-2xl p-6 h-full hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
-              <div className="absolute -top-4 -right-4 text-8xl font-bold text-primary/5">
+              <div className="absolute -top-2 -right-1 text-8xl font-bold text-primary/5">
                 {step.phase}
               </div>
               <div className="relative z-10">

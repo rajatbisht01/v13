@@ -281,7 +281,7 @@ const ServicesPage = () => {
         <section 
         id={categoryIdMap[category.name]}
           key={category.name} 
-          className={`py-20 ${categoryIndex % 2 === 0 ? 'bg-background' : 'partners-gradient'}`}
+          className={`py-12 ${categoryIndex % 2 === 0 ? 'bg-background' : 'partners-gradient'}`}
         >
           <div className="container mx-auto px-4 lg:px-8">
             <motion.div
