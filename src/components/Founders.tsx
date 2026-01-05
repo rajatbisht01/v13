@@ -1,6 +1,7 @@
 import { FadeInUp, StaggerContainer } from "@/components/ui/motion";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Linkedin, Award, Briefcase, GraduationCap } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const founders = [
   {
@@ -40,6 +41,68 @@ const founders = [
     ]
   }
 ];
+const stats = [
+  { value: 30, suffix: "+", label: "Years Combined", sublabel: "Leadership Experience" },
+  { value: 100, suffix: "+", label: "Enterprises Transformed", sublabel: "Across Global Markets" },
+  { value: 22, suffix: "+", label: "Industries Served", sublabel: "End-to-End Solutions" },
+];
+
+interface StatItemProps {
+  value: number;
+  suffix: string;
+  label: string;
+  sublabel: string;
+  delay: number;
+}
+
+const StatItem = ({ value, suffix, label, sublabel, delay }: StatItemProps) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (isInView) {
+      const timer = setTimeout(() => {
+        const duration = 2000;
+        const steps = 60;
+        const increment = value / steps;
+        let current = 0;
+        
+        const counter = setInterval(() => {
+          current += increment;
+          if (current >= value) {
+            setCount(value);
+            clearInterval(counter);
+          } else {
+            setCount(Math.floor(current));
+          }
+        }, duration / steps);
+        
+        return () => clearInterval(counter);
+      }, delay);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isInView, value, delay]);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.5, delay: delay / 1000 }}
+      className="text-center"
+    >
+      <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-2">
+        {count}
+        <span className="text-black">{suffix}</span>
+      </div>
+      <div className="text-foreground font-semibold text-lg mb-1">{label}</div>
+      <div className="text-muted-foreground text-sm">{sublabel}</div>
+    </motion.div>
+  );
+};
+
 
 export const Founders = () => {
   return (
@@ -137,18 +200,18 @@ export const Founders = () => {
         <FadeInUp className="mt-12">
           <div className="glass rounded-2xl p-8 text-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">30+</div>
-                <p className="text-muted-foreground">Years Combined Experience</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">100+</div>
-                <p className="text-muted-foreground">Enterprise Transformations</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">22+</div>
-                <p className="text-muted-foreground">Industries Served</p>
-              </div>
+              {stats.map((stat, index) => (
+            <StatItem
+              key={stat.label}
+              value={stat.value}
+              suffix={stat.suffix}
+              label={stat.label}
+              sublabel={stat.sublabel}
+              delay={index * 200}
+            />
+          ))}
+             
+             
             </div>
           </div>
         </FadeInUp>
