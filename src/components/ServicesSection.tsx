@@ -12,74 +12,53 @@ import { ArrowRight } from "lucide-react";
 const services = [
   {
     image: managedImg,
-    title: "24×7 Managed Services",
-    description:
-      "Always-on IT operations with proactive monitoring, automated patching, and SLA-driven resolution.",
-    features: [
-      "Proactive Monitoring",
-      "Automated Patch Management",
-      "L1–L3 Support",
-    ],
+     title: "24×7 Managed Services",
+    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
+    features: ["Proactive Infrastructure Monitoring", "Automated Patch Management", "Level 1-3 Technical Support", "Performance Optimization"],
+    
     gradient: "from-blue-400 via-indigo-500 to-purple-600",
     slug: "managed-services",
   },
   {
     image: cyberImg,
     title: "Cybersecurity & Resilience",
-    description:
-      "Zero Trust security, MDR, CNAPP, and quantum-safe encryption for modern enterprises.",
-    features: [
-      "Zero Trust Architecture",
-      "Managed Detection & Response",
-      "Post-Quantum Security",
-    ],
+    description: "Defense-in-Depth strategy with Zero Trust architecture, MDR, and Quantum-Safe encryption for complete protection.",
+    features: ["Zero Trust Implementation", "CNAPP & CSPM", "Managed Detection & Response", "Quantum-Safe Cryptography"],
+   
     gradient: "from-rose-500 via-red-500 to-orange-500",
     slug: "cybersecurity",
   },
    {
     image: devsecopsImg,
-    title: "DevSecOps Engineering",
+   title: "DevSecOps Engineering",
     description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
-    features: ["Kubernetes & Docker", "Automated CI/CD Pipelines", "Security Integration & Compliance"],
-    gradient: "from-emerald-500/20 to-green-500/5",
+    features: ["Kubernetes & Docker", "Automated CI/CD Pipelines", "Security Integration", "Infrastructure as Code"],
+     gradient: "from-emerald-500/20 to-green-500/5",
     slug: "devsecops"
   },
   {
     image: aiImg,
-    title: "AI & Data Science",
-    description:
-      "Enterprise AI stacks with LLMs, MLOps automation, and predictive intelligence.",
-    features: [
-      "LLM & Agentic AI",
-      "MLOps Pipelines",
-      "Predictive Analytics",
-    ],
-    gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
+   title: "AI & Data Science",
+    description: "High-performance pipelines turning raw data into competitive intelligence with LLMs, MLOps, and predictive analytics.",
+    features: ["AI Stack Engineering", "MLOps Automation", "Predictive Analytics", "Secure Data Workbenches"],
+   gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
     slug: "ai-data-science",
   },
   {
     image: cloudImg,
-    title: "Cloud & Infrastructure",
-    description:
-      "Hybrid cloud, on-prem modernization, secure migrations, and cost optimization.",
-    features: [
-      "AWS · Azure · GCP",
-      "Hybrid Cloud",
-      "Cloud Cost Control",
-    ],
+   title: "Cloud & Infrastructure",
+    description: "Seamless hybrid cloud transitions with On-Prem modernization, secure migrations, and cost optimization.",
+    features: ["AWS / Azure / GCP", "Hybrid Cloud Migration", "Cloud Cost Optimization", "On-Premises Refurbishment"],
+   
     gradient: "from-cyan-400 via-sky-500 to-blue-600",
     slug: "cloud-infrastructure",
   },
   {
     image: quantumImg,
     title: "Quantum Computing",
-    description:
-      "Quantum readiness, post-quantum cryptography, and hybrid quantum workflows.",
-    features: [
-      "Quantum Strategy",
-      "Post-Quantum Encryption",
-      "Hybrid Workflows",
-    ],
+    description: "Strategic roadmap for quantum readiness including consulting, quantum-safe cryptography, and hybrid workflows.",
+    features: ["Quantum Readiness Consulting", "Post-Quantum Encryption", "Hybrid Quantum-Classical", "Future-Proof Strategy"],
+   
     gradient: "from-indigo-400 via-purple-500 to-pink-500",
     slug: "quantum-computing",
   },
