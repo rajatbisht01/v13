@@ -23,6 +23,7 @@ import aboutMission from "@/assets/about-mission.jpg";
 import { Team } from "@/components/Teams";
 import { Founders } from "@/components/Founders";
 import { KeyStrengths } from "@/components/KeyStrengths";
+import CorePillars from "@/components/CorePillars";
 
 /* ---------- UPDATED STATS ---------- */
 const stats = [
@@ -156,56 +157,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* ---------- CORE PILLARS ---------- */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <FadeInUp className="text-center mb-12">
-            <h3 className="text-3xl font-bold">
-              Our <span className="text-primary">Core Pillars</span>
-            </h3>
-          </FadeInUp>
-
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {corePillars.map((p, i) => (
-              <motion.div key={p.title} transition={{ delay: i * 0.1 }}>
-                <div className="glass border border-border p-6 rounded-2xl text-center h-full">
-                  <div className="w-14 h-14 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center">
-                    <p.icon className="text-primary" />
-                  </div>
-                  <h4 className="font-bold mb-2">{p.title}</h4>
-                  <p className="text-sm text-muted-foreground">{p.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ---------- OPERATIONAL MODEL ---------- */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-6">
-          <FadeInUp className="text-center mb-12">
-            <h3 className="text-3xl font-bold">
-              Vi-3 <span className="text-primary">Operational Model</span>
-            </h3>
-          </FadeInUp>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {operationalModel.map((step, i) => (
-              <FadeInUp key={step.phase} style={{ animationDelay: `${i * 0.1}s` }}>
-                <div className="glass border border-border p-6 rounded-2xl relative">
-                  <span className="absolute top-2 right-4 text-6xl font-bold text-primary/5">
-                    {step.phase}
-                  </span>
-                  <h4 className="font-bold mb-2">{step.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-3">{step.action}</p>
-                  <p className="text-sm text-primary">{step.outcome}</p>
-                </div>
-              </FadeInUp>
-            ))}
-          </div>
-        </div>
-      </section>
+<CorePillars/>
+     
 
       {/* ---------- GLOBAL ---------- */}
       <section className="py-20 bg-background">

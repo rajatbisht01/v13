@@ -23,7 +23,6 @@ const Index = () => {
 
       <HeroSection />
 
-      <NewsTicker/>
       <CorePillars/>
       <ServicesSection />
       <Industries/>

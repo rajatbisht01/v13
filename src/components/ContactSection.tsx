@@ -11,35 +11,57 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 export const ContactSection = () => {
   
 const services = [
-  "AI Services",
-  "Cloud Solutions",
-  "Cloud Managed Services",
-  "Cybersecurity & GRC",
-  "Data and Analytics",
-  "DevOps & DevSecOps",
-  "Automation",
-  "Application Services",
-  "Containerization",
-  "IT Infrastructure",
+  "24×7 Managed Services",
+  "Cybersecurity & Resilience",
+  "AI & Data Science",
+  "Cloud & Infrastructure",
+  "DevSecOps Engineering",
   "Quantum Computing",
+  "AI Governance",
+  "Agentic AI & AI Agents",
+  "AI Workflow Automation",
+  "Digital Transformation",
+  "Web 3.0 Solutions",
+  "AIOps",
+  "Application Security",
+  "Quality Assurance & Audit",
+  "IT Infrastructure Management",
+  "Staff Management",
+  "Project Management",
 ];
-  const { toast } = useToast();
+ const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     toast({
-      title: "Message sent successfully!",
+      title: "Message Sent Successfully!",
       description: "We'll get back to you within 24 hours.",
     });
-    
+
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      service: "",
+      message: "",
+    });
+
     setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
   };
 
   return (
@@ -60,7 +82,7 @@ const services = [
           </p>
         </FadeInUp>
 
-        <div className="grid lg:grid-cols-2 gap-20 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
           {/* Contact Info */}
           <SlideInLeft>
             <div className="space-y-8">
@@ -123,100 +145,140 @@ const services = [
 
           {/* Contact Form */}
           <SlideInRight>
-            <form onSubmit={handleSubmit} className="glass rounded-2xl p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Full Name *
-                  </label>
-                  <Input
-                    type="text"
-                    required
-                    placeholder="John Doe"
-                    className="bg-secondary/50 border-border focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number *
-                  </label>
-                  <Input
-                    type="tel"
-                    required
-                    placeholder="+91 98765 43210"
-                    className="bg-secondary/50 border-border focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
-                  </label>
-                  <Input
-                    type="email"
-                    required
-                    placeholder="john@company.com"
-                    className="bg-secondary/50 border-border focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Company Name *
-                  </label>
-                  <Input
-                    type="text"
-                    required
-                    placeholder="Your Company"
-                    className="bg-secondary/50 border-border focus:border-primary"
-                  />
-                </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    I am looking for
-                  </label>
-                    <Select>
-                  <SelectTrigger className="bg-white/10 border border-border text-hero">
-                    <SelectValue placeholder="I am looking for" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {services.map((service) => (
-                      <SelectItem key={service} value={service.toLowerCase()}>
-                        {service}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Message
-                  </label>
-                  <Textarea
-                    placeholder="Tell us about your project..."
-                    rows={4}
-                    className="bg-secondary/50 border-border focus:border-primary resize-none"
-                  />
-                </div>
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full mt-6 gradient-primary text-primary-foreground font-semibold py-6 glow-primary hover:opacity-90 transition-opacity"
-              >
-                {isSubmitting ? (
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full"
-                  />
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Submit
-                  </>
-                )}
-              </Button>
-            </form>
+           
+                         <motion.div
+                           initial={{ opacity: 0, y: 20 }}
+                           animate={{ opacity: 1, y: 0 }}
+                           transition={{ duration: 0.6, delay: 0.2 }}
+                         >
+                           <div className="bg-card p-8 md:p-10 rounded-2xl border border-border shadow-lg">
+                             <h2 className="text-2xl font-bold text-foreground mb-6">
+                               Send Us a Message
+                             </h2>
+                             <form onSubmit={handleSubmit} className="space-y-6">
+                               <div className="grid md:grid-cols-2 gap-6">
+                                 <div>
+                                   <label className="block text-sm font-medium text-foreground mb-2">
+                                     Full Name *
+                                   </label>
+                                   <Input
+                                     required
+                                     value={formData.name}
+                                     onChange={(e) =>
+                                       setFormData({ ...formData, name: e.target.value })
+                                     }
+                                     placeholder="John Doe"
+                                     className="bg-background"
+                                   />
+                                 </div>
+                                 <div>
+                                   <label className="block text-sm font-medium text-foreground mb-2">
+                                     Email Address *
+                                   </label>
+                                   <Input
+                                     required
+                                     type="email"
+                                     value={formData.email}
+                                     onChange={(e) =>
+                                       setFormData({ ...formData, email: e.target.value })
+                                     }
+                                     placeholder="john@company.com"
+                                     className="bg-background"
+                                   />
+                                 </div>
+                               </div>
+                               <div className="grid md:grid-cols-2 gap-6">
+                                 <div>
+                                   <label className="block text-sm font-medium text-foreground mb-2">
+                                     Company
+                                   </label>
+                                   <Input
+                                     value={formData.company}
+                                     onChange={(e) =>
+                                       setFormData({ ...formData, company: e.target.value })
+                                     }
+                                     placeholder="Your Company"
+                                     className="bg-background"
+                                   />
+                                 </div>
+                                 <div>
+                                   <label className="block text-sm font-medium text-foreground mb-2">
+                                     Phone Number
+                                   </label>
+                                   <Input
+                                     type="tel"
+                                     value={formData.phone}
+                                     onChange={(e) =>
+                                       setFormData({ ...formData, phone: e.target.value })
+                                     }
+                                     placeholder="+91 98765 43210"
+                                     className="bg-background"
+                                   />
+                                 </div>
+                               </div>
+                               <div>
+                                 <label className="block text-sm font-medium text-foreground mb-2">
+                                   Service of Interest
+                                 </label>
+                                 <Select
+                                   value={formData.service}
+                                   onValueChange={(value) =>
+                                     setFormData({ ...formData, service: value })
+                                   }
+                                 >
+                                   <SelectTrigger className="bg-background">
+                                     <SelectValue placeholder="Select a service" />
+                                   </SelectTrigger>
+                                   <SelectContent>
+                                     {services.map((service) => (
+                                       <SelectItem key={service} value={service}>
+                                         {service}
+                                       </SelectItem>
+                                     ))}
+                                   </SelectContent>
+                                 </Select>
+                               </div>
+                               <div>
+                                 <label className="block text-sm font-medium text-foreground mb-2">
+                                   Message *
+                                 </label>
+                                 <Textarea
+                                   required
+                                   value={formData.message}
+                                   onChange={(e) =>
+                                     setFormData({ ...formData, message: e.target.value })
+                                   }
+                                   placeholder="Tell us about your project or requirements..."
+                                   rows={5}
+                                   className="bg-background resize-none"
+                                 />
+                               </div>
+                               <Button 
+                                 type="submit" 
+                                 disabled={isSubmitting}
+                                 className="w-full gap-2 gradient-primary text-primary-foreground font-semibold py-6"
+                               >
+                                 {isSubmitting ? (
+                                   <motion.div
+                                     animate={{ rotate: 360 }}
+                                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                     className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full"
+                                   />
+                                 ) : (
+                                   <>
+                                     <Send size={18} />
+                                     Send Message
+                                   </>
+                                 )}
+                               </Button>
+                               <p className="text-xs text-muted-foreground text-center">
+                                 By submitting this form, you agree to our{" "}
+                                 <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>
+                               </p>
+                             </form>
+                           </div>
+                         </motion.div>
+                     
           </SlideInRight>
         </div>
       </div>

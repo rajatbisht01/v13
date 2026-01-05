@@ -8,6 +8,7 @@ import heroCloud from "@/assets/hero-cloud.jpg";
 import heroApplication from "@/assets/hero-application.jpg";
 import heroData from "@/assets/hero-data.jpg";
 import heroAi from "@/assets/hero-ai.jpg";
+import { NewsTicker } from "./NewsTicker";
 
 const heroDataNew ='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'
 
@@ -20,9 +21,12 @@ export const HeroSection = () => {
   const handleTextChange = useCallback((_text: string, index: number) => {
     setCurrentImageIndex(index);
   }, []);
-// min-h-screen
-  return (   
-    <section className="relative h-[83vh] lg:h-[90vh]  flex items-center overflow-hidden">
+// min-h-screen   h-[83vh] lg:h-[90vh] 
+  return (  
+    <section className="relative h-screen">
+
+    
+    <section className="relative h-full flex items-center overflow-hidden">
       {/* Background Images with crossfade */}
       <AnimatePresence mode="sync">
         <motion.div
@@ -119,5 +123,9 @@ export const HeroSection = () => {
       <div className="absolute top-1/4 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse-soft" />
       <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "1s" }} />
     </section>
+     <div className="absolute bottom-0 left-0 w-full z-20">
+    <NewsTicker />
+  </div>
+</section> 
       );
 };
