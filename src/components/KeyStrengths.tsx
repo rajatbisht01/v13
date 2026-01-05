@@ -101,15 +101,26 @@ export const KeyStrengths = () => {
           {strengths.map((strength, index) => (
             <motion.div
               key={strength.title}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+              initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+          >
               <div className="glass bg-white border-2 border-border rounded-2xl p-6 h-full hover:border-primary/10 transition-all duration-300 group">
                 <div className="w-8 h-8 rounded-xl  flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300">
+                   <motion.div
+                                    animate={{ scale: [1, 1.15, 1] }}
+                                    transition={{
+                                      duration: 1.6,
+                                      repeat: Infinity,
+                                      repeatType: "loop",
+                                      ease: "easeInOut",
+                                    }}
+                                    aria-hidden="true"
+                                  >
+
                   <strength.icon className="w-7 h-7 text-primary" />
+                                  </motion.div>
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3 hover:shadow-2xl transition-colors">
                   {strength.title}
@@ -149,7 +160,19 @@ export const KeyStrengths = () => {
                   className="text-center"
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-accent/20 flex items-center justify-center mx-auto mb-3">
+                    <motion.div
+                                     animate={{ scale: [1, 1.05, 1] }}
+                                     transition={{
+                                       duration: 1.6,
+                                       repeat: Infinity,
+                                       repeatType: "loop",
+                                       ease: "easeInOut",
+                                     }}
+                                     aria-hidden="true"
+                                   >
+
                     <item.icon className="w-6 h-6 text-foreground" />
+                                   </motion.div>
                   </div>
                   <div className="text-3xl font-bold text-primary mb-1">{item.stat}</div>
                   <div className="text-foreground font-medium text-sm">{item.label}</div>
