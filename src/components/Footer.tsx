@@ -7,34 +7,39 @@ import {
   Mail,
   Phone,
   MapPin,
+  ArrowUp,
 } from "lucide-react";
 
 const footerLinks = {
   services: [
-    "AI Services",
-    "Cloud Solutions",
-    "Cloud Managed Services",
-    "Cybersecurity & GRC",
-    "Data and Analytics",
-    "DevOps & DevSecOps",
-    "Automation",
-    "Containerization",
+    { label: "24×7 Managed Services", href: "/services/managed-services" },
+    { label: "Cybersecurity & Resilience", href: "/services/cybersecurity" },
+    { label: "AI & Data Science", href: "/services/ai-data-science" },
+    { label: "Cloud & Infrastructure", href: "/services/cloud-infrastructure" },
+    { label: "DevSecOps Engineering", href: "/services/devsecops" },
+    { label: "Quantum Computing", href: "/services/quantum-computing" },
+  ],
+  quickLinks: [
+    { label: "Core Technology Services", href: "/services#core" },
+    { label: "AI & Automation", href: "/services#ai-automation" },
+    { label: "Business Solutions", href: "/services#business-management" },
+    { label: "Operations & Infrastructure", href: "/services#operations" },
+    { label: "Security & Quality", href: "/services#security-quality" },
   ],
   company: [
-    "About Us",
-    "Careers",
-    "Partners",
-    "Contact Us",
-    "Blog",
-    "Case Studies",
+    { label: "About Us", href: "/about" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Our Services", href: "/services" },
+    { label: "Industries", href: "/#industries" },
+    { label: "Team", href: "/#founders" },
   ],
   legal: [
-    "Privacy Policy",
-    "Terms & Conditions",
-    "Security Policy",
-    "Cookie Policy",
-    "Data Protection Policy",
-    "GDPR Compliance",
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Security Policy", href: "/security-policy" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "GDPR Compliance", href: "/gdpr" },
+    { label: "Data Protection Policy", href: "/data-protection" }
   ],
 };
 
@@ -46,112 +51,142 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Handle navigation with scroll
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const url = new URL(href, window.location.origin);
+    
+    // Check if this is a hash link on the current page
+    if (url.pathname === window.location.pathname && url.hash) {
+      e.preventDefault();
+      const targetId = url.hash.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const headerOffset = 100; // Account for fixed header
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    } else if (url.hash) {
+      // If navigating to a different page with hash, store the hash for later
+      sessionStorage.setItem('scrollToSection', url.hash);
+    }
+  };
+
   return (
-    <footer className="bg-hero py-16">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          {/* Brand Column */}
+    <footer className="bg-secondary/50 border-t border-border relative">
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-all hover:scale-110 shadow-lg"
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
+
+      <div className="container mx-auto px-4 lg:px-8 pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
+          {/* Brand */}
           <div className="lg:col-span-2">
-            <motion.a
-              href="/"
-              className="flex items-center gap-2 mb-6"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">V</span>
+            <a href="/" className="flex items-center gap-2 mb-6">
+              <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-xl">Vi-3</span>
               </div>
-              <span className="text-hero-foreground font-bold text-xl tracking-tight">
-                Vi-3<span className="text-primary">Tech</span>
+              <span className="text-xl font-bold text-foreground">
+                <span className="text-primary">Technology</span>
               </span>
-            </motion.a>
-
-            <p className="text-hero-muted mb-6 leading-relaxed max-w-md">
-              Powering digital transformation for enterprises worldwide. 
-              Your trusted partner for cloud, AI, and technology solutions.
+            </a>
+            <p className="text-muted-foreground text-sm mb-6 max-w-sm">
+              Next-generation IT solutions company helping businesses thrive in the digital era through secure, scalable, and intelligent technology.
             </p>
-
-            <div className="space-y-3">
-              <a
-                href="mailto:info@v13technology.com"
-                className="flex items-center gap-3 text-hero-muted hover:text-primary transition-colors"
-              >
-                <Mail size={18} />
-                info@v13technology.com
-              </a>
-              <a
-                href="tel:+1234567890"
-                className="flex items-center gap-3 text-hero-muted hover:text-primary transition-colors"
-              >
-                <Phone size={18} />
-                +1 (234) 567-890
-              </a>
-              <div className="flex items-center gap-3 text-hero-muted">
-                <MapPin size={18} />
-                Global Operations
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
-                <motion.a
+                <a
                   key={social.label}
                   href={social.href}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-hero-muted hover:text-primary hover:bg-primary/20 transition-colors"
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
                   aria-label={social.label}
                 >
-                  <social.icon size={20} />
-                </motion.a>
+                  <social.icon className="w-4 h-4" />
+                </a>
               ))}
             </div>
           </div>
 
-          {/* Services Links */}
+          {/* Core Services */}
           <div>
-            <h4 className="text-hero-foreground font-semibold mb-4">Services</h4>
+            <h4 className="text-foreground font-semibold mb-6 text-base">Core Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <a
-                    href="#"
-                    className="text-hero-muted hover:text-primary transition-colors text-sm"
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm block"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-hero-foreground font-semibold mb-4">Company</h4>
+            <h4 className="text-foreground font-semibold mb-6 text-base">Quick Links</h4>
+            <ul className="space-y-3">
+              {footerLinks.quickLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm block"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="text-foreground font-semibold mb-6 text-base">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <a
-                    href="#"
-                    className="text-hero-muted hover:text-primary transition-colors text-sm"
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm block"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Legal Links */}
+          {/* Legal */}
           <div>
-            <h4 className="text-hero-foreground font-semibold mb-4">Legal</h4>
+            <h4 className="text-foreground font-semibold mb-6 text-base">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <a
-                    href="#"
-                    className="text-hero-muted hover:text-primary transition-colors text-sm"
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm block"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -159,14 +194,11 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-hero-muted text-sm">
-              © {new Date().getFullYear()} Vi-3 Technology. All rights reserved.
-            </p>
-            <p className="text-hero-muted text-sm">
-              Business Transformation Done Right
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-muted-foreground text-sm text-center md:text-left">
+              © {new Date().getFullYear()} Vi-3 Technologies Private Limited. All rights reserved.
             </p>
           </div>
         </div>

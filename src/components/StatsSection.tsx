@@ -1,78 +1,134 @@
-import { motion } from "framer-motion";
-import { FadeIn } from "@/components/ui/FadeIn";
-import { CountUp } from "@/components/ui/CountUp";
-import { InfiniteScroll } from "@/components/ui/InfiniteScroll";
-import { Trophy } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { FadeInUp } from "@/components/ui/motion";
+
+interface StatItemProps {
+  value: number;
+  suffix: string;
+  label: string;
+  sublabel: string;
+  delay: number;
+}
+
+const StatItem = ({ value, suffix, label, sublabel, delay }: StatItemProps) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (isInView) {
+      const timer = setTimeout(() => {
+        const duration = 2000;
+        const steps = 60;
+        const increment = value / steps;
+        let current = 0;
+        
+        const counter = setInterval(() => {
+          current += increment;
+          if (current >= value) {
+            setCount(value);
+            clearInterval(counter);
+          } else {
+            setCount(Math.floor(current));
+          }
+        }, duration / steps);
+        
+        return () => clearInterval(counter);
+      }, delay);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isInView, value, delay]);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.5, delay: delay / 1000 }}
+      className="text-center"
+    >
+      <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-2">
+        {count}
+        <span className="text-black">{suffix}</span>
+      </div>
+      <div className="text-foreground font-semibold text-lg mb-1">{label}</div>
+      <div className="text-muted-foreground text-sm">{sublabel}</div>
+    </motion.div>
+  );
+};
 
 const stats = [
-  { value: 350, suffix: "+", label: "Customers", sublabel: "Worldwide" },
-  { value: 400, suffix: "+", label: "Cloud", sublabel: "Certifications" },
-  { value: 300, suffix: "+", label: "Successful", sublabel: "Projects" },
-  { value: 25, suffix: "+", label: "Industry", sublabel: "Alliances" },
+  { value: 30, suffix: "+", label: "Years Combined", sublabel: "Leadership Experience" },
+  { value: 24, suffix: "/7", label: "Managed Services", sublabel: "Always-On Support" },
+  { value: 100, suffix: "%", label: "Security-First", sublabel: "DNA Approach" },
+  { value: 22, suffix: "+", label: "Industries", sublabel: "Served Globally" },
 ];
 
-const awards = [
-  "Cloud Innovation Partner",
-  "AWS Advanced Partner",
-  "Azure Expert MSP",
-  "Google Cloud Partner",
-  "Outstanding Growth Award",
-  "Innovation Excellence",
-  "Rising Star Partner",
-  "Technology Leader",
+const corePillars = [
+  "Security-First DNA",
+  "Intelligent Scalability",
+  "Unwavering 24/7 Support",
+  "Hybrid Cloud Agility",
+  "AI & Quantum Ready",
+  "Operational Excellence",
+  "Defense-in-Depth Strategy",
 ];
 
 export const StatsSection = () => {
   return (
-    <section className="py-24 stats-gradient">
-      <div className="container mx-auto px-6">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Meet Vi-3 Technology
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Trusted by enterprises worldwide for digital transformation excellence
-            </p>
-          </div>
-        </FadeIn>
+    <section className="py-12 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-background" />
+      
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <FadeInUp className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+            Meet <span className="text-primary">Vi-3 Technologies</span>
+          </h2>
+           <p className=" pt-4 text-muted-foreground max-w-3xl mx-auto text-lg">
+             Trusted partner to global enterprisesructure for hybrid & multi-cloud operations.
+          </p>
+         
+        </FadeInUp>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {stats.map((stat, index) => (
-            <FadeIn key={stat.label} delay={index * 0.1}>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="text-center p-8 rounded-2xl bg-card shadow-lg border border-border/50"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                  <CountUp target={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-foreground font-semibold">{stat.label}</div>
-                <div className="text-muted-foreground text-sm">{stat.sublabel}</div>
-              </motion.div>
-            </FadeIn>
+            <StatItem
+              key={stat.label}
+              value={stat.value}
+              suffix={stat.suffix}
+              label={stat.label}
+              sublabel={stat.sublabel}
+              delay={index * 200}
+            />
           ))}
         </div>
 
-        {/* Awards Carousel */}
-        <FadeIn delay={0.4}>
-          <InfiniteScroll speed={40}>
-            <div className="flex gap-8">
-              {awards.map((award, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 bg-card px-6 py-4 rounded-xl border border-border/50 shrink-0"
-                >
-                  <Trophy className="text-primary" size={24} />
-                  <span className="text-foreground font-medium whitespace-nowrap">
-                    {award}
-                  </span>
+        {/* Core Pillars Ticker */}
+        <div className="relative overflow-hidden pt-4">
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+          
+          <div className="flex animate-ticker">
+            {[...corePillars, ...corePillars].map((pillar, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-4 px-8 shrink-0"
+              >
+                <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center">
+                  <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 12l-2-2 1.4-1.4L8 9.2l4.6-4.6L14 6l-6 6z" />
+                  </svg>
                 </div>
-              ))}
-            </div>
-          </InfiniteScroll>
-        </FadeIn>
+                <span className="text-foreground font-semibold whitespace-nowrap">
+                  {pillar}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

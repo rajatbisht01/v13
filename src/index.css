@@ -172,16 +172,23 @@
   }
 
   /* Glass effect */
-  .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
-  }
+ /* Premium card glow */
+.service-card:hover {
+  box-shadow: 0 25px 50px -20px hsl(var(--primary) / 0.35);
+}
+
+/* Enhanced glass */
+.glass {
+  @apply bg-white/10 backdrop-blur-xl border border-white/10 shadow-lg;
+}
+
 
   /* News bar */
   .news-bar {
-    background: linear-gradient(90deg, 
-      hsl(var(--news-bg)) 10%,
-      hsl(180, 29%, 71%) 40%,
-      hsl(var(--news-bg)) 100%
+     background: linear-gradient(90deg, 
+     hsl(var(--gradient-mid)) 0%,
+     hsl(var(--primary)) 50%, 
+      hsl(var(--accent)) 100%
     );
   }
 

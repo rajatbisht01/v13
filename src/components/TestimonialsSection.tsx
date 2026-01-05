@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -45,8 +46,14 @@ export const TestimonialsSection = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  // 👇 auto-advance
+  useEffect(() => {
+    const interval = setInterval(next, 4000); // change speed here
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="py-24 bg-background">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-6">
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -66,9 +73,9 @@ export const TestimonialsSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.4 }}
-                className="bg-card rounded-2xl p-8 md:p-12 shadow-lg border border-border/50"
+                className="bg-card rounded-3xl p-8 md:p-12 shadow-sm border border-border/70"
               >
-                <Quote className="text-primary/30 w-16 h-16 mb-6" />
+                <Quote className="text-primary/50 w-16 h-16 mb-6" />
                 <p className="text-foreground text-lg md:text-xl leading-relaxed mb-8">
                   {testimonials[currentIndex].quote}
                 </p>
@@ -89,7 +96,7 @@ export const TestimonialsSection = () => {
             </AnimatePresence>
           </div>
 
-          {/* Navigation */}
+           {/* Navigation */}
           <div className="flex items-center justify-center gap-4 mt-8">
             <motion.button
               whileHover={{ scale: 1.1 }}

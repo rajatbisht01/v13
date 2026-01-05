@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,46 +13,31 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { MapPin, Phone, Mail, Clock, ArrowRight, Send } from "lucide-react";
-import contactBg from "@/assets/contact-bg.jpg";
+import { MapPin, Phone, Mail, Clock, Send, Building2, Globe, ArrowRight } from "lucide-react";
 
 const services = [
-  "AI Services",
-  "Cloud Solutions",
-  "Cloud Managed Services",
-  "Cybersecurity & GRC",
-  "Data and Analytics",
-  "DevOps & DevSecOps",
-  "Automation & Workflow",
-  "Application Services",
-  "Containerization",
-  "IT Infrastructure",
+  "24×7 Managed Services",
+  "Cybersecurity & Resilience",
+  "AI & Data Science",
+  "Cloud & Infrastructure",
+  "DevSecOps Engineering",
   "Quantum Computing",
-];
-
-const offices = [
-  {
-    city: "Bangalore",
-    country: "India",
-    address: "123 Tech Park, Electronic City",
-    phone: "+91 80 1234 5678",
-  },
-  {
-    city: "New York",
-    country: "USA",
-    address: "456 Innovation Ave, Manhattan",
-    phone: "+1 212 123 4567",
-  },
-  {
-    city: "London",
-    country: "UK",
-    address: "789 Digital Lane, Canary Wharf",
-    phone: "+44 20 1234 5678",
-  },
+  "AI Governance",
+  "Agentic AI & AI Agents",
+  "AI Workflow Automation",
+  "Digital Transformation",
+  "Web 3.0 Solutions",
+  "AIOps",
+  "Application Security",
+  "Quality Assurance & Audit",
+  "IT Infrastructure Management",
+  "Staff Management",
+  "Project Management",
 ];
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -63,12 +47,18 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     toast({
-      title: "Message Sent!",
+      title: "Message Sent Successfully!",
       description: "We'll get back to you within 24 hours.",
     });
+
     setFormData({
       name: "",
       email: "",
@@ -77,6 +67,8 @@ const Contact = () => {
       service: "",
       message: "",
     });
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -84,41 +76,49 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(16, 23, 42, 0.85), rgba(16, 23, 42, 0.95)), url(${contactBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className="container mx-auto px-6 relative z-10">
-          <FadeIn>
-            <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
+      <section className="relative pt-40 pb-32 overflow-hidden" 
+        style={{ 
+          background: 'linear-gradient(135deg, hsl(220 30% 6%) 0%, hsl(225 45% 18%) 50%, hsl(240 40% 15%) 100%)' 
+        }}>
+        
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 right-[10%] w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-20 left-[15%] w-80 h-80 bg-accent/15 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <span className="inline-block mb-4 px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase">
               Contact Us
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Let's Start a
-              <br />
-              Conversation
+            </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-hero-foreground mb-6">
+              Let's Start a <span className="text-gradient">Conversation</span>
             </h1>
-            <p className="text-white/70 text-lg max-w-2xl">
-              Ready to transform your business with cutting-edge technology? 
-              Get in touch with our team of experts.
+            <p className="text-hero-muted text-xl">
+              Ready to transform your business with cutting-edge technology? Get in touch with our team of experts.
             </p>
-          </FadeIn>
+          </motion.div>
         </div>
       </section>
 
       {/* Contact Form & Info */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-5 gap-12">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-5 gap-12 max-w-7xl mx-auto">
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <FadeIn>
-                <div className="bg-card p-8 md:p-10 rounded-2xl border border-border">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="bg-card p-8 md:p-10 rounded-2xl border border-border shadow-lg">
                   <h2 className="text-2xl font-bold text-foreground mb-6">
                     Send Us a Message
                   </h2>
@@ -164,7 +164,7 @@ const Contact = () => {
                           onChange={(e) =>
                             setFormData({ ...formData, company: e.target.value })
                           }
-                          placeholder="Company Name"
+                          placeholder="Your Company"
                           className="bg-background"
                         />
                       </div>
@@ -178,7 +178,7 @@ const Contact = () => {
                           onChange={(e) =>
                             setFormData({ ...formData, phone: e.target.value })
                           }
-                          placeholder="+1 234 567 8900"
+                          placeholder="+91 98765 43210"
                           className="bg-background"
                         />
                       </div>
@@ -217,21 +217,43 @@ const Contact = () => {
                         }
                         placeholder="Tell us about your project or requirements..."
                         rows={5}
-                        className="bg-background"
+                        className="bg-background resize-none"
                       />
                     </div>
-                    <Button type="submit" size="lg" className="w-full gap-2">
-                      Send Message
-                      <Send size={18} />
+                    <Button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full gap-2 gradient-primary text-primary-foreground font-semibold py-6"
+                    >
+                      {isSubmitting ? (
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full"
+                        />
+                      ) : (
+                        <>
+                          <Send size={18} />
+                          Send Message
+                        </>
+                      )}
                     </Button>
+                    <p className="text-xs text-muted-foreground text-center">
+                      By submitting this form, you agree to our{" "}
+                      <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>
+                    </p>
                   </form>
                 </div>
-              </FadeIn>
+              </motion.div>
             </div>
 
             {/* Contact Info */}
-            <div className="lg:col-span-2 space-y-8">
-              <FadeIn delay={0.1}>
+            <div className="lg:col-span-2 space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 <div className="bg-card p-6 rounded-2xl border border-border">
                   <h3 className="text-lg font-bold text-foreground mb-4">
                     Quick Contact
@@ -243,7 +265,9 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Email</p>
-                        <p className="text-foreground">info@v13technology.com</p>
+                        <a href="mailto:contact@vi3technologies.com" className="text-foreground hover:text-primary transition-colors">
+                          contact@vi3technologies.com
+                        </a>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -252,7 +276,9 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Phone</p>
-                        <p className="text-foreground">+91 80 1234 5678</p>
+                        <a href="tel:+917010351330" className="text-foreground hover:text-primary transition-colors">
+                          +91-7010351330
+                        </a>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -260,56 +286,76 @@ const Contact = () => {
                         <Clock className="text-primary" size={18} />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">Business Hours</p>
-                        <p className="text-foreground">Mon - Fri: 9AM - 6PM IST</p>
+                        <p className="text-sm text-muted-foreground">Support Hours</p>
+                        <p className="text-foreground">24/7 Available</p>
+                        <p className="text-xs text-muted-foreground">Always-On Managed Services</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                        <Globe className="text-primary" size={18} />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">Website</p>
+                        <a href="http://vi3technologies.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+                          vi3technologies.com
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
-              </FadeIn>
+              </motion.div>
 
-              <FadeIn delay={0.2}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 <div className="bg-card p-6 rounded-2xl border border-border">
                   <h3 className="text-lg font-bold text-foreground mb-4">
-                    Our Offices
+                    Registered Office
                   </h3>
-                  <div className="space-y-6">
-                    {offices.map((office) => (
-                      <div key={office.city} className="flex items-start gap-4">
-                        <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                          <MapPin className="text-primary" size={18} />
-                        </div>
-                        <div>
-                          <p className="font-medium text-foreground">
-                            {office.city}, {office.country}
-                          </p>
-                          <p className="text-sm text-muted-foreground">{office.address}</p>
-                          <p className="text-sm text-muted-foreground">{office.phone}</p>
-                        </div>
-                      </div>
-                    ))}
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                      <MapPin className="text-primary" size={18} />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground mb-1">
+                        Vi-3 Technologies Private Limited
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        No 3, Sadhasivam Avenue, S Kolathur<br />
+                        Kovilambakkam, Chennai – 600117<br />
+                        Tamil Nadu, India
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </FadeIn>
+              </motion.div>
 
-              <FadeIn delay={0.3}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-gradient-to-br from-primary to-accent p-6 rounded-2xl text-white"
-                >
+             
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="bg-gradient-to-br from-primary to-accent p-6 rounded-2xl text-white">
                   <h3 className="text-lg font-bold mb-2">Need Urgent Support?</h3>
                   <p className="text-white/80 text-sm mb-4">
-                    Our support team is available 24/7 for enterprise clients.
+                    Our 24/7 managed services team is ready to assist you with immediate technical support.
                   </p>
                   <Button
                     variant="secondary"
                     className="w-full bg-white text-primary hover:bg-white/90 gap-2"
+                    onClick={() => window.location.href = 'tel:+917010351330'}
                   >
                     Call Support Line
                     <ArrowRight size={16} />
                   </Button>
-                </motion.div>
-              </FadeIn>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

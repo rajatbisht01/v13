@@ -9,6 +9,8 @@ import heroApplication from "@/assets/hero-application.jpg";
 import heroData from "@/assets/hero-data.jpg";
 import heroAi from "@/assets/hero-ai.jpg";
 
+const heroDataNew ='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'
+
 const transformWords = ["Digital", "Cloud", "Application", "Data", "AI"];
 const heroImages = [heroDigital, heroCloud, heroApplication, heroData, heroAi];
 
@@ -20,7 +22,7 @@ export const HeroSection = () => {
   }, []);
 // min-h-screen
   return (   
-    <section className="relative h-[90vh]  flex items-center overflow-hidden">
+    <section className="relative h-[83vh] lg:h-[90vh]  flex items-center overflow-hidden">
       {/* Background Images with crossfade */}
       <AnimatePresence mode="sync">
         <motion.div
@@ -79,13 +81,13 @@ export const HeroSection = () => {
             <span className="text-secondary ml-4">transformation</span>
           </motion.h1>
 
-          <motion.p
+           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-base tracking-[0.3em] uppercase text-secondary mb-8 font-semibold"
+            className="text-sm md:text-base tracking-[0.3em] uppercase text-secondary/90 mb-8 font-semibold"
           >
-            Business Transformation Done Right
+            Security-First • Intelligent Scalability • 24/7 Support
           </motion.p>
 
           <motion.div

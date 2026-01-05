@@ -1,137 +1,207 @@
 import { motion } from "framer-motion";
-import { FadeIn } from "@/components/ui/FadeIn";
-import {
-  Brain,
-  Cloud,
-  Headphones,
-  Shield,
-  BarChart3,
-  GitBranch,
-  Workflow,
-  AppWindow,
-  Container,
-  Server,
-  Atom,
-  
-} from "lucide-react";
+import { FadeInUp, StaggerContainer } from "@/components/ui/motion";
 import { Link } from "react-router-dom";
 
+import aiImg from "@/assets/services/ai-services.jpg";
+import cloudImg from "@/assets/services/cloud-solutions.jpg";
+import managedImg from "@/assets/services/cloud-managed.jpg";
+import cyberImg from "@/assets/services/cybersecurity.jpg";
+import quantumImg from "@/assets/services/quantum.jpg";
+import devsecopsImg from "@/assets/images/devsecops.jpg";
+import { ArrowRight } from "lucide-react";
 const services = [
   {
-    icon: Brain,
-    title: "AI Services",
-    description: "LLM, ML, Agentic AI, and AI Agent solutions to transform your business with intelligent automation.",
-    href: "/services/ai"
+    image: managedImg,
+    title: "24×7 Managed Services",
+    description:
+      "Always-on IT operations with proactive monitoring, automated patching, and SLA-driven resolution.",
+    features: [
+      "Proactive Monitoring",
+      "Automated Patch Management",
+      "L1–L3 Support",
+    ],
+    gradient: "from-blue-400 via-indigo-500 to-purple-600",
+    slug: "managed-services",
   },
   {
-    icon: Cloud,
-    title: "Cloud Solutions",
-    description: "AWS, Azure, GCP and Private Cloud expertise for seamless cloud adoption and optimization.",
-  href: "/services/cloud"
+    image: cyberImg,
+    title: "Cybersecurity & Resilience",
+    description:
+      "Zero Trust security, MDR, CNAPP, and quantum-safe encryption for modern enterprises.",
+    features: [
+      "Zero Trust Architecture",
+      "Managed Detection & Response",
+      "Post-Quantum Security",
+    ],
+    gradient: "from-rose-500 via-red-500 to-orange-500",
+    slug: "cybersecurity",
+  },
+   {
+    image: devsecopsImg,
+    title: "DevSecOps Engineering",
+    description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
+    features: ["Kubernetes & Docker", "Automated CI/CD Pipelines", "Security Integration & Compliance"],
+    gradient: "from-emerald-500/20 to-green-500/5",
+    slug: "devsecops"
   },
   {
-    icon: Headphones,
-    title: "Cloud Managed Services",
-    description: "24/7 monitoring, maintenance, and support to keep your cloud infrastructure running smoothly.",
-    href: "/services/cloud"
+    image: aiImg,
+    title: "AI & Data Science",
+    description:
+      "Enterprise AI stacks with LLMs, MLOps automation, and predictive intelligence.",
+    features: [
+      "LLM & Agentic AI",
+      "MLOps Pipelines",
+      "Predictive Analytics",
+    ],
+    gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
+    slug: "ai-data-science",
   },
   {
-    icon: Shield,
-    title: "Cybersecurity & GRC",
-    description: "Comprehensive security solutions with governance, risk management, and compliance frameworks.",
-href: "/services/cybersecurity"
+    image: cloudImg,
+    title: "Cloud & Infrastructure",
+    description:
+      "Hybrid cloud, on-prem modernization, secure migrations, and cost optimization.",
+    features: [
+      "AWS · Azure · GCP",
+      "Hybrid Cloud",
+      "Cloud Cost Control",
+    ],
+    gradient: "from-cyan-400 via-sky-500 to-blue-600",
+    slug: "cloud-infrastructure",
   },
   {
-    icon: BarChart3,
-    title: "Data and Analytics",
-    description: "Turn data into actionable insights with advanced analytics, BI, and data engineering.",
-  href: "/services/data-analytics"
-  },
-  {
-    icon: GitBranch,
-    title: "DevOps & DevSecOps",
-    description: "Accelerate delivery with CI/CD pipelines, automation, and security-first development practices.",
- href: "/services/devops"
-  },
-  {
-    icon: Workflow,
-    title: "Automation & Workflow",
-    description: "Streamline operations with intelligent automation and workflow orchestration solutions.",
-   href: "/services/automation"
-  },
-  {
-    icon: AppWindow,
-    title: "Application Services",
-    description: "Custom application development, modernization, and integration services.",
- href: "/services/applications"
-  },
-  {
-    icon: Container,
-    title: "Containerization",
-    description: "Kubernetes, Docker, and container orchestration for scalable microservices architecture.",
-  href: "/services/containerization"
-  },
-  {
-    icon: Server,
-    title: "IT Infrastructure",
-    description: "Windows, Linux, DB, Storage, Backup & Restore, DR and complete infrastructure management.",
- href: "/services/infrastructure"
-  },
-  {
-    icon: Atom,
+    image: quantumImg,
     title: "Quantum Computing",
-    description: "Next-generation quantum computing solutions for complex computational challenges.",
-  href: "/services/quantum-computing"
+    description:
+      "Quantum readiness, post-quantum cryptography, and hybrid quantum workflows.",
+    features: [
+      "Quantum Strategy",
+      "Post-Quantum Encryption",
+      "Hybrid Workflows",
+    ],
+    gradient: "from-indigo-400 via-purple-500 to-pink-500",
+    slug: "quantum-computing",
   },
 ];
 
 export const ServicesSection = () => {
   return (
-    <section className="py-24 bg-background" id="services">
-      <div className="container mx-auto px-6">
-        <FadeIn>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="h-px w-12 bg-primary" />
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-                Our Services
-              </span>
-              <div className="h-px w-12 bg-primary" />
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Re-imagine your technology,{" "}
-              <span className="text-gradient">get the competitive edge</span> you need
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Our award-winning technology services are designed to drive agility, efficiency 
-              and transformative change. Your digital transformation starts here!
-            </p>
-          </div>
-        </FadeIn>
+    <section id="services" className="py-16 bg-background relative overflow-hidden">
+      <div className="container mx-auto relative z-10">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Header */}
+        <FadeInUp className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-2">
+            <span className="text-primary">Secure.</span>{" "}
+            <span className="text-foreground">Scalable.</span>{" "}
+            <span className="text-primary">Intelligent.</span>
+          </h2>
+           <span className="text-3xl md:text-5xl text-gradient font-extrabold "> Technology Solutions</span>
+         
+          <p className="mt-6 text-muted-foreground max-w-3xl mx-auto text-lg">
+            Enterprise technology services spanning AI, Cloud, Cybersecurity,
+            and Quantum Computing — engineered for scale and resilience.
+          </p>
+        </FadeInUp>
+
+        {/* Grid */}
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => (
-            <FadeIn key={service.title} delay={index * 0.05}>
-              <motion.div
-                whileHover={{ y: -5 }}
-                className="service-card h-full group cursor-pointer"
-              >
-              <Link to={service.href || "#"} > 
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="text-primary" size={28} />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {service.description}
-                </p>
+           <motion.div
+                    key={service.slug}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
+            >
+              <Link to={`/services/${service.slug}`}>
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group h-full"
+                >
+                  <div className="relative h-full rounded-2xl overflow-hidden bg-card border border-border/60 hover:border-primary/60 transition">
+
+                    {/* Image */}
+                    <div className="relative h-52 overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4 relative">
+                      <div
+                        className={`absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r ${service.gradient}
+                        scale-x-0 group-hover:scale-x-100 transition-transform origin-left`}
+                      />
+
+                      <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition">
+                        {service.title}
+                      </h3>
+
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                        {service.description}
+                      </p>
+
+                      {/* Features */}
+                      <ul className="space-y-2 mb-5">
+                        {service.features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="flex items-center gap-2 text-sm text-card-foreground/80"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* CTA */}
+                      <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                        Learn more
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                      </div>
+                    </div>
+
+                    {/* Glow */}
+                    <div
+                      className={`absolute -bottom-12 -right-12 w-32 h-32 bg-gradient-to-br ${service.gradient}
+                      rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition`}
+                    />
+                  </div>
+                </motion.div>
               </Link>
-              </motion.div>
-            </FadeIn>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
+      {/* See All Services */}
+<FadeInUp className="mt-12 text-center">
+  <Link to="/services">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      className="
+        inline-flex items-center gap-3
+        px-8 py-4 rounded-xl
+        bg-primary text-primary-foreground
+        font-semibold text-md
+        shadow-lg shadow-primary/25
+        hover:shadow-primary/40
+        transition-all
+      "
+    >
+      See all services
+      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-6 transition-transform" />
+    </motion.button>
+  </Link>
+</FadeInUp>
+
     </section>
   );
 };

@@ -3,45 +3,89 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { CountUp } from "@/components/ui/CountUp";
-import { Target, Eye, Heart, Users, Award, Globe } from "lucide-react";
+import { FadeInUp, StaggerContainer } from "@/components/ui/motion";
+import {
+  Target,
+  Eye,
+  Heart,
+  Users,
+  Award,
+  Globe,
+  Shield,
+  Brain,
+  Clock,
+  Cloud,
+  Lightbulb,
+} from "lucide-react";
+
 import aboutTeam from "@/assets/about-team.jpg";
 import aboutMission from "@/assets/about-mission.jpg";
+import { Team } from "@/components/Teams";
+import { Founders } from "@/components/Founders";
+import { KeyStrengths } from "@/components/KeyStrengths";
 
-const values = [
-  {
-    icon: Target,
-    title: "Innovation First",
-    description: "We constantly push boundaries to deliver cutting-edge solutions that drive real business value.",
-  },
-  {
-    icon: Eye,
-    title: "Transparency",
-    description: "Open communication and honest partnerships are at the core of everything we do.",
-  },
-  {
-    icon: Heart,
-    title: "Client Success",
-    description: "Your success is our success. We measure our achievements through your growth.",
-  },
-  {
-    icon: Users,
-    title: "Collaboration",
-    description: "We work as an extension of your team, fostering seamless collaboration at every step.",
-  },
-];
-
+/* ---------- UPDATED STATS ---------- */
 const stats = [
-  { value: 200, suffix: "+", label: "Enterprise Clients" },
-  { value: 50, suffix: "+", label: "Technology Experts" },
-  { value: 15, suffix: "+", label: "Years Experience" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
+  { value: 30, suffix: "+", label: "Years Combined", sublabel: "Leadership Experience" },
+  { value: 24, suffix: "/7", label: "Managed Services", sublabel: "Always-On Support" },
+  { value: 100, suffix: "%", label: "Security-First", sublabel: "DNA Approach" },
+  { value: 22, suffix: "+", label: "Industries", sublabel: "Served Globally" },
 ];
 
-const leadership = [
-  { name: "Bhaskar Kumar", role: "CEO & Founder", initial: "B" },
-  { name: "Rajesh Sharma", role: "CTO", initial: "R" },
-  { name: "Priya Patel", role: "VP of Operations", initial: "P" },
-  { name: "Amit Singh", role: "Head of Cloud Services", initial: "A" },
+/* ---------- CORE PILLARS ---------- */
+const corePillars = [
+  {
+    icon: Shield,
+    title: "Security-First DNA",
+    description:
+      "We believe security is not an add-on; it is the foundation. Every line of code and every server migration starts with a defense-in-depth strategy.",
+  },
+  {
+    icon: Brain,
+    title: "Intelligent Scalability",
+    description:
+      "We don’t just build for today. We design AI-driven, containerized systems that scale with business growth.",
+  },
+  {
+    icon: Clock,
+    title: "Unwavering Support",
+    description:
+      "With 24/7 monitoring and proactive optimization, we ensure your systems stay resilient and always available.",
+  },
+  {
+    icon: Cloud,
+    title: "Hybrid Agility",
+    description:
+      "We combine on-prem control with cloud elasticity to deliver pragmatic, future-ready modernization.",
+  },
+];
+
+/* ---------- OPERATIONAL MODEL ---------- */
+const operationalModel = [
+  {
+    phase: "01",
+    title: "Audit & Discover",
+    action: "Deep dive into existing infrastructure and security gaps.",
+    outcome: "Clear technical roadmap with ROI visibility.",
+  },
+  {
+    phase: "02",
+    title: "Architecture",
+    action: "Design secure, scalable, and cost-optimized systems.",
+    outcome: "Future-proof enterprise architecture.",
+  },
+  {
+    phase: "03",
+    title: "Engineering",
+    action: "Hands-on migration, deployment, and AI integration.",
+    outcome: "Production-ready modern tech stack.",
+  },
+  {
+    phase: "04",
+    title: "Sustain (24/7)",
+    action: "Monitoring, patching, and continuous optimization.",
+    outcome: "Zero downtime and continuous compliance.",
+  },
 ];
 
 const About = () => {
@@ -49,12 +93,12 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
+      {/* ---------- HERO ---------- */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(16, 23, 42, 0.8), rgba(16, 23, 42, 0.95)), url(${aboutMission})`,
+            backgroundImage: `linear-gradient(to bottom, rgba(16,23,42,.8), rgba(16,23,42,.95)), url(${aboutMission})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -64,206 +108,141 @@ const About = () => {
             <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
               About Vi-3 Technology
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Transforming Businesses
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Engineering Secure,
               <br />
-              Through Technology
+              Intelligent Enterprises
             </h1>
             <p className="text-white/70 text-lg max-w-2xl">
-              We are a team of passionate technologists dedicated to helping enterprises 
-              navigate their digital transformation journey with confidence.
+              We help organizations modernize with confidence through security-first,
+              scalable, and always-on technology solutions.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* ---------- STORY ---------- */}
       <section className="py-20 bg-card">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <FadeIn>
-              <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-                Our Story
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Building the Future of Enterprise Technology
-              </h2>
-              <p className="text-muted-foreground mb-4">
-                Founded with a vision to bridge the gap between cutting-edge technology and 
-                practical business applications, Vi-3 Technology has grown from a small 
-                consulting firm to a trusted partner for enterprises worldwide.
-              </p>
-              <p className="text-muted-foreground mb-4">
-                Our journey began with a simple belief: that every business deserves access 
-                to world-class technology solutions. Today, we continue to uphold that 
-                belief as we help organizations embrace AI, cloud computing, and digital 
-                transformation.
-              </p>
-              <p className="text-muted-foreground">
-                With a team of seasoned experts and a commitment to excellence, we deliver 
-                solutions that not only meet today's challenges but prepare our clients for 
-                tomorrow's opportunities.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <div className="relative">
-                <img
-                  src={aboutTeam}
-                  alt="Vi-3 Technology Team"
-                  className="rounded-2xl shadow-2xl w-full"
-                />
-                <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-xl">
-                  <p className="text-4xl font-bold">15+</p>
-                  <p className="text-sm opacity-80">Years of Excellence</p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <FadeIn>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Building the Future of Enterprise Technology
+            </h2>
+            <p className="text-muted-foreground mb-4">
+             Vi-3 Technologies Private Limited is a next-generation IT solutions and Startup company. We specialize in helping businesses thrive in the digital era through secure, scalable, and intelligent technology. We bridge the gap between legacy infrastructure and the future of AI and Quantum Computing, all while maintaining a relentless focus on Cybersecurity and Operational Excellence.    </p>
+            <p className="text-muted-foreground">
+            At our core, we are problem solvers who believe that complex technology transformation should be innovative, secure, scalable and – above all – simple for our clients to navigate.  </p>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <img src={aboutTeam} alt="Vi-3 Team" className="rounded-2xl shadow-2xl" />
+          </FadeIn>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* ---------- STATS ---------- */}
       <section className="py-20 bg-hero">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <FadeIn key={stat.label} delay={index * 0.1}>
-                <div className="text-center">
-                  <p className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                    <CountUp target={stat.value} suffix={stat.suffix} duration={2} />
-                  </p>
-                  <p className="text-hero-foreground/70">{stat.label}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+        <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((s, i) => (
+            <FadeIn key={s.label} delay={i * 0.1}>
+              <div className="text-center">
+                <p className="text-4xl font-bold text-primary">
+                  <CountUp target={s.value} suffix={s.suffix} duration={2} />
+                </p>
+                <p className="text-hero-foreground/80">{s.label}</p>
+                <p className="text-xs text-hero-foreground/50">{s.sublabel}</p>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* ---------- CORE PILLARS ---------- */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-              Our Values
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              What Drives Us Forward
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our core values shape everything we do, from how we build solutions to how 
-              we build relationships.
-            </p>
-          </FadeIn>
+          <FadeInUp className="text-center mb-12">
+            <h3 className="text-3xl font-bold">
+              Our <span className="text-primary">Core Pillars</span>
+            </h3>
+          </FadeInUp>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <FadeIn key={value.title} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  className="bg-card p-8 rounded-2xl border border-border h-full"
-                >
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                    <value.icon className="text-primary" size={28} />
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {corePillars.map((p, i) => (
+              <motion.div key={p.title} transition={{ delay: i * 0.1 }}>
+                <div className="glass border border-border p-6 rounded-2xl text-center h-full">
+                  <div className="w-14 h-14 mx-auto mb-4 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <p.icon className="text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </motion.div>
-              </FadeIn>
+                  <h4 className="font-bold mb-2">{p.title}</h4>
+                  <p className="text-sm text-muted-foreground">{p.description}</p>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Leadership Section */}
+      {/* ---------- OPERATIONAL MODEL ---------- */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-              Leadership Team
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Meet Our Experts
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our leadership team brings decades of combined experience in technology 
-              consulting and enterprise solutions.
-            </p>
-          </FadeIn>
+          <FadeInUp className="text-center mb-12">
+            <h3 className="text-3xl font-bold">
+              Vi-3 <span className="text-primary">Operational Model</span>
+            </h3>
+          </FadeInUp>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leadership.map((leader, index) => (
-              <FadeIn key={leader.name} delay={index * 0.1}>
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  className="text-center"
-                >
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                    <span className="text-4xl font-bold text-white">{leader.initial}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-1">{leader.name}</h3>
-                  <p className="text-muted-foreground">{leader.role}</p>
-                </motion.div>
-              </FadeIn>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {operationalModel.map((step, i) => (
+              <FadeInUp key={step.phase} style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="glass border border-border p-6 rounded-2xl relative">
+                  <span className="absolute top-2 right-4 text-6xl font-bold text-primary/5">
+                    {step.phase}
+                  </span>
+                  <h4 className="font-bold mb-2">{step.title}</h4>
+                  <p className="text-sm text-muted-foreground mb-3">{step.action}</p>
+                  <p className="text-sm text-primary">{step.outcome}</p>
+                </div>
+              </FadeInUp>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Global Presence */}
+      {/* ---------- GLOBAL ---------- */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <FadeIn>
-              <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-                Global Presence
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Serving Clients Worldwide
-              </h2>
-              <p className="text-muted-foreground mb-6">
-                With offices across multiple continents and a network of technology partners, 
-                we deliver solutions that transcend borders. Our global reach enables us to 
-                bring international best practices while understanding local requirements.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {["India", "USA", "UK", "Singapore", "Australia"].map((location) => (
-                  <div
-                    key={location}
-                    className="flex items-center gap-2 bg-card px-4 py-2 rounded-full border border-border"
-                  >
-                    <Globe size={16} className="text-primary" />
-                    <span className="text-foreground">{location}</span>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-card p-6 rounded-xl border border-border">
-                  <Award className="text-primary mb-4" size={32} />
-                  <p className="text-2xl font-bold text-foreground mb-1">AWS</p>
-                  <p className="text-muted-foreground text-sm">Advanced Partner</p>
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <FadeIn>
+            <h3 className="text-3xl font-bold mb-4">Global Presence</h3>
+            <p className="text-muted-foreground mb-6">
+              Delivering enterprise-grade solutions across regions with local context
+              and global best practices.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {["India", "USA", "UK", "Singapore", "Australia"].map((l) => (
+                <span
+                  key={l}
+                  className="px-4 py-2 rounded-full bg-card border border-border flex items-center gap-2"
+                >
+                  <Globe size={16} className="text-primary" />
+                  {l}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <div className="grid grid-cols-2 gap-4">
+              {["AWS", "Azure", "GCP", "ISO 27001"].map((c) => (
+                <div key={c} className="bg-card p-6 rounded-xl border border-border">
+                  <Award className="text-primary mb-3" />
+                  <p className="font-bold">{c}</p>
                 </div>
-                <div className="bg-card p-6 rounded-xl border border-border">
-                  <Award className="text-primary mb-4" size={32} />
-                  <p className="text-2xl font-bold text-foreground mb-1">Azure</p>
-                  <p className="text-muted-foreground text-sm">Gold Partner</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border border-border">
-                  <Award className="text-primary mb-4" size={32} />
-                  <p className="text-2xl font-bold text-foreground mb-1">GCP</p>
-                  <p className="text-muted-foreground text-sm">Premier Partner</p>
-                </div>
-                <div className="bg-card p-6 rounded-xl border border-border">
-                  <Award className="text-primary mb-4" size={32} />
-                  <p className="text-2xl font-bold text-foreground mb-1">ISO</p>
-                  <p className="text-muted-foreground text-sm">27001 Certified</p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
+
+        <Founders/>
+        <KeyStrengths/>
       </section>
 
       <Footer />

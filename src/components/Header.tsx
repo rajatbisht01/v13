@@ -8,17 +8,39 @@ const navItems = [
   {
     label: "What We Do",
     href: "/services",
-    submenu: [
-      { label: "AI Services", href: "/services/ai" },
-      { label: "Cloud Solutions", href: "/services/cloud" },
-      { label: "Cybersecurity & GRC", href: "/services/cybersecurity" },
-      { label: "Data and Analytics", href: "/services/data-analytics" },
-      { label: "DevOps & DevSecOps", href: "/services/devops" },
-      { label: "Automation", href: "/services/automation" },
-      { label: "Application Services", href: "/services/applications" },
-      { label: "IT Infrastructure", href: "/services/infrastructure" },
-      { label: "Containerization", href: "/services/containerization" },
-      { label: "Quantum Computing", href: "/services/quantum-computing" }
+   submenu: [
+      {
+        label: "Core Technology Services",
+        href: "/services#core",
+      },
+      {
+        label: "AI & Automation",
+        href: "/services#ai-automation",
+      },
+      // {
+      //   label: "Cloud & Engineering",
+      //   href: "/services#cloud-engineering",
+      // },
+      {
+        label: "Security & Quality",
+        href: "/services#security-quality",
+      },
+      {
+        label: "Operations & Infrastructure",
+        href: "/services#operations",
+      },
+      {
+        label: "Business & Management",
+        href: "/services#business-management",
+      },
+      // {
+      //   label: "Quantum & Emerging Tech",
+      //   href: "/services#emerging-tech",
+      // },
+      {
+        label: "View All Services",
+        href: "/services",
+      },
     ],
   },
   { label: "Who We Are", href: "/about" },
@@ -30,6 +52,17 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [currentPath, setCurrentPath] = useState("/");
+const isLightHeaderPage = currentPath.startsWith("/resources");
+
+  const navTextClass = (isActive: boolean) => {
+    if (isActive) return "text-primary";
+
+    if (isScrolled || isLightHeaderPage) {
+      return "text-black hover:text-primary";
+    }
+
+    return "text-white hover:text-primary";
+  };
 
   useEffect(() => {
     setCurrentPath(window.location.pathname);
@@ -42,13 +75,64 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle smooth scrolling to sections
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const url = new URL(href, window.location.origin);
+    
+    // Check if this is a hash link on the current page
+    if (url.pathname === window.location.pathname && url.hash) {
+      e.preventDefault();
+      const targetId = url.hash.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const headerOffset = 100; // Account for fixed header
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+      
+      setIsMobileMenuOpen(false);
+    } else if (url.hash) {
+      // If navigating to a different page with hash, store the hash for later
+      sessionStorage.setItem('scrollToSection', url.hash);
+    }
+  };
+
+  // Scroll to section after page load (for cross-page navigation)
+  useEffect(() => {
+    const scrollToSection = sessionStorage.getItem('scrollToSection');
+    
+    if (scrollToSection) {
+      sessionStorage.removeItem('scrollToSection');
+      
+      // Wait for page to fully render
+      setTimeout(() => {
+        const targetId = scrollToSection.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          const headerOffset = 100;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <motion.header
-      // initial={{ y: -100 }}
-      // animate={{ y: 0 }}
-      // transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass shadow-lg" : "bg-transparent"
+        isScrolled || isLightHeaderPage ? "glass shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -80,15 +164,10 @@ export const Header = () => {
                 >
                   <a
                     href={item.href}
-                    className={`flex items-center gap-1 text-lg font-semibold transition-colors duration-200
-                      ${
-                        isActive
-                          ? "text-primary"
-                          : isScrolled
-                          ? "text-black hover:text-primary"
-                          : "text-white hover:text-primary"
-                      }
-                    `}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                                    className={`flex items-center gap-1 text-lg font-semibold transition-colors ${navTextClass(
+                      isActive
+                    )}`}
                   >
                     {item.label}
                     {item.submenu && <ChevronDown className="w-4 h-4" />}
@@ -110,6 +189,7 @@ export const Header = () => {
                               <a
                                 key={subItem.label}
                                 href={subItem.href}
+                                onClick={(e) => handleNavClick(e, subItem.href)}
                                 className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-primary/15 rounded-lg transition-all duration-200"
                               >
                                 {subItem.label}
@@ -128,7 +208,6 @@ export const Header = () => {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
            <a href="/contact">
-
             <Button
               variant="default"
               size="lg"
@@ -167,6 +246,7 @@ export const Header = () => {
                 <div key={item.label}>
                   <a
                     href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className={`block py-2 font-medium transition-colors
                       ${
                         currentPath === item.href
@@ -174,7 +254,6 @@ export const Header = () => {
                           : "text-foreground/80 hover:text-primary"
                       }
                     `}
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
                   </a>
@@ -185,8 +264,8 @@ export const Header = () => {
                         <a
                           key={subItem.label}
                           href={subItem.href}
+                          onClick={(e) => handleNavClick(e, subItem.href)}
                           className="block py-1 text-sm text-muted-foreground hover:text-primary transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {subItem.label}
                         </a>

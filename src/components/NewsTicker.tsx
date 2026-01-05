@@ -21,8 +21,8 @@ const newsItems = [
 
 export const NewsTicker = () => {
   return (
-    <section className="news-bar py-4 overflow-hidden ">
-      <div className="flex w-max animate-ticker">
+    <section className="news-bar  py-4 overflow-hidden ">
+      <div className="flex  w-max animate-ticker">
         {[...newsItems, ...newsItems].map((item, index) => (
           <a
             key={index}
@@ -30,7 +30,7 @@ export const NewsTicker = () => {
             className="flex items-center gap-6 px-12 shrink-0 group whitespace-nowrap"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                 <svg
                   className="w-5 h-5 text-foreground"
                   fill="currentColor"
@@ -39,12 +39,12 @@ export const NewsTicker = () => {
                   <path d="M10 2a8 8 0 100 16 8 8 0 000-16z" />
                 </svg>
               </div>
-              <span className="text-xs uppercase tracking-wider font-bold text-foreground/80">
+              <span className="text-xs uppercase text-black tracking-wider font-bold text-foreground/80">
                 {item.type}
               </span>
             </div>
 
-            <p className="font-medium text-foreground group-hover:underline">
+            <p className="font-medium text-black group-hover:underline">
               {item.title}
             </p>
 

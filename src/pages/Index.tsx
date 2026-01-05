@@ -8,6 +8,12 @@ import { ResourcesSection } from "@/components/ResourcesSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { NewsTicker } from "@/components/NewsTicker";
+import { Industries } from "@/components/Industries";
+import { AboutSection } from "@/components/AboutSection";
+import { Team } from "@/components/Teams";
+import { Founders } from "@/components/Founders";
+import { KeyStrengths } from "@/components/KeyStrengths";
+import CorePillars from "@/components/CorePillars";
 
 const Index = () => {
   return (
@@ -18,10 +24,15 @@ const Index = () => {
       <HeroSection />
 
       <NewsTicker/>
+      <CorePillars/>
       <ServicesSection />
+      <Industries/>
+      <KeyStrengths/>
       <StatsSection />
-      <TestimonialsSection />
       <PartnersSection />
+      <TestimonialsSection />
+      <AboutSection/>
+      <Founders/>
       <ResourcesSection />
       <ContactSection />
       <Footer />
