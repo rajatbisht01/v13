@@ -45,15 +45,16 @@ import architectureImg from "@/assets/images/architecture.jpg";
 import { Header } from "@/components/Header";
 
 const allServices = [
-  {
-    icon: Headphones,
-    title: "24×7 Managed Services",
-    slug: "managed-services",
-    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
-    image: managedServicesImg,
-    gradient: "from-primary/20 to-primary/5",
+   {
+    icon: Brain,
+    title: "AI & Data Science",
+    slug: "ai-data-science",
+    description: "High-performance pipelines turning raw data into competitive intelligence with LLMs, MLOps, and predictive analytics.",
+    image: aiDataScienceImg,
+    gradient: "from-accent/20 to-purple-500/5",
     category: "Core"
   },
+  
   {
     icon: Shield,
     title: "Cybersecurity & Resilience",
@@ -63,13 +64,22 @@ const allServices = [
     gradient: "from-red-500/20 to-orange-500/5",
     category: "Core"
   },
-  {
-    icon: Brain,
-    title: "AI & Data Science",
-    slug: "ai-data-science",
-    description: "High-performance pipelines turning raw data into competitive intelligence with LLMs, MLOps, and predictive analytics.",
-    image: aiDataScienceImg,
-    gradient: "from-accent/20 to-purple-500/5",
+    {
+    icon: Code,
+    title: "DevSecOps Engineering",
+    slug: "devsecops",
+    description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
+    image: devsecopsImg,
+    gradient: "from-emerald-500/20 to-green-500/5",
+    category: "Core"
+  },
+ {
+    icon: Headphones,
+    title: "24×7 Managed Services",
+    slug: "managed-services",
+    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
+    image: managedServicesImg,
+    gradient: "from-primary/20 to-primary/5",
     category: "Core"
   },
   {
@@ -81,15 +91,7 @@ const allServices = [
     gradient: "from-blue-500/20 to-cyan-500/5",
     category: "Core"
   },
-  {
-    icon: Code,
-    title: "DevSecOps Engineering",
-    slug: "devsecops",
-    description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
-    image: devsecopsImg,
-    gradient: "from-emerald-500/20 to-green-500/5",
-    category: "Core"
-  },
+
   {
     icon: Atom,
     title: "Quantum Computing",

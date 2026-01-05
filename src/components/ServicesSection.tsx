@@ -10,14 +10,13 @@ import quantumImg from "@/assets/services/quantum.jpg";
 import devsecopsImg from "@/assets/images/devsecops.jpg";
 import { ArrowRight } from "lucide-react";
 const services = [
-  {
-    image: managedImg,
-     title: "24×7 Managed Services",
-    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
-    features: ["Proactive Infrastructure Monitoring", "Automated Patch Management", "Level 1-3 Technical Support", "Performance Optimization"],
-    
-    gradient: "from-blue-400 via-indigo-500 to-purple-600",
-    slug: "managed-services",
+    {
+    image: aiImg,
+   title: "AI & Data Science",
+    description: "High-performance pipelines turning raw data into competitive intelligence with LLMs, MLOps, and predictive analytics.",
+    features: ["AI Stack Engineering", "MLOps Automation", "Predictive Analytics", "Secure Data Workbenches"],
+   gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
+    slug: "ai-data-science",
   },
   {
     image: cyberImg,
@@ -37,13 +36,17 @@ const services = [
     slug: "devsecops"
   },
   {
-    image: aiImg,
-   title: "AI & Data Science",
-    description: "High-performance pipelines turning raw data into competitive intelligence with LLMs, MLOps, and predictive analytics.",
-    features: ["AI Stack Engineering", "MLOps Automation", "Predictive Analytics", "Secure Data Workbenches"],
-   gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
-    slug: "ai-data-science",
+    image: managedImg,
+     title: "24×7 Managed Services",
+    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
+    features: ["Proactive Infrastructure Monitoring", "Automated Patch Management", "Level 1-3 Technical Support", "Performance Optimization"],
+    
+    gradient: "from-blue-400 via-indigo-500 to-purple-600",
+    slug: "managed-services",
   },
+  
+  
+
   {
     image: cloudImg,
    title: "Cloud & Infrastructure",
@@ -109,7 +112,7 @@ export const ServicesSection = () => {
                         alt={service.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" /> */}
                     </div>
 
                     {/* Content */}

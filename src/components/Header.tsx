@@ -165,7 +165,7 @@ const isLightHeaderPage = currentPath.startsWith("/resources");
                   <a
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                                    className={`flex items-center gap-1 text-lg font-semibold transition-colors ${navTextClass(
+                                    className={`flex items-center gap-1 text-xl font-bold hover:scale-105 transition-colors ${navTextClass(
                       isActive
                     )}`}
                   >
