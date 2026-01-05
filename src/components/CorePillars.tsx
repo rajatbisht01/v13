@@ -5,8 +5,8 @@ import { Brain, Shield, Clock, Cloud } from "lucide-react";
 const operationalModel = [
   {
     phase: "01",
-    title: "Audit & Discover",
-    action: "Deep dive into existing infrastructure and security gaps.",
+   title: "Assessment",
+    action: "Evaluation of requirements, technical needs, and security considerations.",
     outcome: "A clear technical roadmap and ROI forecast.",
   },
   {
