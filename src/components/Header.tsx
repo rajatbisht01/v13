@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import logo from "@/assets/logo.png";
 const navItems = [
   { label: "Home", href: "/" },
   {
@@ -139,12 +139,13 @@ const isLightHeaderPage = currentPath.startsWith("/resources");
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="w-15 h-10 rounded-lg gradient-primary flex items-center justify-center">
+            {/* <div className="w-15 h-10 rounded-lg gradient-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">Vi-3</span>
             </div>
             <span className="text-xl font-bold text-foreground">
               <span className="text-primary">Technology</span>
-            </span>
+            </span> */}
+            <img src={logo} alt="Vi-3 Technology"  className="w-20 h-20"/>
           </a>
 
           {/* Desktop Navigation */}
