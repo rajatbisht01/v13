@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import TextType from "@/components/ui/TextType";
 
 // Import hero images for each word
-import heroDigital from "@/assets/hero-digital.jpg";
+import heroDigital from "@/assets/light/hero-digital.jpg";
 import heroCloud from "@/assets/hero-cloud.jpg";
-import heroApplication from "@/assets/hero-application.jpg";
-import heroData from "@/assets/hero-data.jpg";
-import heroAi from "@/assets/hero-ai.jpg";
+import heroApplication from "@/assets/light/hero-application.jpg";
+import heroData from "@/assets/light/hero-data.jpg";
+import heroAi from "@/assets/light/hero-ai.jpg";
 import { NewsTicker } from "./NewsTicker";
 
 const heroDataNew ='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'
@@ -42,8 +42,8 @@ export const HeroSection = () => {
     style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
   >
   {/* Image contrast scrim */}
-<div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/10" />
-<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/10" />
+<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
 
         </motion.div>
 
