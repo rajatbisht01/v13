@@ -4,7 +4,7 @@ import TextType from "@/components/ui/TextType";
 
 // Import hero images for each word
 import heroDigital from "@/assets/light/hero-digital.jpg";
-import heroCloud from "@/assets/hero-cloud.jpg";
+import heroCloud from "@/assets/light/hero-cloud.png";
 import heroApplication from "@/assets/light/hero-application.jpg";
 import heroData from "@/assets/light/hero-data.jpg";
 import heroAi from "@/assets/light/hero-ai.jpg";
