@@ -24,24 +24,24 @@ import {
   BarChart3
 } from "lucide-react";
 
-import managedServicesImg from "@/assets/images/managed-services.jpg";
-import cybersecurityImg from "@/assets/images/cybersecurity.jpg";
-import aiDataScienceImg from "@/assets/images/ai-data-science.jpg";
-import cloudInfrastructureImg from "@/assets/images/cloud-infrastructure.jpg";
-import devsecopsImg from "@/assets/images/devsecops.jpg";
-import quantumComputingImg from "@/assets/images/quantum-computing.jpg";
-import aiGovernanceImg from "@/assets/images/ai-governance.jpg";
-import digitalTransformationImg from "@/assets/images/digital-transformation.jpg";
-import web3Img from "@/assets/images/web3.jpg";
-import agenticAIImg from "@/assets/images/agentic-ai.jpg";
-import aiopsImg from "@/assets/images/aiops.jpg";
-import applicationSecurityImg from "@/assets/images/application-security.jpg";
-import staffManagementImg from "@/assets/images/staff-management.jpg";
-import projectManagementImg from "@/assets/images/project-management.jpg";
-import qualityAssuranceImg from "@/assets/images/quality-assurance.jpg";
-import workflowAutomationImg from "@/assets/images/workflow-automation.jpg";
-import itInfrastructureImg from "@/assets/images/it-infrastructure.jpg";
-import architectureImg from "@/assets/images/architecture.jpg";
+import managedServicesImg from "@/assets/services/cloud-managed.jpg";
+import cybersecurityImg from "@/assets/services/cybersecurity.jpg";
+import aiDataScienceImg from "@/assets/services/ai-services.jpg";
+import cloudInfrastructureImg from "@/assets/services/cloud-solutions.jpg";
+import devsecopsImg from "@/assets/services/devsecops.jpg";
+import quantumComputingImg from "@/assets/services/quantum.jpg";
+import aiGovernanceImg from "@/assets/services/ai-governance.jpg";
+import digitalTransformationImg from "@/assets/services/digital-transformation.jpg";
+import web3Img from "@/assets/services/web3.jpg";
+import agenticAIImg from "@/assets/services/agentic-ai.jpg";
+import aiopsImg from "@/assets/services/aiops.jpg";
+import applicationSecurityImg from "@/assets/services/application-security.jpg";
+import staffManagementImg from "@/assets/services/staff-management.jpg";
+import projectManagementImg from "@/assets/services/project-management.jpg";
+import qualityAssuranceImg from "@/assets/services/quality-assurance.jpg";
+import workflowAutomationImg from "@/assets/services/workflow-automation.jpg";
+import itInfrastructureImg from "@/assets/services/it-infrastructure.jpg";
+import architectureImg from "@/assets/services/architecture.jpg";
 import { Header } from "@/components/Header";
 
 const allServices = [
@@ -324,7 +324,7 @@ const ServicesPage = () => {
                         alt={service.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card/20 to-transparent" />
+                      {/* <div className="absolute inset-0 bg-gradient-to-t from-card/20 to-transparent" /> */}
                       <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center backdrop-blur-sm`}>
                         <service.icon className="w-6 h-6 text-primary" />
                       </div>
