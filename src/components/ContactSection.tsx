@@ -32,7 +32,8 @@ const services = [
  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName:"",
     email: "",
     company: "",
     phone: "",
@@ -53,7 +54,8 @@ const services = [
     });
 
     setFormData({
-      name: "",
+      firstName: "",
+      lastName:"",
       email: "",
       company: "",
       phone: "",
@@ -159,19 +161,36 @@ const services = [
                                <div className="grid md:grid-cols-2 gap-6">
                                  <div>
                                    <label className="block text-sm font-medium text-foreground mb-2">
-                                     Full Name *
+                                     First Name *
                                    </label>
                                    <Input
                                      required
-                                     value={formData.name}
+                                     value={formData.firstName}
                                      onChange={(e) =>
-                                       setFormData({ ...formData, name: e.target.value })
+                                       setFormData({ ...formData, firstName: e.target.value })
                                      }
-                                     placeholder="John Doe"
+                                     placeholder="John"
                                      className="bg-background"
                                    />
                                  </div>
                                  <div>
+                                   <label className="block text-sm font-medium text-foreground mb-2">
+                                     Last Name *
+                                   </label>
+                                   <Input
+                                     required
+                                     value={formData.lastName}
+                                     onChange={(e) =>
+                                       setFormData({ ...formData, lastName: e.target.value })
+                                     }
+                                     placeholder="Doe"
+                                     className="bg-background"
+                                   />
+                                 </div>
+                                 
+                               </div>
+                               <div className="grid md:grid-cols-2 gap-6">
+                                <div>
                                    <label className="block text-sm font-medium text-foreground mb-2">
                                      Email Address *
                                    </label>
@@ -186,8 +205,6 @@ const services = [
                                      className="bg-background"
                                    />
                                  </div>
-                               </div>
-                               <div className="grid md:grid-cols-2 gap-6">
                                  <div>
                                    <label className="block text-sm font-medium text-foreground mb-2">
                                      Company
@@ -201,6 +218,9 @@ const services = [
                                      className="bg-background"
                                    />
                                  </div>
+                                
+                               </div>
+                               <div className="grid md:grid-cols-2 gap-6">
                                  <div>
                                    <label className="block text-sm font-medium text-foreground mb-2">
                                      Phone Number
@@ -215,8 +235,7 @@ const services = [
                                      className="bg-background"
                                    />
                                  </div>
-                               </div>
-                               <div>
+                                 <div>
                                  <label className="block text-sm font-medium text-foreground mb-2">
                                    Service of Interest
                                  </label>
@@ -238,6 +257,8 @@ const services = [
                                    </SelectContent>
                                  </Select>
                                </div>
+                               </div>
+                               
                                <div>
                                  <label className="block text-sm font-medium text-foreground mb-2">
                                    Message *
