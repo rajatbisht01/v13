@@ -4,7 +4,7 @@ import TextType from "@/components/ui/TextType";
 
 // Import hero images for each word
 import heroDigital from "@/assets/light/hero-digital.jpg";
-import heroCloud from "@/assets/light/hero-cloud.png";
+import heroCloud from "@/assets/light/hero-cloud.jpg";
 import heroApplication from "@/assets/light/hero-application.jpg";
 import heroData from "@/assets/light/hero-data.jpg";
 import heroAi from "@/assets/light/hero-ai.jpg";
@@ -42,8 +42,8 @@ export const HeroSection = () => {
     style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
   >
   {/* Image contrast scrim */}
-<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/10" />
-<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+<div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-black/10" />
+<div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/10 to-transparent" />
 
         </motion.div>
 

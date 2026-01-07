@@ -7,7 +7,7 @@ import cloudImg from "@/assets/services/cloud-solutions.jpg";
 import managedImg from "@/assets/services/cloud-managed.jpg";
 import cyberImg from "@/assets/services/cybersecurity.jpg";
 import quantumImg from "@/assets/services/quantum.jpg";
-import devsecopsImg from "@/assets/images/devsecops.jpg";
+import devsecopsImg from "@/assets/services/devsecops.jpg";
 import { ArrowRight } from "lucide-react";
 const services = [
     {
