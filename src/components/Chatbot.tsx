@@ -1,289 +1,305 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, User, Loader2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/hooks/use-toast';
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle, X, Send, User, Loader2, Phone, Mail, Sparkles, ExternalLink, Building2, MapPin, ArrowRight, BookOpen } from "lucide-react";
 
 interface Message {
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   content: string;
+  timestamp?: Date;
+  hasServiceLinks?: boolean;
+  services?: string[];
 }
 
-const COMPANY_INFO = `
-# Vi-3 Technologies Private Limited - Complete Company Information
+const SYSTEM_PROMPT = `You are a business consultant representing Vi-3 Technologies Private Limited, a premier enterprise IT solutions provider based in Chennai, India.
 
-## Company Details
-- **Name**: Vi-3 Technologies Private Limited
-- **Registered Office**: No 3, Sadhasivam Avenue, S Kolathur, Kovilambakkam, Chennai – 600117
-- **Email**: contact@vi3technologies.com
-- **Phone**: +91-7010351330
-- **Website**: http://vi3technologies.com
+COMPANY IDENTITY:
+- Founded: December 2025 
+- Founders: 
+  * Gajendrakumar PK: 30+ years IT experience (Former Senior Director at Cloud Kinetics, Director at HCL Technologies)
+  * Baskar Maruthai: 28+ years global experience (PwC Czech Republic, HCL Technologies across USA, Switzerland, Czech Republic, Singapore)
+- Location: Chennai, Tamil Nadu, India
+- Contact: +91-7010351330 | contact@vi3technologies.com
+- Website: vi3technologies.com
 
+COMPREHENSIVE SERVICE PORTFOLIO (19 Services across 6 Categories):
 
-## Who We Are
-Vi-3 Technologies Private Limited is a next-generation IT solutions and Startup company specializing in helping businesses thrive in the digital era through secure, scalable, and intelligent technology. We bridge the gap between legacy infrastructure and the future of AI and Quantum Computing, with a relentless focus on Cybersecurity and Operational Excellence.
+**CORE SERVICES:**
+1. AI & Data Science - Enterprise AI Stacks, Agentic AI, Multi-Agent Systems, MLOps, LLM Integration, Predictive Analytics
+2. Cybersecurity & Resilience - Zero Trust Architecture, SOC 24/7, CNAPP, MDR, Quantum-Safe Encryption, Vulnerability Assessment
+3. DevSecOps Engineering - Kubernetes, Docker, CI/CD pipelines with security integration
+4. 24×7 Managed Services - Proactive monitoring, SLA-driven support, Automated patching, Help Desk
+5. Cloud & Infrastructure - AWS, Azure, GCP (Migration, Optimization, Hybrid Solutions, On-Prem modernization)
+6. Quantum Computing - Readiness consulting, Quantum-Safe cryptography, Hybrid quantum-classical workflows
 
-## Vision & Mission
-- **Vision**: To be the most trusted partner for secure, intelligent, and "always-on" enterprise technology
-- **Mission**: To simplify digital transformation through expert engineering, "Security-First" design, and 24/7 operational excellence
+**AI & AUTOMATION:**
+7. AI Governance - Responsible AI frameworks, compliance, ethics
+8. Agentic AI & AI Agents - Autonomous systems with planning and decision-making
+9. AI Workflow Automation - Intelligent process automation, end-to-end orchestration
+10. Data Science - AutoML, real-time analytics, privacy-preserving solutions
 
-## Core Pillars
-1. **Security-First DNA**: Security is the foundation, not an add-on
-2. **Intelligent Scalability**: Systems using AI and Containerization that grow with your business
-3. **Unwavering Support**: 24/7 monitoring and proactive optimization
-4. **Hybrid Agility**: Balanced approach between On-Premises and Cloud
+**BUSINESS SOLUTIONS:**
+11. Digital Transformation - AI-driven business transformation, cloud adoption
+12. Web 3.0 Solutions - Blockchain, smart contracts, decentralized applications
 
-## Leadership Team
+**OPERATIONS:**
+13. AIOps - AI-powered IT operations, anomaly detection, self-healing
+14. IT Infrastructure - Enterprise infrastructure management, hybrid orchestration
+15. Architecture & Engineering - Cloud-native, event-driven, security-first design
 
-### Founder - Gajendrakumar PK
-Visionary leader with 30+ years in IT Infrastructure, AI, Cloud computing, Networking, and cybersecurity. Previously: Senior Director at Cloud Kinetics, Director at HCL Technologies, Service Delivery Manager at Mphasis, Customer Support Engineer at Computer Access Pvt Ltd.
+**SECURITY & QUALITY:**
+16. Application Security - DevSecOps, RASP, continuous security testing
+17. Quality Assurance & Audit - Automated testing, compliance auditing
 
-### Co-Founder - Baskar Maruthai
-28+ years experience bridging cutting-edge technology with market needs. Previously: Key leader at PwC (Czech Republic), HCL Technologies (Czech Republic, Switzerland, USA, Singapore), Architect at IBM India, Senior Systems Engineer at Info Services, System Engineer at Accel ICIM Frontline Ltd.
+**MANAGEMENT:**
+18. Staff Management - IT workforce solutions, AI-driven talent acquisition
+19. Project Management - AI analytics, automated workflows, agile delivery
 
-## Services Offered
+INDUSTRIES SERVED:
+Banking & Finance, Healthcare, Manufacturing, Telecommunications, Automotive (IT systems), Public Sector, Retail, Insurance, Energy, Oil & Gas, Life Sciences, Aerospace & Defense, Real Estate, Professional Services, and more.
 
-### 1. 24×7 Managed Services
-- Proactive Infrastructure Monitoring with RMM tools
-- Automated Patch Management
-- Level 1-3 Technical Support (24/7 Help Desk)
-- Performance Optimization & Monthly Health Checks
-- SLA-Driven Resolution for mission-critical incidents
+KEY PARTNERS:
+AWS, Microsoft Azure, Google Cloud, Redington, IBM, Nutanix, AccuKnox, CoreStack, Flexera, Databricks, ServiceNow, Workday, NetApp, Zoho, CrowdStrike
 
-### 2. Cybersecurity & Digital Resilience
-- **CNAPP**: Cloud-Native Application Protection Platform (Code-to-Cloud security)
-- **CSPM**: Cloud Security Posture Management
-- **CWPP**: Cloud Workload Protection Platform
-- **CIEM**: Cloud Infrastructure Entitlement Management
-- Zero Trust Architecture Implementation
-- Managed Detection & Response (MDR) - 24/7 threat hunting
-- Threat Intelligence
-- Quantum-Safe Encryption
-- Security Operations Center (SOC) with AI-powered detection
-- Data Protection & Disaster Recovery
-- Vulnerability Assessments
-- XDR (Extended Detection and Response)
+COMPANY VALUES:
+• Security-First DNA: Security is foundational, not an add-on
+• Intelligent Scalability: AI-powered systems that grow with your business
+• Unwavering Support: 24/7 reliability and proactive optimization
+• Hybrid Agility: Balance of On-Premises control with Cloud scale
 
-### 3. AI & Data Science
-- **Agentic AI**: Autonomous AI agents that plan, reason, and use tools
-- **AI Agents**: Goal-driven autonomous systems
-- **Multi-Agent Systems**: Collaborative AI agents solving complex problems
-- Enterprise AI Stacks & LLM Integration
-- Machine Learning Operations (MLOps)
-- AI Stack Engineering (GPU orchestration, Vector Databases)
-- Predictive Analytics Pipelines
-- Data Engineering & Secure Data Lakes
-- AI Governance frameworks
-- AI Workflow Automation
-- Prompt Engineering
-- AIOps 3.0
+OPERATIONAL MODEL (4 Phases):
+1. Audit & Discover - Deep dive into existing infrastructure
+2. Architecture - Designing secure, scalable blueprints
+3. Engineering - Hands-on deployment and integration
+4. Sustain (24/7) - Round-the-clock monitoring and optimization
 
-### 4. Cloud Services
-- **AWS Cloud**: AI-Native, Serverless, Hybrid Cloud, Zero-Trust Security
-- **Microsoft Azure**: AI-First with Copilot, Hybrid & Multi-Cloud Leadership
-- **Google Cloud**: AI-First, Data-Centric, Kubernetes Leadership
-- Cloud Migration (Lift and Shift, Re-platforming)
-- Cloud Cost Optimization
-- Hybrid & Multi-Cloud Management
-- Edge and Distributed Cloud
+RESPONSE GUIDELINES:
+1. BE INFORMATIVE: Provide detailed information about Vi-3's services, experience, and capabilities
+2. TONE: Professional, confident, consultative - speak as a senior enterprise advisor
+3. STRUCTURE: Lead with direct value, then provide 2-5 bullet points using "•"
+4. BREVITY: 4-6 sentences for simple queries, 8-12 for complex topics requiring detail
+5. CONTACT INFO: Include contact details naturally when relevant
+6. SERVICE MENTIONS: When discussing specific services, mention them by name so they can be linked
+7. EXAMPLES: Use concrete examples from relevant industries when helpful
+8. CALL-TO-ACTION: End with helpful next steps or questions
 
-### 5. Infrastructure Modernization
-- On-Premises Refurbishment (SDN, HCI)
-- Secure Cloud Migration
-- Containerization (Kubernetes/Docker)
-- Hybrid Cloud Architecture
-- Software-Defined Infrastructure
+FORMATTING:
+- Use "•" for bullet points
+- Keep paragraphs to 1-2 sentences
+- Format contact: 📧 contact@vi3technologies.com | 📞 +91-7010351330
+- When mentioning specific services, use their exact names from the list above
 
-### 6. DevOps/DevSecOps
-- CI/CD Pipeline Development
-- Automated Security Integration
-- Platform Engineering
-- Cloud-Native & GitOps
-- Infrastructure as Code
-- Automated Testing & Deployment
+OUT-OF-SCOPE TOPICS:
+For questions completely unrelated to business or technology (recipes, sports, entertainment, personal advice):
+Politely redirect: "I'm focused on helping with enterprise technology needs. Let me share what Vi-3 Technologies can do for your organization..." then briefly list relevant services.
 
-### 7. Quantum Computing
-- Quantum Readiness Consulting
-- Quantum-Safe Cryptography
-- Hybrid Quantum-Classical Workflows
-- Post-Quantum Standards Migration
+REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined founder experience serving global enterprises. Be helpful, informative, and professional.`;
 
-### 8. Additional Services
-- Digital Transformation
-- Application Development & Security
-- Project Management
-- IT Infrastructure Management
-- System Architecture Design
-- Quality Assurance & Audit
-- Staff Management
-- Web 3.0 Solutions (Blockchain, Smart Contracts, dApps, DeFi)
-- Data Science & Analytics
-- Automation
+const SERVICES_MAP: Record<string, string> = {
+  "AI & Data Science": "ai-data-science",
+  "Cybersecurity": "cybersecurity",
+  "DevSecOps": "devsecops",
+  "Managed Services": "managed-services",
+  "Cloud": "cloud-infrastructure",
+  "Quantum Computing": "quantum-computing",
+  "AI Governance": "ai-governance",
+  "Agentic AI": "agentic-ai",
+  "AI Workflow Automation": "workflow-automation",
+  "Data Science": "data-science",
+  "Digital Transformation": "digital-transformation",
+  "Web 3.0": "web3",
+  "AIOps": "aiops",
+  "IT Infrastructure": "it-infrastructure",
+  "Architecture": "architecture",
+  "Application Security": "application-security",
+  "Quality Assurance": "quality-assurance",
+  "Staff Management": "staff-management",
+  "Project Management": "project-management"
+};
 
-## Operational Model
-1. **Audit & Discover**: Deep dive into existing infrastructure → Clear technical roadmap and ROI forecast
-2. **Architecture**: Design secure, scalable blueprints → Future-proof system design
-3. **Engineering**: Hands-on deployment and migration → Fully functional, modernized tech stack
-4. **Sustain (24/7)**: Round-the-clock monitoring → Zero downtime and continuous compliance
-
-## Industries Served
-Banking & Finance, Automotive, Healthcare & Life Sciences, Utilities, Manufacturing, Hospitality & Travel, Telecommunications, Media & Entertainment, High-Tech Enterprises, Consumer Products, Insurance, Retail & E-commerce, Aerospace & Defense, Public Sector, Supply Chain, Education & Research, Agribusiness, Oil/Gas/Energy, Real Estate, Chemicals, Professional Services
-
-## Technology Partners
-AWS, Microsoft Azure, Google Cloud Platform (GCP), Redington, IBM, Nutanix, AccuKnox, CoreStack, Flexera, Databricks, ServiceNow, Workday, NetApp, Zoho, CrowdStrike
-
-## Key Strengths
-- Focus on business value
-- Innovation capability in emerging technologies
-- End-to-end AI, IT and digital transformation expertise
-- Strong security, compliance, and reliability focus
-- Scalable and future-ready solutions
-- Customer-centric and results-driven approach
-- Operational excellence with quality-driven delivery
-- Experienced professionals and technology specialists
-
-## Technology Expertise
-
-### Artificial Intelligence
-- Agentic AI with autonomous planning and reasoning
-- Multi-agent systems for complex problem solving
-- Multimodal intelligence (text, images, audio, video)
-- Self-learning and adaptive AI
-- AI-native applications
-- Human-AI collaboration
-- Trustworthy and governed AI
-- Edge and decentralized AI
-- Quantum-enhanced AI (future-ready)
-
-### Security Operations Center (SOC)
-- AI-powered threat detection
-- SOAR automation (Security Orchestration, Automation, Response)
-- Extended Detection and Response (XDR)
-- Proactive threat hunting
-- Zero Trust integration
-- Cloud-native SOC
-- Real-time analytics and observability
-- Automated compliance and reporting
-
-### Application Security
-- DevSecOps integration
-- AI-driven threat detection
-- Runtime Application Self-Protection (RASP)
-- Zero Trust application security
-- API and microservices security
-- Software supply chain security
-- Automated compliance and governance
-`;
+const SUGGESTED_QUESTIONS = [
+  "Tell me about Vi-3 Technologies",
+  "What AI solutions do you offer?",
+  "How does your cybersecurity work?",
+  "Can you help with cloud migration?",
+  "What industries do you serve?",
+  "Tell me about your founders"
+];
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { 
-      role: 'assistant', 
-      content: 'Hi! 👋 I\'m here to help you learn about Vi-3 Technologies. How can I assist you today?' 
+    {
+      role: "assistant",
+      content: "Welcome to Vi-3 Technologies. I'm your enterprise IT solutions consultant.\n\nFounded by leaders with 58+ years of combined experience, we deliver:\n• Enterprise AI & Agentic Systems\n• Zero Trust Cybersecurity\n• AWS, Azure & GCP Cloud Solutions\n• 24/7 Managed IT Services\n• DevSecOps & Quantum Computing\n\nServing global enterprises across Banking, Healthcare, Manufacturing, and 15+ industries.\n\nHow can I help with your organization's technology needs?",
+      timestamp: new Date()
     }
   ]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { toast } = useToast();
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
-  const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
+  const handleCall = () => {
+    window.location.href = "tel:+917010351330";
+  };
 
-    const userMessage: Message = { role: 'user', content: input.trim() };
-    const newMessages = [...messages, userMessage];
-    setMessages(newMessages);
-    setInput('');
+  const handleEmail = () => {
+    window.location.href = "mailto:contact@vi3technologies.com?subject=Enterprise%20IT%20Inquiry%20from%20Vi-3%20Website&body=Hello%20Vi-3%20Technologies%20Team,%0D%0A%0D%0AI'm%20interested%20in%20discussing%20your%20enterprise%20IT%20solutions.%0D%0A%0D%0A";
+  };
+
+  const handleWebsite = () => {
+    window.open("http://vi3technologies.com", "_blank");
+  };
+
+  const handleSuggestedQuestion = (question: string) => {
+    setInput(question);
+    setShowSuggestions(false);
+    setTimeout(() => sendMessage(question), 100);
+  };
+
+  const handleServiceClick = (serviceSlug: string) => {
+    window.open(`/services#${serviceSlug}`, "_blank");
+  };
+
+  const extractServiceLinks = (content: string): string[] => {
+    const foundServices: string[] = [];
+    Object.entries(SERVICES_MAP).forEach(([serviceName, slug]) => {
+      if (content.toLowerCase().includes(serviceName.toLowerCase())) {
+        foundServices.push(slug);
+      }
+    });
+    return [...new Set(foundServices)]; // Remove duplicates
+  };
+
+  const cleanResponse = (content: string): string => {
+    let cleaned = content.trim();
+    
+    cleaned = cleaned.replace(/\*\*([^*]+)\*\*/g, '$1');
+    cleaned = cleaned.replace(/\*([^*]+)\*/g, '$1');
+    cleaned = cleaned.replace(/^[\-\*]\s+/gm, '• ');
+    cleaned = cleaned.replace(/^\d+\.\s+/gm, '• ');
+    cleaned = cleaned.replace(/\n{3,}/g, '\n\n');
+    
+    const aiPhrases = [
+      /I'm (just )?an AI/gi,
+      /As an AI/gi,
+      /I don't have personal/gi,
+      /I apologize for (any )?confusion/gi,
+      /my knowledge cutoff/gi,
+      /I'm a language model/gi,
+      /I'm a chatbot/gi,
+      /As a chatbot/gi
+    ];
+    
+    aiPhrases.forEach(phrase => {
+      cleaned = cleaned.replace(phrase, '');
+    });
+    
+    cleaned = cleaned.replace(/\n{3,}/g, '\n\n').trim();
+    
+    return cleaned;
+  };
+
+  const sendMessage = async (suggestedInput?: string) => {
+    const messageText = suggestedInput || input.trim();
+    if (!messageText || isLoading) return;
+
+    const userMessage: Message = { 
+      role: "user", 
+      content: messageText,
+      timestamp: new Date()
+    };
+    const conversationHistory = [...messages, userMessage];
+    setMessages(conversationHistory);
+    setInput("");
     setIsLoading(true);
+    setShowSuggestions(false);
 
-    let assistantContent = '';
+    let assistantContent = "";
 
     try {
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: 'llama-3.1-8b-instant',
-          messages: [
-            {
-              role: 'system',
-              content: `You are a helpful and knowledgeable customer support assistant for Vi-3 Technologies Private Limited. 
-
-IMPORTANT: Answer questions ONLY based on the company information provided below. Be professional, friendly, and concise.
-
-${COMPANY_INFO}
-
-Guidelines:
-- Provide accurate information from the knowledge base above
-- Be friendly and professional in tone
-- Keep answers clear and concise
-- For pricing inquiries, say: "For detailed pricing and custom quotes, please contact us at contact@vi3technologies.com or call +91-7010351330"
-- For partnership inquiries, mention contacting the team directly
-- If asked something not in the knowledge base, politely say: "I don't have that specific information. Please contact our team at contact@vi3technologies.com or call +91-7010351330 for more details."
-- Use bullet points when listing services or features for clarity
-- Always be helpful and guide users to the right information`
-            },
-            ...newMessages
-          ],
-          temperature: 0.7,
-          max_tokens: 800,
-          stream: true,
-        }),
-      });
+      const response = await fetch(
+        "https://api.groq.com/openai/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            model: "llama-3.3-70b-versatile",
+            messages: [
+              {
+                role: "system",
+                content: SYSTEM_PROMPT
+              },
+              ...conversationHistory.slice(-8).map(msg => ({
+                role: msg.role,
+                content: msg.content
+              }))
+            ],
+            temperature: 0.4,
+            max_tokens: 600,
+            top_p: 0.9,
+            stream: true,
+          }),
+        }
+      );
 
       if (!response.ok) {
-        throw new Error('Failed to get response');
+        throw new Error("Failed to get response");
       }
 
       if (!response.body) {
-        throw new Error('No response body');
+        throw new Error("No response body");
       }
 
-      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+      setMessages((prev) => [...prev, { 
+        role: "assistant", 
+        content: "",
+        timestamp: new Date()
+      }]);
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
-      let buffer = '';
+      let buffer = "";
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
         buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop() || '';
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
 
         for (const line of lines) {
           const trimmedLine = line.trim();
-          if (!trimmedLine || trimmedLine.startsWith(':')) continue;
-          
-          if (trimmedLine.startsWith('data: ')) {
+          if (!trimmedLine || trimmedLine.startsWith(":")) continue;
+
+          if (trimmedLine.startsWith("data: ")) {
             const jsonStr = trimmedLine.slice(6);
-            if (jsonStr === '[DONE]') break;
-            
+            if (jsonStr === "[DONE]") break;
+
             try {
               const parsed = JSON.parse(jsonStr);
               const content = parsed.choices?.[0]?.delta?.content;
-              
+
               if (content) {
                 assistantContent += content;
-                setMessages(prev => {
+                setMessages((prev) => {
                   const updated = [...prev];
-                  updated[updated.length - 1] = { 
-                    role: 'assistant', 
-                    content: assistantContent 
+                  updated[updated.length - 1] = {
+                    role: "assistant",
+                    content: assistantContent,
+                    timestamp: new Date()
                   };
                   return updated;
                 });
@@ -295,21 +311,39 @@ Guidelines:
         }
       }
 
-      if (!assistantContent) {
-        setMessages(prev => prev.slice(0, -1));
-        throw new Error('No response received');
+      if (assistantContent) {
+        const cleanedContent = cleanResponse(assistantContent);
+        const serviceLinks = extractServiceLinks(cleanedContent);
+        
+        setMessages((prev) => {
+          const updated = [...prev];
+          updated[updated.length - 1] = {
+            role: "assistant",
+            content: cleanedContent,
+            timestamp: new Date(),
+            hasServiceLinks: serviceLinks.length > 0,
+            services: serviceLinks
+          };
+          return updated;
+        });
       }
 
+      if (!assistantContent) {
+        setMessages((prev) => prev.slice(0, -1));
+        throw new Error("No response received");
+      }
     } catch (error) {
-      console.error('Chat error:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to send message. Please try again.',
-        variant: 'destructive',
-      });
+      console.error("Chat error:", error);
       
       if (!assistantContent) {
-        setMessages(prev => prev.slice(0, -1));
+        setMessages((prev) => [
+          ...prev.slice(0, -1),
+          {
+            role: "assistant",
+            content: "I apologize for the technical difficulty. Please contact us directly:\n\n📧 contact@vi3technologies.com\n📞 +91-7010351330\n\nOur team will respond promptly to your inquiry.",
+            timestamp: new Date()
+          }
+        ]);
       }
     } finally {
       setIsLoading(false);
@@ -317,108 +351,264 @@ Guidelines:
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
   };
 
+  const formatMessage = (content: string) => {
+    return content.split('\n').map((line, i) => {
+      const trimmedLine = line.trim();
+      
+      if (trimmedLine.startsWith('•')) {
+        return (
+          <div key={i} className="flex gap-2.5 my-02 leading-relaxed">
+            <span className="text-blue-600 dark:text-blue-400 mt-0.5 font-bold">•</span>
+            <span className="flex-1 leading-relaxed">{trimmedLine.substring(1).trim()}</span>
+          </div>
+        );
+      }
+      
+      if (trimmedLine.includes('📧') || trimmedLine.includes('📞') || trimmedLine.includes('🌐')) {
+        return (
+          <div key={i} className="font-semibold text-blue-700 dark:text-blue-300 my-2 text-sm">
+            {trimmedLine}
+          </div>
+        );
+      }
+      
+      if (trimmedLine) {
+        return <div key={i} className="my-1.5 leading-relaxed">{trimmedLine}</div>;
+      }
+      
+      return <div key={i} className="h-2" />;
+    });
+  };
+
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString('en-US', { 
+      hour: '2-digit', 
+      minute: '2-digit',
+      hour12: true 
+    });
+  };
+
   return (
     <>
+      {/* Floating Chat Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
-        whileHover={{ scale: 1.05 }}
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center group"
+        whileHover={{ scale: 1.05, rotate: 5 }}
         whileTap={{ scale: 0.95 }}
-        aria-label={isOpen ? 'Close chat' : 'Open chat'}
+        aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
-            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
-              <X className="w-6 h-6" />
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <X className="w-7 h-7" />
             </motion.div>
           ) : (
-            <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
-              <MessageCircle className="w-6 h-6" />
+            <motion.div
+              key="open"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative"
+            >
+              <MessageCircle className="w-7 h-7" />
+              <motion.span 
+                className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full shadow-lg"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
             </motion.div>
           )}
         </AnimatePresence>
       </motion.button>
 
+      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-3rem)] h-[500px] max-h-[70vh] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            transition={{ duration: 0.2 }}
+            className="fixed bottom-24 right-6 z-50 w-[460px] max-w-[calc(100vw-3rem)] h-[720px] max-h-[85vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
-            <div className="bg-primary text-primary-foreground p-4 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-                <Bot className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-semibold">Vi-3 Support</h3>
-                <p className="text-xs text-primary-foreground/80">Ask about our services</p>
+            {/* Professional Header */}
+            <div className="bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 text-white p-5 flex items-start justify-between">
+              <div className="flex items-start gap-3 flex-1">
+                <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20">
+                  <Building2 className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-lg leading-tight">Vi-3 Technologies</h3>
+                  <p className="text-xs text-blue-100 mt-1 leading-relaxed">
+                    Enterprise IT Solutions Provider
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-1.5">
+                    <motion.span 
+                      className="w-2 h-2 bg-emerald-400 rounded-full shadow-lg shadow-emerald-400/50"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    <span className="text-xs text-emerald-300 font-medium">Available 24/7</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            {/* Quick Contact Actions */}
+            <div className="bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 p-3 border-b border-slate-200 dark:border-slate-700 flex gap-2">
+              <button
+                onClick={handleCall}
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-white dark:bg-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-700 hover:text-emerald-700 dark:hover:text-emerald-400 transition-all shadow-sm hover:shadow border border-slate-200 dark:border-slate-600"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call</span>
+              </button>
+              <button
+                onClick={handleEmail}
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-white dark:bg-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 hover:text-blue-700 dark:hover:text-blue-400 transition-all shadow-sm hover:shadow border border-slate-200 dark:border-slate-600"
+              >
+                <Mail className="w-4 h-4" />
+                <span>Email</span>
+              </button>
+              <button
+                onClick={handleWebsite}
+                className="flex items-center justify-center gap-2 px-3 py-2.5 bg-white dark:bg-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-slate-700 hover:text-purple-700 dark:hover:text-purple-400 transition-all shadow-sm hover:shadow border border-slate-200 dark:border-slate-600"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Messages Area */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">
               {messages.map((message, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`flex gap-3 ${message.role === 'user' ? 'flex-row-reverse' : ''}`}
+                  transition={{ duration: 0.3 }}
+                  className={`flex gap-3 ${
+                    message.role === "user" ? "flex-row-reverse" : ""
+                  }`}
                 >
-                  <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${
-                    message.role === 'user' ? 'bg-secondary' : 'bg-primary/10 text-primary'
-                  }`}>
-                    {message.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
+                  <div
+                    className={`w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center shadow-md ${
+                      message.role === "user"
+                        ? "bg-gradient-to-br from-slate-700 to-slate-800 text-white"
+                        : "bg-gradient-to-br from-blue-600 to-blue-700 text-white ring-2 ring-blue-200 dark:ring-blue-900"
+                    }`}
+                  >
+                    {message.role === "user" ? (
+                      <User className="w-5 h-5" />
+                    ) : (
+                      <Building2 className="w-5 h-5" />
+                    )}
                   </div>
-                  <div className={`max-w-[75%] rounded-2xl px-4 py-2.5 ${
-                    message.role === 'user'
-                      ? 'bg-primary text-primary-foreground rounded-br-md'
-                      : 'bg-secondary text-secondary-foreground rounded-bl-md'
-                  }`}>
-                    <p className="text-sm whitespace-pre-wrap break-words">{message.content}</p>
+                  <div className="flex-1 max-w-[85%]">
+                    <div
+                      className={`rounded-2xl px-4 py-3 shadow-md ${
+                        message.role === "user"
+                          ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-br-md"
+                          : "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-bl-md border border-slate-200 dark:border-slate-700"
+                      }`}
+                    >
+                      <div className="text-[15px] leading-relaxed">
+                        {formatMessage(message.content)}
+                      </div>
+                    </div>
+                    {message.timestamp && (
+                      <div className={`text-[10px] text-slate-400 dark:text-slate-500 mt-1 px-1 ${
+                        message.role === "user" ? "text-right" : "text-left"
+                      }`}>
+                        {formatTime(message.timestamp)}
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               ))}
-              
+
               {isLoading && (
                 <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                    <Bot className="w-4 h-4" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white flex items-center justify-center shadow-md ring-2 ring-blue-200 dark:ring-blue-900">
+                    <Building2 className="w-5 h-5" />
                   </div>
-                  <div className="bg-secondary rounded-2xl rounded-bl-md px-4 py-2.5">
-                    <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
+                  <div className="bg-white dark:bg-slate-800 rounded-2xl rounded-bl-md px-4 py-3 border border-slate-200 dark:border-slate-700 shadow-md">
+                    <Loader2 className="w-5 h-5 animate-spin text-blue-600" />
                   </div>
                 </div>
               )}
-              
+
+              {/* Suggested Questions */}
+              {showSuggestions && messages.length === 1 && !isLoading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="space-y-2 pt-2"
+                >
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold px-1 uppercase tracking-wide flex items-center gap-2">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Suggested Topics
+                  </p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {SUGGESTED_QUESTIONS.map((question, idx) => (
+                      <motion.button
+                        key={idx}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 + idx * 0.08 }}
+                        onClick={() => handleSuggestedQuestion(question)}
+                        className="w-full text-left px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-700 dark:text-slate-300 hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 hover:shadow-md transition-all duration-200 font-medium"
+                      >
+                        {question}
+                      </motion.button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="p-4 border-t border-border bg-card">
+            {/* Input Area */}
+            <div className="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyPress}
-                  placeholder="Type your message..."
+                  placeholder="Ask about our enterprise IT solutions..."
                   disabled={isLoading}
-                  className="flex-1 px-4 py-2.5 rounded-full bg-secondary text-secondary-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
+                  className="flex-1 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 transition-all"
                 />
-                <Button
-                  onClick={sendMessage}
+                <button
+                  onClick={() => sendMessage()}
                   disabled={!input.trim() || isLoading}
-                  size="icon"
-                  className="rounded-full w-10 h-10"
+                  className="rounded-xl px-6 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-slate-300 disabled:to-slate-400 dark:disabled:from-slate-700 dark:disabled:to-slate-800 shadow-md hover:shadow-lg transition-all text-white font-semibold disabled:cursor-not-allowed"
                 >
-                  <Send className="w-4 h-4" />
-                </Button>
+                  <Send className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="flex items-center justify-between mt-3 text-xs text-slate-400 dark:text-slate-500">
+                <span className="font-medium">Vi-3 Technologies © 2025</span>
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-3 h-3" />
+                  Chennai, India
+                </span>
               </div>
             </div>
           </motion.div>
