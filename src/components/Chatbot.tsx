@@ -399,7 +399,7 @@ const Chatbot: React.FC = () => {
       {/* Floating Chat Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center group"
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center group"
         whileHover={{ scale: 1.05, rotate: 5 }}
         whileTap={{ scale: 0.95 }}
         aria-label={isOpen ? "Close chat" : "Open chat"}
@@ -424,7 +424,7 @@ const Chatbot: React.FC = () => {
               transition={{ duration: 0.2 }}
               className="relative"
             >
-              <MessageCircle className="w-7 h-7" />
+              <MessageCircle className="w-6 h-6" />
               <motion.span 
                 className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full shadow-lg"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -443,7 +443,7 @@ const Chatbot: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-[460px] max-w-[calc(100vw-3rem)] h-[720px] max-h-[85vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-20 right-6 z-50 w-[460px] max-w-[calc(100vw-3rem)] h-[760px] max-h-[88vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Professional Header */}
             <div className="bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 text-white p-5 flex items-start justify-between">
