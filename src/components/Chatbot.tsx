@@ -9,26 +9,170 @@ interface Message {
   content: string;
 }
 
-const GROQ_API_KEY =  import.meta.env.VITE_GROQ_API_KEY ;
 const COMPANY_INFO = `
-Vi-3 Technologies Private Limited - IT Solutions Company
+# Vi-3 Technologies Private Limited - Complete Company Information
 
-Contact: contact@vi3technologies.com | +91-7010351330
-Website: http://vi3technologies.com
+## Company Details
+- **Name**: Vi-3 Technologies Private Limited
+- **Registered Office**: No 3, Sadhasivam Avenue, S Kolathur, Kovilambakkam, Chennai – 600117
+- **Email**: contact@vi3technologies.com
+- **Phone**: +91-7010351330
+- **Website**: http://vi3technologies.com
 
-Services:
-- AI & Data Science (Enterprise AI, MLOps, Predictive Analytics)
-- Cybersecurity (Zero Trust, Threat Intelligence, Quantum-Safe Encryption)
-- Cloud Migration (AWS/Azure/GCP, Hybrid Cloud)
-- DevSecOps & Containerization (Kubernetes, Docker)
-- 24/7 Managed IT Services
-- Quantum Computing Solutions
 
-Leadership:
-- Founder: Gajendrakumar PK (30+ years IT experience)
-- Co-Founder: Baskar Maruthai (28+ years experience)
+## Who We Are
+Vi-3 Technologies Private Limited is a next-generation IT solutions and Startup company specializing in helping businesses thrive in the digital era through secure, scalable, and intelligent technology. We bridge the gap between legacy infrastructure and the future of AI and Quantum Computing, with a relentless focus on Cybersecurity and Operational Excellence.
 
-Industries: Banking, Healthcare, Manufacturing, Telecom, Retail, Education, and more.
+## Vision & Mission
+- **Vision**: To be the most trusted partner for secure, intelligent, and "always-on" enterprise technology
+- **Mission**: To simplify digital transformation through expert engineering, "Security-First" design, and 24/7 operational excellence
+
+## Core Pillars
+1. **Security-First DNA**: Security is the foundation, not an add-on
+2. **Intelligent Scalability**: Systems using AI and Containerization that grow with your business
+3. **Unwavering Support**: 24/7 monitoring and proactive optimization
+4. **Hybrid Agility**: Balanced approach between On-Premises and Cloud
+
+## Leadership Team
+
+### Founder - Gajendrakumar PK
+Visionary leader with 30+ years in IT Infrastructure, AI, Cloud computing, Networking, and cybersecurity. Previously: Senior Director at Cloud Kinetics, Director at HCL Technologies, Service Delivery Manager at Mphasis, Customer Support Engineer at Computer Access Pvt Ltd.
+
+### Co-Founder - Baskar Maruthai
+28+ years experience bridging cutting-edge technology with market needs. Previously: Key leader at PwC (Czech Republic), HCL Technologies (Czech Republic, Switzerland, USA, Singapore), Architect at IBM India, Senior Systems Engineer at Info Services, System Engineer at Accel ICIM Frontline Ltd.
+
+## Services Offered
+
+### 1. 24×7 Managed Services
+- Proactive Infrastructure Monitoring with RMM tools
+- Automated Patch Management
+- Level 1-3 Technical Support (24/7 Help Desk)
+- Performance Optimization & Monthly Health Checks
+- SLA-Driven Resolution for mission-critical incidents
+
+### 2. Cybersecurity & Digital Resilience
+- **CNAPP**: Cloud-Native Application Protection Platform (Code-to-Cloud security)
+- **CSPM**: Cloud Security Posture Management
+- **CWPP**: Cloud Workload Protection Platform
+- **CIEM**: Cloud Infrastructure Entitlement Management
+- Zero Trust Architecture Implementation
+- Managed Detection & Response (MDR) - 24/7 threat hunting
+- Threat Intelligence
+- Quantum-Safe Encryption
+- Security Operations Center (SOC) with AI-powered detection
+- Data Protection & Disaster Recovery
+- Vulnerability Assessments
+- XDR (Extended Detection and Response)
+
+### 3. AI & Data Science
+- **Agentic AI**: Autonomous AI agents that plan, reason, and use tools
+- **AI Agents**: Goal-driven autonomous systems
+- **Multi-Agent Systems**: Collaborative AI agents solving complex problems
+- Enterprise AI Stacks & LLM Integration
+- Machine Learning Operations (MLOps)
+- AI Stack Engineering (GPU orchestration, Vector Databases)
+- Predictive Analytics Pipelines
+- Data Engineering & Secure Data Lakes
+- AI Governance frameworks
+- AI Workflow Automation
+- Prompt Engineering
+- AIOps 3.0
+
+### 4. Cloud Services
+- **AWS Cloud**: AI-Native, Serverless, Hybrid Cloud, Zero-Trust Security
+- **Microsoft Azure**: AI-First with Copilot, Hybrid & Multi-Cloud Leadership
+- **Google Cloud**: AI-First, Data-Centric, Kubernetes Leadership
+- Cloud Migration (Lift and Shift, Re-platforming)
+- Cloud Cost Optimization
+- Hybrid & Multi-Cloud Management
+- Edge and Distributed Cloud
+
+### 5. Infrastructure Modernization
+- On-Premises Refurbishment (SDN, HCI)
+- Secure Cloud Migration
+- Containerization (Kubernetes/Docker)
+- Hybrid Cloud Architecture
+- Software-Defined Infrastructure
+
+### 6. DevOps/DevSecOps
+- CI/CD Pipeline Development
+- Automated Security Integration
+- Platform Engineering
+- Cloud-Native & GitOps
+- Infrastructure as Code
+- Automated Testing & Deployment
+
+### 7. Quantum Computing
+- Quantum Readiness Consulting
+- Quantum-Safe Cryptography
+- Hybrid Quantum-Classical Workflows
+- Post-Quantum Standards Migration
+
+### 8. Additional Services
+- Digital Transformation
+- Application Development & Security
+- Project Management
+- IT Infrastructure Management
+- System Architecture Design
+- Quality Assurance & Audit
+- Staff Management
+- Web 3.0 Solutions (Blockchain, Smart Contracts, dApps, DeFi)
+- Data Science & Analytics
+- Automation
+
+## Operational Model
+1. **Audit & Discover**: Deep dive into existing infrastructure → Clear technical roadmap and ROI forecast
+2. **Architecture**: Design secure, scalable blueprints → Future-proof system design
+3. **Engineering**: Hands-on deployment and migration → Fully functional, modernized tech stack
+4. **Sustain (24/7)**: Round-the-clock monitoring → Zero downtime and continuous compliance
+
+## Industries Served
+Banking & Finance, Automotive, Healthcare & Life Sciences, Utilities, Manufacturing, Hospitality & Travel, Telecommunications, Media & Entertainment, High-Tech Enterprises, Consumer Products, Insurance, Retail & E-commerce, Aerospace & Defense, Public Sector, Supply Chain, Education & Research, Agribusiness, Oil/Gas/Energy, Real Estate, Chemicals, Professional Services
+
+## Technology Partners
+AWS, Microsoft Azure, Google Cloud Platform (GCP), Redington, IBM, Nutanix, AccuKnox, CoreStack, Flexera, Databricks, ServiceNow, Workday, NetApp, Zoho, CrowdStrike
+
+## Key Strengths
+- Focus on business value
+- Innovation capability in emerging technologies
+- End-to-end AI, IT and digital transformation expertise
+- Strong security, compliance, and reliability focus
+- Scalable and future-ready solutions
+- Customer-centric and results-driven approach
+- Operational excellence with quality-driven delivery
+- Experienced professionals and technology specialists
+
+## Technology Expertise
+
+### Artificial Intelligence
+- Agentic AI with autonomous planning and reasoning
+- Multi-agent systems for complex problem solving
+- Multimodal intelligence (text, images, audio, video)
+- Self-learning and adaptive AI
+- AI-native applications
+- Human-AI collaboration
+- Trustworthy and governed AI
+- Edge and decentralized AI
+- Quantum-enhanced AI (future-ready)
+
+### Security Operations Center (SOC)
+- AI-powered threat detection
+- SOAR automation (Security Orchestration, Automation, Response)
+- Extended Detection and Response (XDR)
+- Proactive threat hunting
+- Zero Trust integration
+- Cloud-native SOC
+- Real-time analytics and observability
+- Automated compliance and reporting
+
+### Application Security
+- DevSecOps integration
+- AI-driven threat detection
+- Runtime Application Self-Protection (RASP)
+- Zero Trust application security
+- API and microservices security
+- Software supply chain security
+- Automated compliance and governance
 `;
 
 const Chatbot: React.FC = () => {
@@ -67,7 +211,7 @@ const Chatbot: React.FC = () => {
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${GROQ_API_KEY}`,
+          'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -75,20 +219,26 @@ const Chatbot: React.FC = () => {
           messages: [
             {
               role: 'system',
-              content: `You are a helpful customer support assistant for Vi-3 Technologies. Answer questions based on this info:
+              content: `You are a helpful and knowledgeable customer support assistant for Vi-3 Technologies Private Limited. 
+
+IMPORTANT: Answer questions ONLY based on the company information provided below. Be professional, friendly, and concise.
 
 ${COMPANY_INFO}
 
 Guidelines:
-- Be friendly and professional
-- Keep answers concise
-- For pricing, say "Contact us at contact@vi3technologies.com or call +91-7010351330"
-- If you don't know something, suggest contacting the team`
+- Provide accurate information from the knowledge base above
+- Be friendly and professional in tone
+- Keep answers clear and concise
+- For pricing inquiries, say: "For detailed pricing and custom quotes, please contact us at contact@vi3technologies.com or call +91-7010351330"
+- For partnership inquiries, mention contacting the team directly
+- If asked something not in the knowledge base, politely say: "I don't have that specific information. Please contact our team at contact@vi3technologies.com or call +91-7010351330 for more details."
+- Use bullet points when listing services or features for clarity
+- Always be helpful and guide users to the right information`
             },
             ...newMessages
           ],
           temperature: 0.7,
-          max_tokens: 500,
+          max_tokens: 800,
           stream: true,
         }),
       });
