@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Clock, Send, Building2, Globe, ArrowRight } from "lucide-react";
+import { SlideInLeft } from "@/components/ui/motion";
 
 const services = [
   "24×7 Managed Services",
@@ -112,7 +113,7 @@ const Contact = () => {
       {/* Contact Form & Info */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-32 max-w-10xl mx-auto">
             {/* Contact Form */}
             <div className="lg:col-span-3">
               <motion.div
@@ -270,158 +271,65 @@ const Contact = () => {
 
             {/* Contact Info */}
             <div className="lg:col-span-2 space-y-6">
-             
-                         <motion.div
-                           initial={{ opacity: 0, y: 20 }}
-                           animate={{ opacity: 1, y: 0 }}
-                           transition={{ duration: 0.6, delay: 0.2 }}
-                         >
-                           <div className="bg-card p-8 md:p-10 rounded-2xl border border-border shadow-lg">
-                             <h2 className="text-2xl font-bold text-foreground mb-6">
-                               Send Us a Message
-                             </h2>
-                             <form onSubmit={handleSubmit} className="space-y-6">
-                               <div className="grid md:grid-cols-2 gap-6">
-                                 <div>
-                                   <label className="block text-sm font-medium text-foreground mb-2">
-                                     First Name *
-                                   </label>
-                                   <Input
-                                     required
-                                     value={formData.firstName}
-                                     onChange={(e) =>
-                                       setFormData({ ...formData, firstName: e.target.value })
-                                     }
-                                     placeholder="John"
-                                     className="bg-background"
-                                   />
-                                 </div>
-                                 <div>
-                                   <label className="block text-sm font-medium text-foreground mb-2">
-                                     Last Name *
-                                   </label>
-                                   <Input
-                                     required
-                                     value={formData.lastName}
-                                     onChange={(e) =>
-                                       setFormData({ ...formData, lastName: e.target.value })
-                                     }
-                                     placeholder="Doe"
-                                     className="bg-background"
-                                   />
-                                 </div>
-                                 
-                               </div>
-                               <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                   <label className="block text-sm font-medium text-foreground mb-2">
-                                     Email Address *
-                                   </label>
-                                   <Input
-                                     required
-                                     type="email"
-                                     value={formData.email}
-                                     onChange={(e) =>
-                                       setFormData({ ...formData, email: e.target.value })
-                                     }
-                                     placeholder="john@company.com"
-                                     className="bg-background"
-                                   />
-                                 </div>
-                                 <div>
-                                   <label className="block text-sm font-medium text-foreground mb-2">
-                                     Company
-                                   </label>
-                                   <Input
-                                     value={formData.company}
-                                     onChange={(e) =>
-                                       setFormData({ ...formData, company: e.target.value })
-                                     }
-                                     placeholder="Your Company"
-                                     className="bg-background"
-                                   />
-                                 </div>
-                                
-                               </div>
-                               <div className="grid md:grid-cols-2 gap-6">
-                                 <div>
-                                   <label className="block text-sm font-medium text-foreground mb-2">
-                                     Phone Number
-                                   </label>
-                                   <Input
-                                     type="tel"
-                                     value={formData.phone}
-                                     onChange={(e) =>
-                                       setFormData({ ...formData, phone: e.target.value })
-                                     }
-                                     placeholder="+91 98765 43210"
-                                     className="bg-background"
-                                   />
-                                 </div>
-                                 <div>
-                                 <label className="block text-sm font-medium text-foreground mb-2">
-                                   Service of Interest
-                                 </label>
-                                 <Select
-                                   value={formData.service}
-                                   onValueChange={(value) =>
-                                     setFormData({ ...formData, service: value })
-                                   }
-                                 >
-                                   <SelectTrigger className="bg-background">
-                                     <SelectValue placeholder="Select a service" />
-                                   </SelectTrigger>
-                                   <SelectContent>
-                                     {services.map((service) => (
-                                       <SelectItem key={service} value={service}>
-                                         {service}
-                                       </SelectItem>
-                                     ))}
-                                   </SelectContent>
-                                 </Select>
-                               </div>
-                               </div>
-                               
-                               <div>
-                                 <label className="block text-sm font-medium text-foreground mb-2">
-                                   Message *
-                                 </label>
-                                 <Textarea
-                                   required
-                                   value={formData.message}
-                                   onChange={(e) =>
-                                     setFormData({ ...formData, message: e.target.value })
-                                   }
-                                   placeholder="Tell us about your project or requirements..."
-                                   rows={5}
-                                   className="bg-background resize-none"
-                                 />
-                               </div>
-                               <Button 
-                                 type="submit" 
-                                 disabled={isSubmitting}
-                                 className="w-full gap-2 gradient-primary text-primary-foreground font-semibold py-6"
-                               >
-                                 {isSubmitting ? (
-                                   <motion.div
-                                     animate={{ rotate: 360 }}
-                                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                     className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full"
-                                   />
-                                 ) : (
-                                   <>
-                                     <Send size={18} />
-                                     Send Message
-                                   </>
-                                 )}
-                               </Button>
-                               <p className="text-xs text-muted-foreground text-center">
-                                 By submitting this form, you agree to our{" "}
-                                 <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>
-                               </p>
-                             </form>
+                       <SlideInLeft>
+                         <div className="space-y-8">
+                           <div>
+                             <h3 className="text-2xl font-bold text-foreground mb-6">
+                               Get in touch
+                             </h3>
+                             <p className="text-black/90 mb-8">
+                               Ready to transform your business with cutting-edge IT solutions? 
+                               Our team of experts is here to help you every step of the way.
+                             </p>
                            </div>
-                         </motion.div>
+             
+                           <div className="space-y-6">
+                             <div className="flex items-start gap-4">
+                               <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shrink-0">
+                                 <MapPin className="w-5 h-5 text-primary" />
+                               </div>
+                               <div>
+                                 <h4 className="font-semibold text-foreground mb-1">Registered Office</h4>
+                                 <p className="text-muted-foreground">
+                                   No 3, Sadhasivam Avenue, S Kolathur<br />
+                                   Kovilambakkam, Chennai – 600117
+                                 </p>
+                               </div>
+                             </div>
+             
+                             <div className="flex items-start gap-4">
+                               <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shrink-0">
+                                 <Phone className="w-5 h-5 text-primary" />
+                               </div>
+                               <div>
+                                 <h4 className="font-semibold text-foreground mb-1">Phone</h4>
+                                 <p className="text-muted-foreground">+91-7010351330</p>
+                               </div>
+                             </div>
+             
+                             <div className="flex items-start gap-4">
+                               <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shrink-0">
+                                 <Mail className="w-5 h-5 text-primary" />
+                               </div>
+                               <div>
+                                 <h4 className="font-semibold text-foreground mb-1">Email</h4>
+                                 <p className="text-muted-foreground">contact@vi3technologies.com</p>
+                               </div>
+                             </div>
+             
+                             <div className="flex items-start gap-4">
+                               <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shrink-0">
+                                 <Clock className="w-5 h-5 text-primary" />
+                               </div>
+                               <div>
+                                 <h4 className="font-semibold text-foreground mb-1">Support</h4>
+                                 <p className="text-muted-foreground">24/7 Managed Services Available</p>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                       </SlideInLeft>
+                        
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
