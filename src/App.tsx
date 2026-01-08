@@ -45,6 +45,7 @@ import SecurityPolicy from "./pages/SecurityPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import GDPRCompliance from "./pages/GDPRCompliance";
 import DataProtectionPolicy from "./pages/DataProtectionPolicy";
+import Chatbot from "./components/Chatbot";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -90,6 +91,7 @@ const App = () => (
           
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Chatbot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
