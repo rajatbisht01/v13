@@ -9,9 +9,7 @@ interface Message {
   content: string;
 }
 
-// Your Groq API key - Get it from https://console.groq.com
 const GROQ_API_KEY =  import.meta.env.VITE_GROQ_API_KEY ;
-console.log("GROQ_API_KEY:", GROQ_API_KEY);
 const COMPANY_INFO = `
 Vi-3 Technologies Private Limited - IT Solutions Company
 
