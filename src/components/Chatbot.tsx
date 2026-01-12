@@ -15,7 +15,7 @@ const SYSTEM_PROMPT = `You are a business consultant representing Vi-3 Technolog
 COMPANY IDENTITY:
 - Founded: December 2025 
 - Founders: 
-  * Gajendrakumar PK: 30+ years IT experience (Former Senior Director at Cloud Kinetics, Director at HCL Technologies)
+  * Gajendrakumar GK: 30+ years IT experience (Former Senior Director at Cloud Kinetics, Director at HCL Technologies)
   * Baskar Maruthai: 28+ years global experience (PwC Czech Republic, HCL Technologies across USA, Switzerland, Czech Republic, Singapore)
 - Location: Chennai, Tamil Nadu, India
 - Contact: +91-7010351330 | contact@vi3technologies.com
@@ -85,7 +85,6 @@ RESPONSE GUIDELINES:
 FORMATTING:
 - Use "•" for bullet points
 - Keep paragraphs to 1-2 sentences
-- Format contact: 📧 contact@vi3technologies.com | 📞 +91-7010351330
 - When mentioning specific services, use their exact names from the list above
 
 OUT-OF-SCOPE TOPICS:
@@ -116,21 +115,21 @@ const SERVICES_MAP: Record<string, string> = {
   "Project Management": "project-management"
 };
 
-const SUGGESTED_QUESTIONS = [
-  "Tell me about Vi-3 Technologies",
-  "What AI solutions do you offer?",
-  "How does your cybersecurity work?",
-  "Can you help with cloud migration?",
-  "What industries do you serve?",
-  "Tell me about your founders"
-];
+// const SUGGESTED_QUESTIONS = [
+//   "Tell me about Vi-3 Technologies",
+//   "What AI solutions do you offer?",
+//   "How does your cybersecurity work?",
+//   "Can you help with cloud migration?",
+//   "What industries do you serve?",
+//   "Tell me about your founders"
+// ];
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Welcome to Vi-3 Technologies. I'm your enterprise IT solutions consultant.\n\nFounded by leaders with 58+ years of combined experience, we deliver:\n• Enterprise AI & Agentic Systems\n• Zero Trust Cybersecurity\n• AWS, Azure & GCP Cloud Solutions\n• 24/7 Managed IT Services\n• DevSecOps & Quantum Computing\n\nServing global enterprises across Banking, Healthcare, Manufacturing, and 15+ industries.\n\nHow can I help with your organization's technology needs?",
+      content: "Vi-3 Welcomes you, How can i assist you?",
       timestamp: new Date()
     }
   ]);
@@ -552,7 +551,7 @@ const Chatbot: React.FC = () => {
               )}
 
               {/* Suggested Questions */}
-              {showSuggestions && messages.length === 1 && !isLoading && (
+              {/* {showSuggestions && messages.length === 1 && !isLoading && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -578,7 +577,7 @@ const Chatbot: React.FC = () => {
                     ))}
                   </div>
                 </motion.div>
-              )}
+              )} */}
 
               <div ref={messagesEndRef} />
             </div>
