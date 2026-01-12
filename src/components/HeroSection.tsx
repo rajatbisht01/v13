@@ -42,8 +42,8 @@ export const HeroSection = () => {
     style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
   >
   {/* Image contrast scrim */}
-<div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/5 to-black/10" />
-<div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
+<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/10" />
+<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/50 to-transparent" />
 
         </motion.div>
 

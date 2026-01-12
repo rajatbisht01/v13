@@ -132,7 +132,7 @@ const isLightHeaderPage = currentPath.startsWith("/resources");
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isLightHeaderPage ? "glass shadow-lg" : "bg-transparent"
+        isScrolled || isLightHeaderPage ? "glass shadow-lg" : "glass-transparent"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -166,7 +166,7 @@ const isLightHeaderPage = currentPath.startsWith("/resources");
                   <a
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                                    className={`flex items-center gap-1 text-xl font-bold hover:scale-105 transition-colors ${navTextClass(
+                                    className={`flex items-center gap-1 text-white text-xl font-bold hover:scale-105 transition-colors ${navTextClass(
                       isActive
                     )}`}
                   >
