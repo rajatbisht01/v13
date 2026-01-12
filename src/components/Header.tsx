@@ -55,10 +55,10 @@ export const Header = () => {
 const isLightHeaderPage = currentPath.startsWith("/resources");
 
   const navTextClass = (isActive: boolean) => {
-    if (isActive) return "text-primary";
+    if (isActive) return "text-primary !font-extrabold !text-2xl";
 
     if (isScrolled || isLightHeaderPage) {
-      return "text-black hover:text-primary";
+      return "text-black hover:text-primary ";
     }
 
     return "text-white hover:text-primary";
@@ -166,7 +166,7 @@ const isLightHeaderPage = currentPath.startsWith("/resources");
                   <a
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                                    className={`flex items-center gap-1  text-xl font-bold hover:scale-105 transition-colors ${navTextClass(
+                                    className={`flex items-center gap-1 text-xl  font-semibold hover:scale-105 transition-colors ${navTextClass(
                       isActive
                     )}`}
                   >

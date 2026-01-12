@@ -184,7 +184,7 @@ const StatItem = ({ value, suffix, label, sublabel, delay }) => {
                     <div className="relative mx-auto sm:mx-0">
                       <div className="w-24 h-24 rounded-2xl bg-transparent  flex items-center justify-center flex-shrink-0  shadow-purple-500/30 group-hover:shadow-purple-500/50 transition-all duration-300 group-hover:scale-105">
                         <span className="text-3xl font-bold text-primary">
-                          {founder.name.split(' ').map(n => n[0]).join('')}
+                           {founder.name === "Gajendrakumar PK" ? "GK" : "BM"}
                         </span>
                       </div>
                       {/* Pulse ring */}

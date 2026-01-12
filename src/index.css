@@ -257,3 +257,58 @@
   .animation-delay-400 { animation-delay: 400ms; }
   .animation-delay-500 { animation-delay: 500ms; }
 }
+
+
+/* ===================================
+   ADD THIS TO YOUR globals.css
+   Simple Gradient Border on Hover
+   =================================== */
+
+@layer components {
+  /* Gradient border wrapper - just the border effect */
+  .gradient-border {
+    @apply relative;
+  }
+
+  /* Animated gradient border that appears on hover */
+  .gradient-border::before {
+    content: '';
+    @apply absolute -inset-0.5 rounded-3xl opacity-0 blur transition-all duration-500;
+    background: linear-gradient(to right, 
+      hsl(var(--primary)), 
+      hsl(var(--accent)), 
+      hsl(var(--gradient-end))
+    );
+    z-index: 0;
+  }
+
+  .gradient-border:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Make sure child content is above the border */
+  .gradient-border > * {
+    @apply relative;
+    z-index: 1;
+  }
+}
+
+/* ===================================
+   USAGE EXAMPLE
+   =================================== */
+
+/*
+Simply wrap your existing card with the gradient-border class:
+
+<div className="gradient-border">
+  <div className="bg-white border-2 border-slate-200 rounded-3xl p-8 transition-all duration-500 hover:border-transparent">
+    Your card content here
+  </div>
+</div>
+
+TIPS:
+- Add `hover:border-transparent` to your inner card for smooth transition
+- The inner card should have rounded corners that match (rounded-3xl)
+- Works with any existing card structure
+- Customize colors by changing the CSS variables
+*/

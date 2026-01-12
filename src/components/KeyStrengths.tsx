@@ -100,13 +100,17 @@ export const KeyStrengths = () => {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {strengths.map((strength, index) => (
             <motion.div
+            className="gradient-border "
               key={strength.title}
               initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+                                    whileHover={{scale: 1.03, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
-              <div className="glass bg-white border-2 border-border rounded-2xl p-6 h-full hover:border-primary/10 transition-all duration-300 group">
+           
+              <div className="glass bg-white hover:scale-100 border-2 border-border rounded-2xl p-6 h-full hover:border-transparent transition-all duration-300 group">
                 <div className="w-8 h-8 rounded-xl  flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300">
                    <motion.div
                                     animate={{ scale: [1, 1.15, 1] }}
@@ -139,6 +143,7 @@ export const KeyStrengths = () => {
                   ))}
                 </div>
               </div>
+            
             </motion.div>
           ))}
         </StaggerContainer>

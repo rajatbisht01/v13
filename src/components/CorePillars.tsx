@@ -68,14 +68,15 @@ const CorePillars = () => {
       </FadeInUp>
       <StaggerContainer className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         {corePillars.map((pillar, index) => (
-          <motion.div
+          <motion.div             className="gradient-border"
             key={pillar.title}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
-            <div className="group border border-border glass rounded-2xl p-6 h-full hover:border-primary/50 transition-all duration-300 text-center">
+            <div className="group bg-white border  border-border glass rounded-2xl p-6 h-full hover:border-transparent transition-all duration-300 text-center">
               <div className="w-14 h-14 rounded-xl  flex items-center justify-center mx-auto mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300">
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
@@ -90,7 +91,7 @@ const CorePillars = () => {
                   <pillar.icon className="w-10 h-10 text-primary" />
                 </motion.div>
               </div>
-              <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-gradient transition-colors">
                 {pillar.title}
               </h4>
               <p className="text-sm text-muted-foreground">
@@ -114,20 +115,23 @@ const CorePillars = () => {
       <div className="grid mb-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {operationalModel.map((step, index) => (
           <motion.div
+          className="gradient-border "
             key={step.phase}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+                        whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
-            <div className="glass border border-border rounded-2xl p-6 h-full hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
+            <div className="glass bg-white border border-border rounded-2xl p-6 h-full hover:border-transparent transition-all duration-300 relative overflow-hidden">
               <div className="absolute -top-2 -right-1 text-8xl font-bold text-primary/5">
                 {step.phase}
               </div>
               <div className="relative z-10">
-                <span className="text-sm font-bold text-primary">
+                {/* <span className="text-sm font-bold text-primary">
                   {step.phase}
-                </span>
+                </span> */}
                 <h4 className="text-lg font-bold text-foreground mt-1 mb-3">
                   {step.title}
                 </h4>
