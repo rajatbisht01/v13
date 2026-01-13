@@ -221,7 +221,7 @@ const allServices = [
   {
     icon: Users,
     title: "Staffing Services",
-    slug: "staffing-services",
+    slug: "staff-management",
     description: "IT workforce solutions with AI-driven talent acquisition, team augmentation, and dynamic workforce planning.",
     image: staffManagementImg,
     gradient: "from-blue-500/20 to-indigo-500/5",

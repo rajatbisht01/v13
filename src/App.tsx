@@ -47,6 +47,11 @@ import GDPRCompliance from "./pages/GDPRCompliance";
 import DataProtectionPolicy from "./pages/DataProtectionPolicy";
 import Chatbot from "./components/Chatbot";
 import ApplicationServices from "./pages/services/ApplicationServices";
+import AIRiskMitigation from "./pages/services/AiRiskMitigation";
+import AuditReporting from "./pages/services/AuditReporting";
+import VulnerabilityScanning from "./pages/services/VulnerabilityScanning";
+import { Merge } from "lucide-react";
+import MergerAcquisition from "./pages/services/MergerAcquisition";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -79,6 +84,12 @@ const App = () => (
           <Route path="/services/architecture" element={<Architecture />} />
           <Route path="/services/data-science" element={<DataScience />} />
           <Route path="/services/application-services" element={<ApplicationServices />} />
+          
+                    <Route path="/services/ai-risk-mitigation" element={<AIRiskMitigation />} />
+          <Route path="/services/audit-reporting" element={<AuditReporting />} />
+          <Route path="/services/vulnerability-scanning" element={<VulnerabilityScanning />} />
+          <Route path="/services/merger-acquisition" element={<MergerAcquisition />} />
+
 
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />

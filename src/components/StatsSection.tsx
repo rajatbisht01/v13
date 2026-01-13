@@ -84,7 +84,7 @@ export const StatsSection = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <FadeInUp className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Meet <span className="text-primary">Vi-3 Technologies</span>
+            Meet <span className="text-gradient">Vi-3 Technologies</span>
           </h2>
            <p className=" pt-4 text-muted-foreground max-w-3xl mx-auto text-lg">
              Trusted partner to global enterprisesructure for hybrid & multi-cloud operations.
