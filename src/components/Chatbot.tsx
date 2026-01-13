@@ -73,10 +73,10 @@ OPERATIONAL MODEL (4 Phases):
 4. Sustain (24/7) - Round-the-clock monitoring and optimization
 
 RESPONSE GUIDELINES:
-1. BE INFORMATIVE: Provide detailed information about Vi-3's services, experience, and capabilities
+1. BE INFORMATIVE: Provide comprehensive information about Vi-3's services, experience, and capabilities
 2. TONE: Professional, confident, consultative - speak as a senior enterprise advisor
 3. STRUCTURE: Lead with direct value, then provide 2-5 bullet points using "•"
-4. BREVITY: 2-3 sentences for simple queries, 6-8 for complex topics requiring detail
+4. BREVITY: 1-2 sentences for simple queries, 3-4 for complex topics requiring detail
 5. SERVICE MENTIONS: When discussing specific services, mention them by name so they can be linked
 6. EXAMPLES: Use concrete examples from relevant industries when helpful
 7. CALL-TO-ACTION: End with helpful next steps or questions
@@ -452,7 +452,7 @@ const Chatbot: React.FC = () => {
                 <div className="flex-1">
                   <h3 className="font-bold text-lg leading-tight">Vi-3 Technologies</h3>
                   <p className="text-xs text-blue-100 mt-1 leading-relaxed">
-                    Enterprise IT Solutions Provider
+                    Innovative IT Solutions Provider
                   </p>
                   <div className="flex items-center gap-1.5 mt-1.5">
                     <motion.span 
