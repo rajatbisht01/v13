@@ -5,28 +5,24 @@ import { Brain, Shield, Clock, Cloud } from "lucide-react";
 const operationalModel = [
   {
     phase: "01",
-   title: "Assessment",
-    action: "Evaluation of requirements, technical needs, and security considerations.",
-    outcome: "A clear technical roadmap and ROI forecast.",
+    title: "Assessment",
+    action: "Evaluation of business goals, technical requirements, and risk factors. Stakeholder alignment, feasibility analysis, dependency mapping, and a clear execution roadmap with measurable ROI targets.",
   },
   {
     phase: "02",
     title: "Architecture",
-    action: "Designing secure, scalable, and cost-optimized blueprints.",
-    outcome: "A future-proof system design.",
+    action: "Design of secure, scalable, and cost-efficient system blueprints. Technology selection, data flow design, integration planning, and a resilient foundation built for future growth.",
   },
   {
     phase: "03",
     title: "Engineering",
-    action: "Hands-on deployment, migration, and AI integration.",
-    outcome: "A fully functional, modernized tech stack.",
+    action: "End-to-end development, system integration, and automation delivery. Quality assurance, performance optimization, release management, and a production-ready high-performance technology stack.",
   },
   {
     phase: "04",
-    title: "Sustain (24/7)",
-    action: "Round-the-clock monitoring, patching, and optimization.",
-    outcome: "Zero downtime and continuous compliance.",
-  },
+    title: "Scalability",
+    action: "Continuous scaling, performance optimization, and infrastructure tuning. Capacity forecasting, resilience planning, cost control, and zero-downtime operations at scale.",
+  }
 ];
 
 const CorePillars = () => {
@@ -124,7 +120,7 @@ const CorePillars = () => {
 
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
-            <div className="glass bg-white border border-border rounded-2xl p-6 h-full hover:border-transparent transition-all duration-300 relative overflow-hidden">
+            <div className="glass group bg-white border border-border rounded-2xl p-6 h-full hover:border-transparent transition-all duration-300 relative overflow-hidden">
               <div className="absolute -top-2 -right-1 text-8xl font-bold text-primary/5">
                 {step.phase}
               </div>
@@ -132,20 +128,13 @@ const CorePillars = () => {
                 {/* <span className="text-sm font-bold text-primary">
                   {step.phase}
                 </span> */}
-                <h4 className="text-lg font-bold text-foreground mt-1 mb-3">
+                <h4 className="text-lg group-hover:text-gradient font-bold text-foreground mt-1 mb-3">
                   {step.title}
                 </h4>
                 <p className="text-sm text-muted-foreground mb-3">
                   {step.action}
                 </p>
-                <div className="pt-3 border-t border-border">
-                  <span className="text-xs text-primary font-medium">
-                    Outcome:
-                  </span>
-                  <p className="text-sm text-foreground/80 mt-1">
-                    {step.outcome}
-                  </p>
-                </div>
+                
               </div>
             </div>
           </motion.div>
