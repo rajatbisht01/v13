@@ -42,6 +42,11 @@ import qualityAssuranceImg from "@/assets/services/quality-assurance.jpg";
 import workflowAutomationImg from "@/assets/services/workflow-automation.jpg";
 import itInfrastructureImg from "@/assets/services/it-infrastructure.jpg";
 import architectureImg from "@/assets/services/architecture.jpg";
+import airRiskImg from "@/assets/services/ai-risk-mitigation.jpg";
+import securityAssesmentImg from "@/assets/services/security-assessment.jpg";
+import applicationServiceImg from "@/assets/services/application-services.jpg";
+import auditImg from "@/assets/services/audit-reporting.jpg";
+import mergerImg from "@/assets/services/merger-acquisition.jpg";
 import { Header } from "@/components/Header";
 import datascience from "@/assets/services/data-science.jpg";
 
@@ -115,7 +120,7 @@ const allServices = [
     title: "Application Services",
     slug: "application-services",
     description: "End-to-end application development, modernization, and lifecycle management aligned to business outcomes.",
-    image: architectureImg,
+    image: applicationServiceImg,
     gradient: "from-sky-500/20 to-blue-500/5",
     category: "Core"
   },
@@ -154,7 +159,7 @@ const allServices = [
     title: "AI Risk Mitigation",
     slug: "ai-risk-mitigation",
     description: "Comprehensive strategies to identify, assess, and mitigate risks in AI systems ensuring safe and ethical deployment.",
-    image: cybersecurityImg,
+    image: airRiskImg,
     gradient: "from-orange-500/20 to-red-500/5",
     category: "AI & Automation"
   },
@@ -185,7 +190,7 @@ const allServices = [
     title: "Security Assessment",
     slug: "security-assessment",
     description: "Comprehensive security evaluations including penetration testing, risk analysis, and compliance assessments.",
-    image: applicationSecurityImg,
+    image: securityAssesmentImg,
     gradient: "from-red-500/20 to-orange-500/5",
     category: "Security Services"
   },
@@ -203,7 +208,7 @@ const allServices = [
     title: "Audit & Reporting",
     slug: "audit-reporting",
     description: "Comprehensive compliance auditing, security reporting, and regulatory alignment services.",
-    image: qualityAssuranceImg,
+    image: auditImg,
     gradient: "from-blue-500/20 to-cyan-500/5",
     category: "Security Services"
   },
@@ -241,7 +246,7 @@ const allServices = [
     title: "Merger & Acquisition",
     slug: "merger-acquisition",
     description: "Strategic IT integration and transformation services for successful mergers, acquisitions, and divestitures.",
-    image: digitalTransformationImg,
+    image: mergerImg,
     gradient: "from-pink-500/20 to-rose-500/5",
     category: "Management"
   },
