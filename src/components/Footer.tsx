@@ -14,7 +14,7 @@ const footerLinks = {
   services: [
     { label: "24×7 Managed Services", href: "/services/managed-services" },
     { label: "Cybersecurity & Resilience", href: "/services/cybersecurity" },
-    { label: "AI & Data Science", href: "/services/ai-data-science" },
+    { label: "AI & Data Science", href: "/services/artificial-intelligence" },
     { label: "Cloud & Infrastructure", href: "/services/cloud-infrastructure" },
     { label: "DevSecOps Engineering", href: "/services/devsecops" },
     { label: "Quantum Computing", href: "/services/quantum-computing" },

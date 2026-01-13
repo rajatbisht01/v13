@@ -47,8 +47,8 @@ import { Header } from "@/components/Header";
 const allServices = [
    {
     icon: Brain,
-    title: "AI & Data Science",
-    slug: "ai-data-science",
+    title: "AI",
+    slug: "artificial-intelligence",
     description: "High-performance pipelines turning raw data into competitive intelligence with LLMs, MLOps, and predictive analytics.",
     image: aiDataScienceImg,
     gradient: "from-accent/20 to-purple-500/5",

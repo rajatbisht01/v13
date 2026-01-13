@@ -53,7 +53,7 @@ const AIGovernance = () => {
         }
       ]}
       relatedServices={[
-        { title: "AI & Data Science", slug: "ai-data-science" },
+        { title: "AI", slug: "artificial-intelligence" },
         { title: "Agentic AI", slug: "agentic-ai" },
         { title: "Cybersecurity", slug: "cybersecurity" }
       ]}

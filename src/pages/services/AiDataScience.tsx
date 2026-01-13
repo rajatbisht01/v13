@@ -4,8 +4,8 @@ import aiDataScienceImg from "@/assets/images/ai-data-science.jpg";
 const AIDataScience = () => {
   return (
     <ServicePageLayout
-      title="AI & Data Science"
-      subtitle="Intelligent Solutions"
+      title="AI "
+      subtitle="artificial-intelligence"
       description="We build the high-performance pipelines that turn raw data into competitive intelligence. From enterprise AI stacks to predictive analytics, we help you harness the power of artificial intelligence to transform your business."
       image={aiDataScienceImg}
       features={[

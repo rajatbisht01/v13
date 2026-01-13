@@ -53,7 +53,7 @@ const DataScience = () => {
         }
       ]}
       relatedServices={[
-        { title: "AI & Data Science", slug: "ai-data-science" },
+        { title: "AI", slug: "artificial-intelligence" },
         { title: "Agentic AI", slug: "agentic-ai" },
         { title: "AI Governance", slug: "ai-governance" }
       ]}

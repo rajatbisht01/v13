@@ -60,7 +60,7 @@ const App = () => (
           <Route path="/resources" element={<Resources/>}/>
            <Route path="/services/managed-services" element={<ManagedServices />} />
           <Route path="/services/cybersecurity" element={<Cybersecurity />} />
-          <Route path="/services/ai-data-science" element={<AIDataScience />} />
+          <Route path="/services/artificial-intelligence" element={<AIDataScience />} />
           <Route path="/services/cloud-infrastructure" element={<CloudInfrastructure />} />
           <Route path="/services/devsecops" element={<DevSecOps />} />
           <Route path="/services/quantum-computing" element={<QuantumComputing />} />

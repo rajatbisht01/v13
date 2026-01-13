@@ -59,7 +59,7 @@ const DevSecOps = () => {
       relatedServices={[
         { title: "Cloud & Infrastructure", slug: "cloud-infrastructure" },
         { title: "Cybersecurity", slug: "cybersecurity" },
-        { title: "AI & Data Science", slug: "ai-data-science" }
+        { title: "AI", slug: "artificial-intelligence" }
       ]}
     />
   );

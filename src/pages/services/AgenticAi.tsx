@@ -53,7 +53,7 @@ const AgenticAI = () => {
         }
       ]}
       relatedServices={[
-        { title: "AI & Data Science", slug: "ai-data-science" },
+        { title: "AI", slug: "artificial-intelligence" },
         { title: "AI Governance", slug: "ai-governance" },
         { title: "Workflow Automation", slug: "workflow-automation" }
       ]}

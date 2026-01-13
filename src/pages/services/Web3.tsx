@@ -54,7 +54,7 @@ const Web3 = () => {
       ]}
       relatedServices={[
         { title: "Cybersecurity", slug: "cybersecurity" },
-        { title: "AI & Data Science", slug: "ai-data-science" },
+        { title: "AI", slug: "" },
         { title: "Cloud & Infrastructure", slug: "cloud-infrastructure" }
       ]}
     />

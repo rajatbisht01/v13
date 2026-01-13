@@ -54,7 +54,7 @@ const QuantumComputing = () => {
       ]}
       relatedServices={[
         { title: "Cybersecurity", slug: "cybersecurity" },
-        { title: "AI & Data Science", slug: "ai-data-science" },
+        { title: "AI", slug: "artificial-intelligence" },
         { title: "Cloud & Infrastructure", slug: "cloud-infrastructure" }
       ]}
     />

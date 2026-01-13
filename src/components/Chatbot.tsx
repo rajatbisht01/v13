@@ -94,7 +94,7 @@ Politely redirect: "I'm focused on helping with enterprise technology needs. Let
 REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined founder experience serving global enterprises. Be helpful, informative, and professional.`;
 
 const SERVICES_MAP: Record<string, string> = {
-  "AI & Data Science": "ai-data-science",
+  "AI": "artificial-intelligence",
   "Cybersecurity": "cybersecurity",
   "DevSecOps": "devsecops",
   "Managed Services": "managed-services",

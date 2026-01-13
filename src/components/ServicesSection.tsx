@@ -10,14 +10,23 @@ import quantumImg from "@/assets/services/quantum.jpg";
 import devsecopsImg from "@/assets/services/devsecops.jpg";
 import { ArrowRight } from "lucide-react";
 const services = [
-    {
-    image: aiImg,
-   title: "AI & Data Science",
-    description: "High-performance pipelines turning raw data into competitive intelligence with LLMs, MLOps, and predictive analytics.",
-    features: ["AI Stack Engineering", "MLOps Automation", "Predictive Analytics", "Secure Data Workbenches"],
-   gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
-    slug: "ai-data-science",
-  },
+   {
+  image: aiImg,
+  title: "Artificial Intelligence",
+  description: "Production-grade AI systems leveraging LLMs, agents, and automation to drive intelligent decision-making and real business outcomes.",
+  features: ["LLM Engineering", "AI Agents & Automation", "Model Deployment", "AI Governance & Security"],
+  gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
+  slug: "artificial-intelligence",
+},
+{
+  image: aiImg,
+  title: "Data Science",
+  description: "Scalable data platforms transforming raw data into actionable insights through analytics, modeling, and decision intelligence.",
+  features: ["Data Pipelines & ETL", "Statistical Modeling", "Predictive Analytics", "Data Quality & Observability"],
+  gradient: "from-cyan-500 via-sky-500 to-blue-500",
+  slug: "data-science",
+},
+
   {
     image: cyberImg,
     title: "Cybersecurity & Resilience",

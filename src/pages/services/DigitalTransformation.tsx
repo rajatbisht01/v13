@@ -54,7 +54,7 @@ const DigitalTransformation = () => {
       ]}
       relatedServices={[
         { title: "Cloud & Infrastructure", slug: "cloud-infrastructure" },
-        { title: "AI & Data Science", slug: "ai-data-science" },
+        { title: "AI", slug: "artificial-intelligence" },
         { title: "DevSecOps", slug: "devsecops" }
       ]}
     />
