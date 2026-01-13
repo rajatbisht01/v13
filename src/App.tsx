@@ -46,6 +46,7 @@ import CookiePolicy from "./pages/CookiePolicy";
 import GDPRCompliance from "./pages/GDPRCompliance";
 import DataProtectionPolicy from "./pages/DataProtectionPolicy";
 import Chatbot from "./components/Chatbot";
+import ApplicationServices from "./pages/services/ApplicationServices";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -77,6 +78,8 @@ const App = () => (
           <Route path="/services/it-infrastructure" element={<ITInfrastructure />} />
           <Route path="/services/architecture" element={<Architecture />} />
           <Route path="/services/data-science" element={<DataScience />} />
+          <Route path="/services/application-services" element={<ApplicationServices />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
