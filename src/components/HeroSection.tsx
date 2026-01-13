@@ -9,6 +9,8 @@ import heroApplication from "@/assets/light/hero-application.jpg";
 import heroData from "@/assets/light/hero-data.jpg";
 import heroAi from "@/assets/light/hero-ai.jpg";
 import { NewsTicker } from "./NewsTicker";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const heroDataNew ='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'
 
@@ -104,15 +106,17 @@ export const HeroSection = () => {
             <motion.div
                                         whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
             transition={{ duration: 0.3, delay:0.10 }}>
-            <a
-              href="/services"
-              className="inline-flex items-center bg-primary  gap-2 px-8 py-4 gradient-primary text-primary-foreground font-semibold rounded-lg glow-primary hover:opacity-90 transition-opacity"
-            >
-              Explore Services
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+            <Link
+  to="/services"
+  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl overflow-hidden shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all hover:scale-105"
+>
+  <span className="relative z-10">Explore services</span>
+
+  <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+</Link>
+
             </motion.div>
                      <motion.div
                                         whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
@@ -120,7 +124,7 @@ export const HeroSection = () => {
 
             <a
               href="#services"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 text-primary font-semibold rounded-lg hover:bg-primary/10 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 text-primary font-semibold rounded-lg hover:bg-primary/15  transition-colors"
             >
               Get Started
             </a>

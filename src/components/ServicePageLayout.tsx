@@ -126,13 +126,16 @@ export const ServicePageLayout = ({
                 className="flex flex-wrap gap-4"
               >
                 <Link
-                  to="/contact"
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl overflow-hidden shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all hover:scale-105"
-                >
-                  <span className="relative z-10">Get Started</span>
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
+  to="/contact"
+  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl overflow-hidden shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all hover:scale-105"
+>
+  <span className="relative z-10">Get Started</span>
+
+  <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+</Link>
+
                 
                 <Link
                   to="/#contact"
@@ -192,14 +195,14 @@ export const ServicePageLayout = ({
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
-              >
+              <motion.div className="group gradient-border"
+            key={feature.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+          >
                 {/* Card */}
                 <div className="relative h-full p-8 rounded-2xl bg-card border border-border hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
                   {/* Gradient overlay on hover */}
@@ -250,6 +253,8 @@ export const ServicePageLayout = ({
                   initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
+                              whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="group flex gap-4 p-6 rounded-2xl bg-card/80 backdrop-blur border border-border hover:border-primary/40 hover:bg-card transition-all hover:shadow-lg hover:-translate-y-0.5"
                 >
@@ -272,17 +277,20 @@ export const ServicePageLayout = ({
           <div className="container mx-auto px-4 lg:px-8 max-w-5xl space-y-12">
             {additionalSections.map((section, index) => (
               <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="p-10 rounded-3xl bg-gradient-to-br from-card to-card/50 border border-border shadow-lg"
-              >
+               className="gradient-border "
+            key={section.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+          > <div className="bg-white p-4 rounded-2xl">
+
                 <h3 className="text-3xl font-bold mb-6 text-gradient">{section.title}</h3>
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   {section.content}
                 </p>
+          </div>
               </motion.div>
             ))}
           </div>
@@ -356,14 +364,18 @@ export const ServicePageLayout = ({
               Let's discuss how Vi-3 Technologies can accelerate your growth with cutting-edge solutions tailored to your needs.
             </p>
 
-            <Link
-              to="/contact"
-              className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-primary to-accent text-white text-lg font-bold rounded-2xl overflow-hidden shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all hover:scale-105"
-            >
-              <span className="relative z-10">Contact Us Today</span>
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Link>
+           <Link
+  to="/contact"
+  className="group relative inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-bold rounded-2xl overflow-hidden shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all hover:scale-105"
+>
+  <span className="relative z-10">Contact Us Today</span>
+  <span className="relative z-10 group-hover:translate-x-1 transition-transform">
+    →
+  </span>
+
+  <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+</Link>
+
           </motion.div>
         </div>
       </section>
