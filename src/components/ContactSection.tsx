@@ -141,6 +141,35 @@ const services = [
                     <p className="text-muted-foreground">24/7 Managed Services Available</p>
                   </div>
                 </div>
+                 <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                                                       whileHover={{scale: 1.02, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+
+                <div className="bg-card mt-12 p-6 rounded-2xl border border-border">
+                  <h3 className="text-lg font-bold text-foreground mb-4">
+                    Registered Office
+                  </h3>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                      <MapPin className="text-primary" size={18} />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground mb-1">
+                        Vi-3 Technologies Private Limited
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        No 3, Sadhasivam Avenue, S Kolathur<br />
+                        Kovilambakkam, Chennai – 600117<br />
+                        Tamil Nadu, India
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
               </div>
             </div>
           </SlideInLeft>
@@ -149,9 +178,12 @@ const services = [
           <SlideInRight>
            
                          <motion.div
+                          className="gradient-border "
                            initial={{ opacity: 0, y: 20 }}
                            animate={{ opacity: 1, y: 0 }}
                            transition={{ duration: 0.6, delay: 0.2 }}
+                                       whileHover={{scale: 1.02, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+
                          >
                            <div className="bg-card p-8 md:p-10 rounded-2xl border border-border shadow-lg">
                              <h2 className="text-2xl font-bold text-foreground mb-6">

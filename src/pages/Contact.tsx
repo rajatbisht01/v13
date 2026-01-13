@@ -232,11 +232,14 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="lg:col-span-3">
               <motion.div
+                           className="gradient-border "
                            initial={{ opacity: 0, y: 20 }}
                            animate={{ opacity: 1, y: 0 }}
                            transition={{ duration: 0.6, delay: 0.2 }}
+                                       whileHover={{scale: 1.02, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+
                          >
-                           <div className="bg-card p-8 md:p-10 rounded-2xl border border-border shadow-lg">
+                           <div className="bg-card p-8 md:p-10 rounded-2xl border border-border shadow-2xl">
                              <h2 className="text-2xl font-bold text-foreground mb-6">
                                Send Us a Message
                              </h2>

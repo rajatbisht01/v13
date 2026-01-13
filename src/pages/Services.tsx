@@ -43,43 +43,26 @@ import workflowAutomationImg from "@/assets/services/workflow-automation.jpg";
 import itInfrastructureImg from "@/assets/services/it-infrastructure.jpg";
 import architectureImg from "@/assets/services/architecture.jpg";
 import { Header } from "@/components/Header";
+import datascience from "@/assets/services/data-science.jpg";
 
 const allServices = [
-   {
+  // Core Services (8)
+  {
     icon: Brain,
-    title: "AI",
+    title: "Artificial Intelligence",
     slug: "artificial-intelligence",
-    description: "High-performance pipelines turning raw data into competitive intelligence with LLMs, MLOps, and predictive analytics.",
+    description: "Production-grade AI systems leveraging LLMs, agents, and automation to drive intelligent decision-making and real business outcomes.",
     image: aiDataScienceImg,
     gradient: "from-accent/20 to-purple-500/5",
     category: "Core"
   },
-  
   {
-    icon: Shield,
-    title: "Cybersecurity & Resilience",
-    slug: "cybersecurity",
-    description: "Defense-in-Depth strategy with Zero Trust architecture, MDR, and Quantum-Safe encryption for complete protection.",
-    image: cybersecurityImg,
-    gradient: "from-red-500/20 to-orange-500/5",
-    category: "Core"
-  },
-    {
-    icon: Code,
-    title: "DevSecOps Engineering",
-    slug: "devsecops",
-    description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
-    image: devsecopsImg,
-    gradient: "from-emerald-500/20 to-green-500/5",
-    category: "Core"
-  },
- {
-    icon: Headphones,
-    title: "24×7 Managed Services",
-    slug: "managed-services",
-    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
-    image: managedServicesImg,
-    gradient: "from-primary/20 to-primary/5",
+    icon: BarChart3,
+    title: "Data Science",
+    slug: "data-science",
+    description: "Scalable data platforms transforming raw data into actionable insights through analytics, modeling, and decision intelligence.",
+    image: datascience,
+    gradient: "from-purple-500/20 to-indigo-500/5",
     category: "Core"
   },
   {
@@ -91,25 +74,54 @@ const allServices = [
     gradient: "from-blue-500/20 to-cyan-500/5",
     category: "Core"
   },
-
   {
-    icon: Atom,
-    title: "Quantum Computing",
-    slug: "quantum-computing",
-    description: "Strategic roadmap for quantum readiness including consulting, quantum-safe cryptography, and hybrid workflows.",
-    image: quantumComputingImg,
-    gradient: "from-indigo-500/20 to-violet-500/5",
+    icon: Shield,
+    title: "Cybersecurity & Resilience",
+    slug: "cybersecurity",
+    description: "Defense-in-Depth strategy with Zero Trust architecture, MDR, and Quantum-Safe encryption for complete protection.",
+    image: cybersecurityImg,
+    gradient: "from-red-500/20 to-orange-500/5",
     category: "Core"
   },
   {
-    icon: Scale,
-    title: "AI Governance",
-    slug: "ai-governance",
-    description: "Framework of policies and practices for responsible AI development, deployment, and compliance.",
-    image: aiGovernanceImg,
-    gradient: "from-amber-500/20 to-yellow-500/5",
-    category: "AI & Automation"
+    icon: Code,
+    title: "DevSecOps Engineering",
+    slug: "devsecops",
+    description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
+    image: devsecopsImg,
+    gradient: "from-emerald-500/20 to-green-500/5",
+    category: "Core"
   },
+  {
+    icon: Server,
+    title: "IT Infrastructure",
+    slug: "it-infrastructure",
+    description: "Robust and scalable infrastructure foundations covering compute, storage, networking, and enterprise systems reliability.",
+    image: itInfrastructureImg,
+    gradient: "from-slate-500/20 to-gray-500/5",
+    category: "Core"
+  },
+  {
+    icon: Headphones,
+    title: "24×7 Managed Services",
+    slug: "managed-services",
+    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
+    image: managedServicesImg,
+    gradient: "from-primary/20 to-primary/5",
+    category: "Core"
+  },
+  {
+    icon: Layers,
+    title: "Application Services",
+    slug: "application-services",
+    description: "End-to-end application development, modernization, and lifecycle management aligned to business outcomes.",
+    image: architectureImg,
+    gradient: "from-sky-500/20 to-blue-500/5",
+    category: "Core"
+  },
+ 
+  
+  // AI & Automation (4)
   {
     icon: Bot,
     title: "Agentic AI & AI Agents",
@@ -129,14 +141,111 @@ const allServices = [
     category: "AI & Automation"
   },
   {
-    icon: BarChart3,
-    title: "Data Science",
-    slug: "data-science",
-    description: "Advanced analytics with AutoML, real-time insights, and privacy-preserving data solutions.",
-    image: aiDataScienceImg,
-    gradient: "from-purple-500/20 to-indigo-500/5",
+    icon: Scale,
+    title: "AI Governance",
+    slug: "ai-governance",
+    description: "Framework of policies and practices for responsible AI development, deployment, and compliance.",
+    image: aiGovernanceImg,
+    gradient: "from-amber-500/20 to-yellow-500/5",
     category: "AI & Automation"
   },
+  {
+    icon: Shield,
+    title: "AI Risk Mitigation",
+    slug: "ai-risk-mitigation",
+    description: "Comprehensive strategies to identify, assess, and mitigate risks in AI systems ensuring safe and ethical deployment.",
+    image: cybersecurityImg,
+    gradient: "from-orange-500/20 to-red-500/5",
+    category: "AI & Automation"
+  },
+  
+  // High-Tech Solutions (2)
+  {
+    icon: Atom,
+    title: "Quantum Computing",
+    slug: "quantum-computing",
+    description: "Strategic roadmap for quantum readiness including consulting, quantum-safe cryptography, and hybrid workflows.",
+    image: quantumComputingImg,
+    gradient: "from-indigo-500/20 to-violet-500/5",
+    category: "High-Tech Solutions"
+  },
+  {
+    icon: Globe,
+    title: "Web 3.0 Solutions",
+    slug: "web3",
+    description: "Decentralized solutions with blockchain, smart contracts, and tokenized digital economies.",
+    image: web3Img,
+    gradient: "from-cyan-500/20 to-teal-500/5",
+    category: "High-Tech Solutions"
+  },
+  
+  // Security Services (4)
+  {
+    icon: Shield,
+    title: "Security Assessment",
+    slug: "security-assessment",
+    description: "Comprehensive security evaluations including penetration testing, risk analysis, and compliance assessments.",
+    image: applicationSecurityImg,
+    gradient: "from-red-500/20 to-orange-500/5",
+    category: "Security Services"
+  },
+  {
+    icon: CheckCircle,
+    title: "Quality Assurance & Testing",
+    slug: "quality-assurance",
+    description: "Automated testing and quality engineering for high-quality, secure, and reliable software systems.",
+    image: qualityAssuranceImg,
+    gradient: "from-teal-500/20 to-emerald-500/5",
+    category: "Security Services"
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Audit & Reporting",
+    slug: "audit-reporting",
+    description: "Comprehensive compliance auditing, security reporting, and regulatory alignment services.",
+    image: qualityAssuranceImg,
+    gradient: "from-blue-500/20 to-cyan-500/5",
+    category: "Security Services"
+  },
+  {
+    icon: Lock,
+    title: "Vulnerability Scanning",
+    slug: "vulnerability-scanning",
+    description: "Continuous vulnerability detection and remediation with automated scanning and threat intelligence.",
+    image: applicationSecurityImg,
+    gradient: "from-orange-500/20 to-red-500/5",
+    category: "Security Services"
+  },
+  
+  // Management (3)
+  {
+    icon: Users,
+    title: "Staffing Services",
+    slug: "staffing-services",
+    description: "IT workforce solutions with AI-driven talent acquisition, team augmentation, and dynamic workforce planning.",
+    image: staffManagementImg,
+    gradient: "from-blue-500/20 to-indigo-500/5",
+    category: "Management"
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Project & Program Management",
+    slug: "project-management",
+    description: "Intelligent project delivery with AI analytics, automated workflows, and agile methodologies.",
+    image: projectManagementImg,
+    gradient: "from-orange-500/20 to-amber-500/5",
+    category: "Management"
+  },
+  {
+    icon: Rocket,
+    title: "Merger & Acquisition",
+    slug: "merger-acquisition",
+    description: "Strategic IT integration and transformation services for successful mergers, acquisitions, and divestitures.",
+    image: digitalTransformationImg,
+    gradient: "from-pink-500/20 to-rose-500/5",
+    category: "Management"
+  },
+   // Business Solutions (1)
   {
     icon: Rocket,
     title: "Digital Transformation",
@@ -146,15 +255,8 @@ const allServices = [
     gradient: "from-pink-500/20 to-rose-500/5",
     category: "Business Solutions"
   },
-  {
-    icon: Globe,
-    title: "Web 3.0 Solutions",
-    slug: "web3",
-    description: "Decentralized solutions with blockchain, smart contracts, and tokenized digital economies.",
-    image: web3Img,
-    gradient: "from-cyan-500/20 to-teal-500/5",
-    category: "Business Solutions"
-  },
+  
+  // Operations (2)
   {
     icon: Activity,
     title: "AIOps",
@@ -162,15 +264,6 @@ const allServices = [
     description: "AI-powered IT operations with automated monitoring, anomaly detection, and self-healing systems.",
     image: aiopsImg,
     gradient: "from-lime-500/20 to-green-500/5",
-    category: "Operations"
-  },
-  {
-    icon: Server,
-    title: "IT Infrastructure",
-    slug: "it-infrastructure",
-    description: "Enterprise infrastructure management with AI monitoring, hybrid orchestration, and self-healing systems.",
-    image: itInfrastructureImg,
-    gradient: "from-slate-500/20 to-gray-500/5",
     category: "Operations"
   },
   {
@@ -182,59 +275,25 @@ const allServices = [
     gradient: "from-sky-500/20 to-blue-500/5",
     category: "Operations"
   },
-  {
-    icon: Lock,
-    title: "Application Security",
-    slug: "application-security",
-    description: "Secure software development with DevSecOps, RASP, and continuous security testing.",
-    image: applicationSecurityImg,
-    gradient: "from-red-500/20 to-pink-500/5",
-    category: "Security & Quality"
-  },
-  {
-    icon: CheckCircle,
-    title: "Quality Assurance & Audit",
-    slug: "quality-assurance",
-    description: "Automated testing and compliance auditing for high-quality, secure, and compliant systems.",
-    image: qualityAssuranceImg,
-    gradient: "from-teal-500/20 to-emerald-500/5",
-    category: "Security & Quality"
-  },
-  {
-    icon: Users,
-    title: "Staff Management",
-    slug: "staff-management",
-    description: "IT workforce solutions with AI-driven talent acquisition and dynamic workforce planning.",
-    image: staffManagementImg,
-    gradient: "from-blue-500/20 to-indigo-500/5",
-    category: "Management"
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Project Management",
-    slug: "project-management",
-    description: "Intelligent project delivery with AI analytics, automated workflows, and agile methodologies.",
-    image: projectManagementImg,
-    gradient: "from-orange-500/20 to-amber-500/5",
-    category: "Management"
-  },
 ];
 
 const categories = [
   { name: "Core", description: "Our flagship technology services" },
   { name: "AI & Automation", description: "Intelligent solutions for the future" },
-  { name: "Business Solutions", description: "Transform your organization" },
+  { name: "High-Tech Solutions", description: "Advanced emerging technologies" },
+  { name: "Security Services", description: "Protection, compliance, and quality" },
+  { name: "Management", description: "People and project delivery" },
   { name: "Operations", description: "Infrastructure and operations excellence" },
-  { name: "Security & Quality", description: "Protection and compliance" },
-  { name: "Management", description: "People and project delivery" }
+  { name: "Business Solutions", description: "Transform your organization" },
 ];
 
 const categoryIdMap: Record<string, string> = {
   "Core": "core",
   "AI & Automation": "ai-automation",
-  "Business Solutions": "business-management",
+  "High-Tech Solutions": "hightech-solutions",
+  "Business Solutions": "business-solutions",
   "Operations": "operations",
-  "Security & Quality": "security-quality",
+  "Security Services": "security-services",
   "Management": "management",
 };
 
@@ -272,16 +331,17 @@ const ServicesPage = () => {
             <p className="text-lg text-hero-muted leading-relaxed max-w-3xl mx-auto">
               From AI and cybersecurity to cloud infrastructure and quantum computing, 
               we deliver enterprise-grade solutions with agility and compliance. Explore our complete 
-              service catalog covering 19+ specialized technology domains.
+              service catalog covering 26+ specialized technology domains.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services by Category */}
+     
+     {/* Services by Category */}
       {categories.map((category, categoryIndex) => (
         <section 
-        id={categoryIdMap[category.name]}
+          id={categoryIdMap[category.name]}
           key={category.name} 
           className={`py-12 ${categoryIndex % 2 === 0 ? 'bg-background' : 'partners-gradient'}`}
         >
@@ -305,46 +365,62 @@ const ServicesPage = () => {
               {allServices
                 .filter(service => service.category === category.name)
                 .map((service, index) => (
-                 <Link 
-                      to={`/services/${service.slug}`}
-                      // className="inline-flex items-center gap-2 text-primary font-medium text-sm group/link"
-                    >
                   <motion.div
+                  className="gradient-border"
                     key={service.slug}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.15 }}
-                    className="service-card group overflow-hidden"
                   >
-                    
-                    <div className="relative h-56 -mx-6 -mt-6 mb-6 overflow-hidden">
-                      <img 
-                        src={service.image} 
-                        alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      {/* <div className="absolute inset-0 bg-gradient-to-t from-card/20 to-transparent" /> */}
-                      <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center backdrop-blur-sm`}>
-                        <service.icon className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
+                    <Link to={`/services/${service.slug}`}>
+                      <motion.div
+                        whileHover={{ y: -10 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className="group h-full"
+                      >
+                        <div className="relative shadow-2xl h-full rounded-2xl overflow-hidden bg-card border border-border/60 hover:border-transparent transition">
+                          {/* Image */}
+                          <div className="relative h-52 overflow-hidden">
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+                            <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center backdrop-blur-sm`}>
+                              <service.icon className="w-6 h-6 text-primary" />
+                            </div>
+                          </div>
 
-                    <h3 className="text-xl font-bold text-card-foreground mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
-                      {service.description}
-                    </p>
+                          {/* Content */}
+                          <div className="p-6 relative">
+                            <div
+                              className={`absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r ${service.gradient} scale-x-0 group-hover:scale-x-100 transition-transform origin-left`}
+                            />
 
-                     <div className="inline-flex items-center gap-2 text-primary font-medium text-sm group/link"
->
+                            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition">
+                              {service.title}
+                            </h3>
 
-                      Learn More 
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                     </div>
-                  </motion.div>
+                            <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                              {service.description}
+                            </p>
+
+                            {/* CTA */}
+                            <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                              Learn More
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </div>
+
+                          {/* Glow */}
+                          <div
+                            className={`absolute -bottom-12 -right-12 w-32 h-32 bg-gradient-to-br ${service.gradient} rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition`}
+                          />
+                        </div>
+                      </motion.div>
                     </Link>
+                  </motion.div>
                 ))}
             </div>
           </div>
@@ -367,9 +443,17 @@ const ServicesPage = () => {
               Contact our experts today to discuss how we can help you achieve your technology goals 
               with our comprehensive suite of services.
             </p>
-            <Link to="/contact" className="btn-primary inline-block">
-              Contact Us Today
-            </Link>
+            <Link
+  to="/contact"
+  className="group relative inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-bold rounded-2xl overflow-hidden shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all hover:scale-105"
+>
+  <span className="relative z-10">Contact Us Today</span>
+  <span className="relative z-10 group-hover:translate-x-1 transition-transform">
+    →
+  </span>
+
+  <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+</Link>
           </motion.div>
         </div>
       </section>

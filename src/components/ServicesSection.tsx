@@ -105,8 +105,8 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section id="services" className="py-16 bg-background relative overflow-hidden">
-      <div className="container mx-auto relative z-10">
+    <section id="services" className="py-16  bg-background relative overflow-hidden">
+      <div className=" mx-16 relative z-10">
 
         {/* Header */}
         <FadeInUp className="text-center mb-20">
@@ -124,7 +124,7 @@ export const ServicesSection = () => {
         </FadeInUp>
 
         {/* Grid */}
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <StaggerContainer className="grid  sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => (
            <motion.div
                     key={service.slug}

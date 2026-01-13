@@ -4,7 +4,7 @@ import qualityAssuranceImg from "@/assets/images/quality-assurance.jpg";
 const QualityAssurance = () => {
   return (
     <ServicePageLayout
-      title="Quality Assurance & Audit"
+      title="Quality Assurance"
       subtitle="Excellence in Delivery"
       description="Quality Assurance (QA) and Audit in IT focus on ensuring that IT systems, processes, and services meet defined standards, requirements, and compliance obligations. We implement intelligent, automated, and continuous validation to ensure high-quality, secure, and compliant systems."
       image={qualityAssuranceImg}
