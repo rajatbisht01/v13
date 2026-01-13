@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import qualityAssuranceImg from "@/assets/services/quality-assurance.jpg";
+import auditImg from "@/assets/services/audit-reporting.jpg";
 
 const AuditReporting = () => {
   return (
@@ -7,7 +7,7 @@ const AuditReporting = () => {
       title="Audit & Reporting"
       subtitle="Compliance & Accountability"
       description="Audit & Reporting services provide comprehensive compliance auditing, security reporting, and regulatory alignment capabilities. We deliver automated, continuous audit processes with detailed reporting to ensure transparency, accountability, and regulatory compliance across your IT operations."
-      image={qualityAssuranceImg}
+      image={auditImg}
       features={[
         {
           title: "Automated Compliance Auditing",

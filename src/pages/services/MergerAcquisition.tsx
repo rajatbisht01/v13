@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import digitalTransformationImg from "@/assets/services/digital-transformation.jpg";
+import mergerImg from "@/assets/services/merger-acquisition.jpg";
 
 const MergerAcquisition = () => {
   return (
@@ -7,7 +7,7 @@ const MergerAcquisition = () => {
       title="Merger & Acquisition"
       subtitle="Strategic IT Integration & Transformation"
       description="Merger & Acquisition IT services provide comprehensive support for technology due diligence, integration planning, and post-merger transformation. We ensure seamless technology integration, maximize synergies, and minimize disruption during critical business combinations and divestitures."
-      image={digitalTransformationImg}
+      image={mergerImg}
       features={[
         {
           title: "IT Due Diligence",

@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import cybersecurityImg from "@/assets/services/cybersecurity.jpg";
+import aiRiskImg from "@/assets/services/ai-risk-mitigation.jpg";
 
 const AIRiskMitigation = () => {
   return (
@@ -7,7 +7,7 @@ const AIRiskMitigation = () => {
       title="AI Risk Mitigation"
       subtitle="Safe & Responsible AI Deployment"
       description="AI Risk Mitigation focuses on identifying, assessing, and managing risks associated with artificial intelligence systems. We implement comprehensive strategies to ensure AI systems are safe, ethical, secure, and aligned with organizational values and regulatory requirements."
-      image={cybersecurityImg}
+      image={aiRiskImg}
       features={[
         {
           title: "AI Risk Assessment & Modeling",

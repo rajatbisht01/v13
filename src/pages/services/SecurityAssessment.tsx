@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import applicationSecurityImg from "@/assets/services/application-security.jpg";
+import securityAssesmentImg from "@/assets/services/security-assessment.jpg";
 
 const SecurityAssessment = () => {
   return (
@@ -7,7 +7,7 @@ const SecurityAssessment = () => {
       title="Security Assessment"
       subtitle="Comprehensive Security Evaluation"
       description="Security Assessment services provide in-depth evaluation of your organization's security posture through systematic testing, analysis, and validation. We identify vulnerabilities, assess risks, and provide actionable recommendations to strengthen your defenses against evolving cyber threats."
-      image={applicationSecurityImg}
+      image={securityAssesmentImg}
       features={[
         {
           title: "Penetration Testing",
