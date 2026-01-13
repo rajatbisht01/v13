@@ -8,7 +8,7 @@ const navItems = [
   {
     label: "What We Do",
     href: "/services",
-   submenu: [
+    submenu: [
       {
         label: "Core Technology Services",
         href: "/services#core",
@@ -17,26 +17,26 @@ const navItems = [
         label: "AI & Automation",
         href: "/services#ai-automation",
       },
-      // {
-      //   label: "Cloud & Engineering",
-      //   href: "/services#cloud-engineering",
-      // },
       {
-        label: "Security & Quality",
-        href: "/services#security-quality",
+        label: "High-Tech Solutions",
+        href: "/services#hightech-solutions",
       },
       {
-        label: "Operations & Infrastructure",
+        label: "Security Services",
+        href: "/services#security-services",
+      },
+      {
+        label: "Operations",
         href: "/services#operations",
       },
       {
-        label: "Business & Management",
-        href: "/services#business-management",
+        label: "Business Solutions",
+        href: "/services#business-solutions",
       },
-      // {
-      //   label: "Quantum & Emerging Tech",
-      //   href: "/services#emerging-tech",
-      // },
+      {
+        label: "Management",
+        href: "/services#management",
+      },
       {
         label: "View All Services",
         href: "/services",

@@ -12,19 +12,23 @@ import {
 
 const footerLinks = {
   services: [
-    { label: "24×7 Managed Services", href: "/services/managed-services" },
+    { label: "Artificial Intelligence", href: "/services/artificial-intelligence" },
+    { label: "Data Science", href: "/services/data-science" },
+    { label: "Cloud Services", href: "/services/cloud-infrastructure" },
     { label: "Cybersecurity & Resilience", href: "/services/cybersecurity" },
-    { label: "AI & Data Science", href: "/services/artificial-intelligence" },
-    { label: "Cloud & Infrastructure", href: "/services/cloud-infrastructure" },
     { label: "DevSecOps Engineering", href: "/services/devsecops" },
-    { label: "Quantum Computing", href: "/services/quantum-computing" },
+    { label: "24×7 Managed Services", href: "/services/managed-services" },
+    { label: "IT Infrastructure", href: "/services/it-infrastructure" },
+    { label: "Application Services", href: "/services/application-services" },
   ],
   quickLinks: [
     { label: "Core Technology Services", href: "/services#core" },
     { label: "AI & Automation", href: "/services#ai-automation" },
-    { label: "Business Solutions", href: "/services#business-management" },
-    { label: "Operations & Infrastructure", href: "/services#operations" },
-    { label: "Security & Quality", href: "/services#security-quality" },
+    { label: "High-Tech Solutions", href: "/services#hightech-solutions" },
+    { label: "Security Services", href: "/services#security-services" },
+    { label: "Operations", href: "/services#operations" },
+    { label: "Business Solutions", href: "/services#business-solutions" },
+    { label: "Management", href: "/services#management" },
   ],
   company: [
     { label: "About Us", href: "/about" },
