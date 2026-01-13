@@ -126,7 +126,7 @@ export const KeyStrengths = () => {
                   <strength.icon className="w-7 h-7 text-primary" />
                                   </motion.div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3 hover:shadow-2xl transition-colors">
+                <h3 className="text-xl font-bold text-black group-hover:text-gradient mb-3 shadow-2xl transition-colors">
                   {strength.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">

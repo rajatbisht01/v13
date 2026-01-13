@@ -79,101 +79,56 @@ export const AboutSection = () => {
 
         {/* Vision & Mission */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-          <FadeInUp>
-            <div className="glass border border-border rounded-2xl p-8 h-full hover:border-primary/50 transition-all duration-300">
+          <motion.div
+           className="gradient-border"
+           
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+            transition={{ duration: 0.5, delay:0.15 }}>
+
+            
+            
+            <div className="glass group bg-white border border-border rounded-2xl p-8 h-full hover:border-primary/50 transition-all duration-300">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center">
                   <Target className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-foreground group-hover:text-gradient">Our Vision</h3>
               </div>
               <p className="text-muted-foreground text-lg">
                 To be the most trusted partner for secure, intelligent, and "always-on" enterprise technology.
               </p>
             </div>
-          </FadeInUp>
+            
+          </motion.div>
           
-          <FadeInUp style={{ animationDelay: "0.1s" }}>
-            <div className="glass border border-border rounded-2xl p-8 h-full hover:border-primary/50 transition-all duration-300">
+<motion.div
+           className="gradient-border"
+           
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+            transition={{ duration: 0.5, delay:0.15 }}>
+
+            <div className="glass group bg-white border border-border rounded-2xl p-8 h-full hover:border-primary/50 transition-all duration-300">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl  flex items-center justify-center">
                   <Lightbulb className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-foreground group-hover:text-gradient">Our Mission</h3>
               </div>
               <p className="text-muted-foreground text-lg">
                 To simplify digital transformation through expert engineering, "Security-First" design, and 24/7 operational excellence. 
                 We strive to deliver enterprise-grade capabilities that maintain the agility and compliance today's market demands.
               </p>
             </div>
-          </FadeInUp>
+          </motion.div>
         </div>
 
-        {/* Core Pillars */}
-        {/* <FadeInUp className="text-center mb-8">
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Our <span className="text-primary">Core Pillars</span>
-          </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            These four values guide every project we undertake
-          </p>
-        </FadeInUp>
-
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {corePillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.title}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <div className="group border border-border glass rounded-2xl p-6 h-full hover:border-primary/50 transition-all duration-300 text-center">
-                <div className="w-14 h-14 rounded-xl  flex items-center justify-center mx-auto mb-4 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300">
-                  <pillar.icon className="w-10 h-10 text-primary" />
-                </div>
-                <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {pillar.title}
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  {pillar.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </StaggerContainer>
-
-        
-        <FadeInUp className="text-center mb-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Vi-3 <span className="text-primary">Operational Model</span>
-          </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            We follow a high-touch, disciplined methodology to ensure project success
-          </p>
-        </FadeInUp>
-
-        <div className="grid mb-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {operationalModel.map((step, index) => (
-            <FadeInUp key={step.phase} style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="glass border border-border rounded-2xl p-6 h-full hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute -top-4 -right-4 text-8xl font-bold text-primary/5">
-                  {step.phase}
-                </div>
-                <div className="relative z-10">
-                  <span className="text-sm font-bold text-primary">{step.phase}</span>
-                  <h4 className="text-lg font-bold text-foreground mt-1 mb-3">{step.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-3">{step.action}</p>
-                  <div className="pt-3 border-t border-border">
-                    <span className="text-xs text-primary font-medium">Outcome:</span>
-                    <p className="text-sm text-foreground/80 mt-1">{step.outcome}</p>
-                  </div>
-                </div>
-              </div>
-            </FadeInUp>
-          ))}
-        </div> */}
+       
       </div>
     </section>
   );

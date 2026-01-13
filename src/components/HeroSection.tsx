@@ -42,8 +42,8 @@ export const HeroSection = () => {
     style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
   >
   {/* Image contrast scrim */}
-<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/10" />
-<div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/50 to-transparent" />
+<div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/10" />
+<div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
 
         </motion.div>
 
@@ -97,24 +97,35 @@ export const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-wrap gap-4"
           >
+            <motion.div
+                                        whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+            transition={{ duration: 0.3, delay:0.10 }}>
             <a
               href="/services"
-              className="inline-flex items-center border gap-2 px-8 py-4 gradient-primary text-primary-foreground font-semibold rounded-lg glow-primary hover:opacity-90 transition-opacity"
+              className="inline-flex items-center bg-primary  gap-2 px-8 py-4 gradient-primary text-primary-foreground font-semibold rounded-lg glow-primary hover:opacity-90 transition-opacity"
             >
               Explore Services
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
+            </motion.div>
+                     <motion.div
+                                        whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+            transition={{ duration: 0.3, delay:0.10 }}>
+
             <a
               href="#services"
               className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 text-primary font-semibold rounded-lg hover:bg-primary/10 transition-colors"
             >
               Get Started
             </a>
+                        </motion.div>
+
           </motion.div>
         </div>
       </div>

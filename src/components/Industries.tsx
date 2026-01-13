@@ -83,6 +83,7 @@ export const Industries = () => {
 >
           {visibleIndustries.map((industry, index) => (
             <motion.div
+            className="gradient-border"
               key={industry.name}
               variants={{
                 hidden: { opacity: 0, scale: 0.8 },
@@ -91,15 +92,16 @@ export const Industries = () => {
               transition={{ duration: 0.3, delay: index * 0.05 }}
 
             >
-              <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
+              <motion.div 
+                whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+            transition={{ duration: 0.5, delay:0.15 }}
                 whileTap={{ scale: 0.95 }}
-                className="group border border-border glass rounded-xl p-4 h-full flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all duration-300 cursor-default"
+                className="group bg-white border shadow-2xl hover:border-transparent glass rounded-xl p-4 h-full flex flex-col items-center justify-center text-center  transition-all duration-300 cursor-default"
               >
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3">
                   <industry.icon className="w-6 h-6 text-primary" />
                 </div>
-                <span className="text-sm font-medium text-foreground/80 group-hover:text-foreground transition-colors">
+                <span className="text-sm font-medium text-foreground/80 group-hover:text-gradient transition-colors">
                   {industry.name}
                 </span>
               </motion.div>
