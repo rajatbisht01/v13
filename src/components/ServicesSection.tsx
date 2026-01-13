@@ -3,12 +3,15 @@ import { FadeInUp, StaggerContainer } from "@/components/ui/motion";
 import { Link } from "react-router-dom";
 
 import aiImg from "@/assets/services/ai-services.jpg";
+import datascience from "@/assets/services/data-science.jpg";
 import cloudImg from "@/assets/services/cloud-solutions.jpg";
 import managedImg from "@/assets/services/cloud-managed.jpg";
 import cyberImg from "@/assets/services/cybersecurity.jpg";
-import quantumImg from "@/assets/services/quantum.jpg";
+import appImg from "@/assets/services/appImg.jpg";
 import devsecopsImg from "@/assets/services/devsecops.jpg";
 import { ArrowRight } from "lucide-react";
+import itInfrastructureImg from "@/assets/services/it-infrastructure.jpg";
+
 const services = [
    {
   image: aiImg,
@@ -19,14 +22,22 @@ const services = [
   slug: "artificial-intelligence",
 },
 {
-  image: aiImg,
+  image: datascience,
   title: "Data Science",
   description: "Scalable data platforms transforming raw data into actionable insights through analytics, modeling, and decision intelligence.",
   features: ["Data Pipelines & ETL", "Statistical Modeling", "Predictive Analytics", "Data Quality & Observability"],
   gradient: "from-cyan-500 via-sky-500 to-blue-500",
   slug: "data-science",
 },
-
+  {
+    image: cloudImg,
+   title: "Cloud services",
+    description: "Seamless hybrid cloud transitions with On-Prem modernization, secure migrations, and cost optimization.",
+    features: ["AWS / Azure / GCP", "Hybrid Cloud Migration", "Cloud Cost Optimization", "On-Premises Refurbishment"],
+   
+    gradient: "from-cyan-400 via-sky-500 to-blue-600",
+    slug: "cloud-infrastructure",
+  },
   {
     image: cyberImg,
     title: "Cybersecurity & Resilience",
@@ -44,6 +55,20 @@ const services = [
      gradient: "from-emerald-500/20 to-green-500/5",
     slug: "devsecops"
   },
+ {
+  image: itInfrastructureImg,
+  title: "IT Infrastructure",
+  description: "Robust and scalable infrastructure foundations covering compute, storage, networking, and enterprise systems reliability.",
+  features: [
+    "Server & Network Management",
+    "Storage & Backup Solutions",
+    "Infrastructure Monitoring",
+    "Capacity & Performance Planning"
+  ],
+  gradient: "from-blue-400 via-indigo-500 to-purple-600",
+  slug: "it-infrastructure",
+},
+
   {
     image: managedImg,
      title: "24×7 Managed Services",
@@ -54,27 +79,29 @@ const services = [
     slug: "managed-services",
   },
   
-  
-
   {
-    image: cloudImg,
-   title: "Cloud & Infrastructure",
-    description: "Seamless hybrid cloud transitions with On-Prem modernization, secure migrations, and cost optimization.",
-    features: ["AWS / Azure / GCP", "Hybrid Cloud Migration", "Cloud Cost Optimization", "On-Premises Refurbishment"],
-   
-    gradient: "from-cyan-400 via-sky-500 to-blue-600",
-    slug: "cloud-infrastructure",
-  },
-  {
-    image: quantumImg,
-    title: "Quantum Computing",
-    description: "Strategic roadmap for quantum readiness including consulting, quantum-safe cryptography, and hybrid workflows.",
-    features: ["Quantum Readiness Consulting", "Post-Quantum Encryption", "Hybrid Quantum-Classical", "Future-Proof Strategy"],
-   
-    gradient: "from-indigo-400 via-purple-500 to-pink-500",
-    slug: "quantum-computing",
-  },
+  image: appImg,
+  title: "Application Services",
+  description: "End-to-end application development, modernization, and lifecycle management aligned to business outcomes.",
+  features: [
+    "Custom Application Development",
+    "Legacy Modernization",
+    "API & Microservices Architecture",
+    "Application Maintenance & Support"
+  ],
+  gradient: "from-indigo-400 via-purple-500 to-pink-500",
+  slug: "application-services",
+},
 ];
+// {
+  //   image: quantumImg,
+  //   title: "Quantum Computing",
+  //   description: "Strategic roadmap for quantum readiness including consulting, quantum-safe cryptography, and hybrid workflows.",
+  //   features: ["Quantum Readiness Consulting", "Post-Quantum Encryption", "Hybrid Quantum-Classical", "Future-Proof Strategy"],
+   
+  //   gradient: "from-indigo-400 via-purple-500 to-pink-500",
+  //   slug: "quantum-computing",
+  // },
 
 export const ServicesSection = () => {
   return (
@@ -110,9 +137,9 @@ export const ServicesSection = () => {
                 <motion.div
                   whileHover={{ y: -10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group h-full"
+                  className="group h-full "
                 >
-                  <div className="relative h-full rounded-2xl overflow-hidden bg-card border border-border/60 hover:border-primary/60 transition">
+                  <div className="relative shadow-2xl h-full rounded-2xl overflow-hidden bg-card border border-border/60 hover:border-primary/60 transition">
 
                     {/* Image */}
                     <div className="relative h-52 overflow-hidden">

@@ -84,7 +84,7 @@ const allServices = [
   },
   {
     icon: Cloud,
-    title: "Cloud & Infrastructure",
+    title: "Cloud Services",
     slug: "cloud-infrastructure",
     description: "Seamless hybrid cloud transitions with On-Prem modernization, secure migrations, and cost optimization.",
     image: cloudInfrastructureImg,

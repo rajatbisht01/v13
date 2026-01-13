@@ -48,7 +48,7 @@ const StatItem = ({ value, suffix, label, sublabel, delay }: StatItemProps) => {
       transition={{ duration: 0.5, delay: delay / 1000 }}
       className="text-center"
     >
-      <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-2">
+      <div className="text-5xl md:text-6xl lg:text-6xl font-bold text-primary mb-2">
         {count}
         <span className="text-black">{suffix}</span>
       </div>
