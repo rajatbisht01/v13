@@ -158,10 +158,11 @@ const About = () => {
       </section>
 
 <CorePillars/>
-     
+<KeyStrengths/>
+     <Founders/>
 
       {/* ---------- GLOBAL ---------- */}
-      <section className="py-20 bg-background">
+      {/* <section className="py-20 bg-background">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <h3 className="text-3xl font-bold mb-4">Global Presence</h3>
@@ -196,7 +197,7 @@ const About = () => {
 
         <Founders/>
         <KeyStrengths/>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

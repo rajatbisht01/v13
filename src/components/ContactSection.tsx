@@ -192,7 +192,7 @@ const services = [
                                <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                    <label className="block text-sm font-medium text-foreground mb-2">
-                                     Email Address *
+                                    Business Email Address *
                                    </label>
                                    <Input
                                      required
