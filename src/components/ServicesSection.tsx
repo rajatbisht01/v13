@@ -7,7 +7,7 @@ import datascience from "@/assets/services/data-science.jpg";
 import cloudImg from "@/assets/services/cloud-solutions.jpg";
 import managedImg from "@/assets/services/cloud-managed.jpg";
 import cyberImg from "@/assets/services/cybersecurity.jpg";
-import appImg from "@/assets/services/appImg.jpg";
+import appImg from "@/assets/services/appimg.jpg";
 import devsecopsImg from "@/assets/services/devsecops.jpg";
 import { ArrowRight } from "lucide-react";
 import itInfrastructureImg from "@/assets/services/it-infrastructure.jpg";
