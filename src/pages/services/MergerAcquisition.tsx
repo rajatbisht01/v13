@@ -11,7 +11,7 @@ const MergerAcquisition = () => {
       features={[
         {
           title: "IT Due Diligence",
-          description: "Comprehensive technology assessment covering infrastructure, applications, security, compliance, and technical debt evaluation."
+          description: "Comprehensive technology assessment covering infrastructure, applications, security, compliance, and technical debt evaluation. "
         },
         {
           title: "Integration Strategy & Planning",
