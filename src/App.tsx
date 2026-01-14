@@ -47,11 +47,11 @@ import GDPRCompliance from "./pages/GDPRCompliance";
 import DataProtectionPolicy from "./pages/DataProtectionPolicy";
 import Chatbot from "./components/Chatbot";
 import ApplicationServices from "./pages/services/ApplicationServices";
-import AIRiskMitigation from "./pages/services/AiRiskMitigation";
 import AuditReporting from "./pages/services/AuditReporting";
 import VulnerabilityScanning from "./pages/services/VulnerabilityScanning";
-import { Merge } from "lucide-react";
+// import { Merge } from "lucide-react";
 import MergerAcquisition from "./pages/services/MergerAcquisition";
+import AIRiskMitigation from "./pages/services/AIRiskMitigation";
 const queryClient = new QueryClient();
 
 const App = () => (
