@@ -1,7 +1,7 @@
 "use client";
 
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import appImg from "@/assets/services/appImg.jpg";
+import appImg from "@/assets/services/appimg.jpg";
 
 const ApplicationServices = () => {
   return (
