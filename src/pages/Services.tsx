@@ -21,7 +21,37 @@ import {
   Workflow,
   Server,
   Layers,
-  BarChart3
+  BarChart3,
+  Monitor,
+  UserCog,
+  Warehouse,
+  Link2,
+  Settings,
+  Gauge,
+  CloudCog,
+  ArrowUpCircle,
+  RefreshCw,
+  DollarSign,
+  CloudOff,
+  Combine,
+  ShieldCheck,
+  UserCheck,
+  AlertTriangle,
+  FileText,
+  Radar,
+  Search,
+  KeyRound,
+  Database,
+  Building,
+  HardDrive,
+  Network,
+  DatabaseBackup,
+  ArchiveRestore,
+  Truck,
+  Wrench,
+  AppWindow,
+  Sparkles,
+  RefreshCcw
 } from "lucide-react";
 
 import managedServicesImg from "@/assets/services/cloud-managed.jpg";
@@ -47,11 +77,17 @@ import securityAssesmentImg from "@/assets/services/security-assessment.jpg";
 import applicationServiceImg from "@/assets/services/application-services.jpg";
 import auditImg from "@/assets/services/audit-reporting.jpg";
 import mergerImg from "@/assets/services/merger-acquisition.jpg";
-import { Header } from "@/components/Header";
 import datascience from "@/assets/services/data-science.jpg";
+import softwareDevelopmentImg from "@/assets/services/software-development.jpg";
+import hrStaffingImg from "@/assets/services/staff-management.jpg";
+import devopsImg from "@/assets/services/devsecops.jpg";
+import dataWarehouseImg from "@/assets/services/data-science.jpg";
+import dataLakeImg from "@/assets/services/data-science.jpg";
+import { Header } from "@/components/Header";
+
 
 const allServices = [
-  // Core Services (8)
+  // Core Services (9)
   {
     icon: Brain,
     title: "Artificial Intelligence",
@@ -88,6 +124,16 @@ const allServices = [
     gradient: "from-red-500/20 to-orange-500/5",
     category: "Core"
   },
+   {
+    image: devopsImg,
+    icon: Settings,
+    title: "DevOps",
+    description: "Continuous integration and delivery pipelines with infrastructure as code and automated deployment workflows.",
+    features: ["CI/CD Automation", "Infrastructure as Code", "Configuration Management", "Deployment Automation"],
+    gradient: "from-emerald-500/20 to-green-500/5",
+    slug: "devops",
+    category: "Core"
+  },
   {
     icon: Code,
     title: "DevSecOps Engineering",
@@ -122,6 +168,15 @@ const allServices = [
     description: "End-to-end application development, modernization, and lifecycle management aligned to business outcomes.",
     image: applicationServiceImg,
     gradient: "from-sky-500/20 to-blue-500/5",
+    category: "Core"
+  },
+  {
+    icon: Monitor,
+    title: "Software Development",
+    slug: "software-development",
+    description: "Custom software solutions with modern frameworks, agile methodologies, and full-stack development expertise.",
+    image: softwareDevelopmentImg,
+    gradient: "from-indigo-500/20 to-violet-500/5",
     category: "Core"
   },
  
@@ -164,7 +219,56 @@ const allServices = [
     category: "AI & Automation"
   },
   
-  // High-Tech Solutions (2)
+  // Data & Analytics (3)
+  {
+    icon: Warehouse,
+    title: "Data Warehouse",
+    slug: "data-warehouse",
+    description: "Enterprise data warehousing solutions for centralized analytics, reporting, and business intelligence.",
+    image: dataWarehouseImg,
+    gradient: "from-blue-500/20 to-indigo-500/5",
+    category: "Data & Analytics"
+  },
+  {
+    icon: Link2,
+    title: "Data Lake",
+    slug: "data-lake",
+    description: "Scalable data lake architecture for storing and processing structured and unstructured data at any scale.",
+    image: dataLakeImg,
+    gradient: "from-cyan-500/20 to-blue-500/5",
+    category: "Data & Analytics"
+  },
+  {
+    icon: BarChart3,
+    title: "Big Data",
+    slug: "big-data",
+    description: "Big data analytics and processing solutions for extracting insights from massive datasets.",
+    image: datascience,
+    gradient: "from-purple-500/20 to-indigo-500/5",
+    category: "Data & Analytics"
+  },
+  
+  // DevOps & Engineering (2)
+  {
+    icon: Settings,
+    title: "DevOps",
+    slug: "devops",
+    description: "Continuous integration and delivery pipelines with infrastructure as code and automated deployment workflows.",
+    image: devopsImg,
+    gradient: "from-orange-500/20 to-red-500/5",
+    category: "DevOps & Engineering"
+  },
+  {
+    icon: Layers,
+    title: "Architecture & Engineering",
+    slug: "architecture",
+    description: "System design with cloud-native, event-driven, and security-first architectures.",
+    image: architectureImg,
+    gradient: "from-sky-500/20 to-blue-500/5",
+    category: "DevOps & Engineering"
+  },
+  
+  // High-Tech Solutions (4)
   {
     icon: Atom,
     title: "Quantum Computing",
@@ -183,8 +287,26 @@ const allServices = [
     gradient: "from-cyan-500/20 to-teal-500/5",
     category: "High-Tech Solutions"
   },
+  {
+    icon: Building,
+    title: "ERP",
+    slug: "erp",
+    description: "Enterprise Resource Planning implementation and optimization.",
+    image: itInfrastructureImg,
+    gradient: "from-amber-500/20 to-orange-500/5",
+    category: "High-Tech Solutions"
+  },
+  {
+    icon: Globe,
+    title: "GCC Services",
+    slug: "gcc-services",
+    description: "Global Capability Center setup and management services.",
+    image: cloudInfrastructureImg,
+    gradient: "from-teal-500/20 to-cyan-500/5",
+    category: "High-Tech Solutions"
+  },
   
-  // Security Services (4)
+  // Security & Quality (4)
   {
     icon: Shield,
     title: "Security Assessment",
@@ -192,7 +314,7 @@ const allServices = [
     description: "Comprehensive security evaluations including penetration testing, risk analysis, and compliance assessments.",
     image: securityAssesmentImg,
     gradient: "from-red-500/20 to-orange-500/5",
-    category: "Security Services"
+    category: "Security & Quality"
   },
   {
     icon: CheckCircle,
@@ -201,7 +323,7 @@ const allServices = [
     description: "Automated testing and quality engineering for high-quality, secure, and reliable software systems.",
     image: qualityAssuranceImg,
     gradient: "from-teal-500/20 to-emerald-500/5",
-    category: "Security Services"
+    category: "Security & Quality"
   },
   {
     icon: ClipboardCheck,
@@ -210,7 +332,7 @@ const allServices = [
     description: "Comprehensive compliance auditing, security reporting, and regulatory alignment services.",
     image: auditImg,
     gradient: "from-blue-500/20 to-cyan-500/5",
-    category: "Security Services"
+    category: "Security & Quality"
   },
   {
     icon: Lock,
@@ -219,18 +341,18 @@ const allServices = [
     description: "Continuous vulnerability detection and remediation with automated scanning and threat intelligence.",
     image: applicationSecurityImg,
     gradient: "from-orange-500/20 to-red-500/5",
-    category: "Security Services"
+    category: "Security & Quality"
   },
   
-  // Management (3)
+  // Business Services (3)
   {
-    icon: Users,
-    title: "Staffing Services",
-    slug: "staff-management",
+    icon: UserCog,
+    title: "HR & Staffing Services",
+    slug: "hr-staffing",
     description: "IT workforce solutions with AI-driven talent acquisition, team augmentation, and dynamic workforce planning.",
-    image: staffManagementImg,
+    image: hrStaffingImg,
     gradient: "from-blue-500/20 to-indigo-500/5",
-    category: "Management"
+    category: "Business Services"
   },
   {
     icon: ClipboardCheck,
@@ -239,7 +361,7 @@ const allServices = [
     description: "Intelligent project delivery with AI analytics, automated workflows, and agile methodologies.",
     image: projectManagementImg,
     gradient: "from-orange-500/20 to-amber-500/5",
-    category: "Management"
+    category: "Business Services"
   },
   {
     icon: Rocket,
@@ -248,9 +370,10 @@ const allServices = [
     description: "Strategic IT integration and transformation services for successful mergers, acquisitions, and divestitures.",
     image: mergerImg,
     gradient: "from-pink-500/20 to-rose-500/5",
-    category: "Management"
+    category: "Business Services"
   },
-   // Business Solutions (1)
+  
+  // Transformation (2)
   {
     icon: Rocket,
     title: "Digital Transformation",
@@ -258,10 +381,8 @@ const allServices = [
     description: "End-to-end digital transformation using AI, automation, and cloud technologies for business agility.",
     image: digitalTransformationImg,
     gradient: "from-pink-500/20 to-rose-500/5",
-    category: "Business Solutions"
+    category: "Digital Transformation"
   },
-  
-  // Operations (2)
   {
     icon: Activity,
     title: "AIOps",
@@ -269,37 +390,344 @@ const allServices = [
     description: "AI-powered IT operations with automated monitoring, anomaly detection, and self-healing systems.",
     image: aiopsImg,
     gradient: "from-lime-500/20 to-green-500/5",
-    category: "Operations"
+    category: "Digital Transformation"
+  },
+
+  // Cloud Services Category (10 sub-services as main services)
+  {
+    icon: Gauge,
+    title: "Cloud Strategic",
+    slug: "cloud-strategic",
+    description: "Strategic cloud planning and roadmap development for enterprise transformation.",
+    image: cloudInfrastructureImg,
+    gradient: "from-blue-500/20 to-sky-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: CloudCog,
+    title: "Cloud Orchestration",
+    slug: "cloud-orchestration",
+    description: "Multi-cloud management and orchestration for seamless operations.",
+    image: cloudInfrastructureImg,
+    gradient: "from-cyan-500/20 to-blue-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: Rocket,
+    title: "Cloud Adoption",
+    slug: "cloud-adoption",
+    description: "End-to-end cloud adoption frameworks and implementation strategies.",
+    image: cloudInfrastructureImg,
+    gradient: "from-sky-500/20 to-cyan-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: ArrowUpCircle,
+    title: "Cloud Secure Migration",
+    slug: "cloud-migration",
+    description: "Secure and seamless migration to cloud platforms with zero downtime.",
+    image: cloudInfrastructureImg,
+    gradient: "from-indigo-500/20 to-blue-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: RefreshCw,
+    title: "Cloud Modernization",
+    slug: "cloud-modernization",
+    description: "Legacy system modernization using cloud-native technologies.",
+    image: cloudInfrastructureImg,
+    gradient: "from-violet-500/20 to-indigo-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: DollarSign,
+    title: "Cloud Cost Optimization",
+    slug: "cloud-cost-optimization",
+    description: "FinOps practices and cloud cost management strategies.",
+    image: cloudInfrastructureImg,
+    gradient: "from-green-500/20 to-emerald-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: Lock,
+    title: "Cloud Security",
+    slug: "cloud-security",
+    description: "Comprehensive cloud security posture management and protection.",
+    image: cybersecurityImg,
+    gradient: "from-red-500/20 to-orange-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: Settings,
+    title: "Cloud Operations",
+    slug: "cloud-operations",
+    description: "24/7 cloud operations, monitoring, and management services.",
+    image: managedServicesImg,
+    gradient: "from-slate-500/20 to-gray-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: CloudOff,
+    title: "Private Cloud",
+    slug: "private-cloud",
+    description: "Private cloud design, deployment, and management solutions.",
+    image: cloudInfrastructureImg,
+    gradient: "from-purple-500/20 to-violet-500/5",
+    category: "Cloud Services"
+  },
+  {
+    icon: Combine,
+    title: "Hybrid Cloud",
+    slug: "hybrid-cloud",
+    description: "Hybrid cloud architecture connecting on-premise and cloud environments.",
+    image: cloudInfrastructureImg,
+    gradient: "from-blue-500/20 to-purple-500/5",
+    category: "Cloud Services"
+  },
+
+  // Cybersecurity Category (11 sub-services as main services)
+  {
+    icon: ShieldCheck,
+    title: "Enterprise Security",
+    slug: "enterprise-security",
+    description: "Comprehensive enterprise security architecture and implementation.",
+    image: cybersecurityImg,
+    gradient: "from-red-500/20 to-orange-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: UserCheck,
+    title: "Digital Identity Management",
+    slug: "digital-identity",
+    description: "IAM solutions, SSO, and identity governance frameworks.",
+    image: cybersecurityImg,
+    gradient: "from-blue-500/20 to-indigo-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: Scale,
+    title: "GRC",
+    slug: "grc",
+    description: "Governance, Risk, and Compliance management solutions.",
+    image: auditImg,
+    gradient: "from-amber-500/20 to-yellow-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: AlertTriangle,
+    title: "Incident Response & Recovery",
+    slug: "incident-response",
+    description: "24/7 incident response and business continuity planning.",
+    image: cybersecurityImg,
+    gradient: "from-orange-500/20 to-red-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: FileText,
+    title: "Privacy & Data Protection",
+    slug: "data-protection",
+    description: "Data privacy compliance and protection strategies.",
+    image: cybersecurityImg,
+    gradient: "from-green-500/20 to-teal-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: Brain,
+    title: "Secure AI Adoption",
+    slug: "secure-ai",
+    description: "AI security frameworks and responsible AI implementation.",
+    image: aiGovernanceImg,
+    gradient: "from-purple-500/20 to-violet-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: Radar,
+    title: "Threat Detection & Response",
+    slug: "threat-detection",
+    description: "Advanced threat detection, SOC, and MDR services.",
+    image: cybersecurityImg,
+    gradient: "from-red-500/20 to-pink-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: Search,
+    title: "VAPT",
+    slug: "vapt",
+    description: "Vulnerability Assessment and Penetration Testing services.",
+    image: securityAssesmentImg,
+    gradient: "from-orange-500/20 to-amber-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: Cloud,
+    title: "Secure Cloud Transformation",
+    slug: "secure-cloud",
+    description: "Security-first cloud migration and transformation.",
+    image: cybersecurityImg,
+    gradient: "from-blue-500/20 to-cyan-500/5",
+    category: "Cybersecurity"
   },
   {
     icon: Layers,
-    title: "Architecture & Engineering",
-    slug: "architecture",
-    description: "System design with cloud-native, event-driven, and security-first architectures.",
-    image: architectureImg,
-    gradient: "from-sky-500/20 to-blue-500/5",
-    category: "Operations"
+    title: "Service Assurance",
+    slug: "service-assurance",
+    description: "Security service quality assurance and compliance monitoring.",
+    image: qualityAssuranceImg,
+    gradient: "from-teal-500/20 to-emerald-500/5",
+    category: "Cybersecurity"
+  },
+  {
+    icon: KeyRound,
+    title: "PKI",
+    slug: "pki",
+    description: "Public Key Infrastructure design and management.",
+    image: cybersecurityImg,
+    gradient: "from-indigo-500/20 to-purple-500/5",
+    category: "Cybersecurity"
+  },
+
+  // IT Infrastructure Category (12 sub-services as main services)
+  {
+    icon: Gauge,
+    title: "Technology Advisory",
+    slug: "technology-advisory",
+    description: "Strategic technology consulting and advisory services.",
+    image: itInfrastructureImg,
+    gradient: "from-blue-500/20 to-indigo-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: Server,
+    title: "Servers",
+    slug: "servers",
+    description: "Server infrastructure design, deployment, and management.",
+    image: itInfrastructureImg,
+    gradient: "from-slate-500/20 to-gray-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: HardDrive,
+    title: "Storage",
+    slug: "storage",
+    description: "Enterprise storage solutions and data management.",
+    image: itInfrastructureImg,
+    gradient: "from-cyan-500/20 to-blue-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: Building,
+    title: "Data Center Consolidation",
+    slug: "datacenter-consolidation",
+    description: "Data center optimization and consolidation strategies.",
+    image: itInfrastructureImg,
+    gradient: "from-orange-500/20 to-amber-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: Network,
+    title: "Networking",
+    slug: "networking",
+    description: "Enterprise networking design and implementation.",
+    image: itInfrastructureImg,
+    gradient: "from-green-500/20 to-emerald-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: Database,
+    title: "Database",
+    slug: "database",
+    description: "Database administration, optimization, and migration.",
+    image: datascience,
+    gradient: "from-purple-500/20 to-indigo-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: DatabaseBackup,
+    title: "Backup & Restore",
+    slug: "backup-restore",
+    description: "Enterprise backup solutions and recovery services.",
+    image: itInfrastructureImg,
+    gradient: "from-teal-500/20 to-cyan-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: ArchiveRestore,
+    title: "Disaster Recovery",
+    slug: "disaster-recovery",
+    description: "DR planning, implementation, and testing.",
+    image: itInfrastructureImg,
+    gradient: "from-red-500/20 to-orange-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: Truck,
+    title: "Deployment, Upgradation & Migration",
+    slug: "deployment-migration",
+    description: "Infrastructure deployment and migration services.",
+    image: itInfrastructureImg,
+    gradient: "from-indigo-500/20 to-violet-500/5",
+    category: "IT Infrastructure"
+  },
+  {
+    icon: Server,
+    title: "Data Center",
+    slug: "data-center",
+    description: "Data center design, build, and management.",
+    image: itInfrastructureImg,
+    gradient: "from-blue-500/20 to-sky-500/5",
+    category: "IT Infrastructure"
+  },
+ 
+
+  // Value Add Services Category (2 sub-services as main services)
+  {
+    icon: Sparkles,
+    title: "Service Improvement",
+    slug: "service-improvement",
+    description: "IT service improvement and optimization initiatives.",
+    image: managedServicesImg,
+    gradient: "from-cyan-500/20 to-teal-500/5",
+    category: "Value Add Services"
+  },
+  {
+    icon: RefreshCcw,
+    title: "Continuous Service Improvement",
+    slug: "continuous-improvement",
+    description: "ITIL-based continuous service improvement programs.",
+    image: managedServicesImg,
+    gradient: "from-green-500/20 to-emerald-500/5",
+    category: "Value Add Services"
   },
 ];
 
 const categories = [
   { name: "Core", description: "Our flagship technology services" },
   { name: "AI & Automation", description: "Intelligent solutions for the future" },
+  { name: "Data & Analytics", description: "Data-driven insights and intelligence" },
+  { name: "DevOps & Engineering", description: "Modern development and operations" },
   { name: "High-Tech Solutions", description: "Advanced emerging technologies" },
-  { name: "Security Services", description: "Protection, compliance, and quality" },
-  { name: "Management", description: "People and project delivery" },
-  { name: "Operations", description: "Infrastructure and operations excellence" },
-  { name: "Business Solutions", description: "Transform your organization" },
+  { name: "Security & Quality", description: "Protection, compliance, and quality" },
+  { name: "Business Services", description: "People and project delivery" },
+  { name: "Digital Transformation", description: "Transform your organization" },
+  { name: "Cloud Services", description: "Comprehensive cloud solutions and services" },
+  { name: "Cybersecurity", description: "Advanced security and resilience services" },
+  { name: "IT Infrastructure", description: "Enterprise infrastructure solutions" },
+  { name: "Value Add Services", description: "Continuous improvement and optimization" },
 ];
 
 const categoryIdMap: Record<string, string> = {
   "Core": "core",
   "AI & Automation": "ai-automation",
+  "Data & Analytics": "data-analytics",
+  "DevOps & Engineering": "devops-engineering",
   "High-Tech Solutions": "hightech-solutions",
-  "Business Solutions": "business-solutions",
-  "Operations": "operations",
-  "Security Services": "security-services",
-  "Management": "management",
+  "Security & Quality": "security-quality",
+  "Business Services": "business-services",
+  "Digital Transformation": "digital-transformation",
+  "Cloud Services": "cloud-services",
+  "Cybersecurity": "cybersecurity",
+  "IT Infrastructure": "it-infrastructure",
+  "Value Add Services": "value-add-services",
 };
 
 
@@ -336,7 +764,7 @@ const ServicesPage = () => {
             <p className="text-lg text-hero-muted leading-relaxed max-w-3xl mx-auto">
               From AI and cybersecurity to cloud infrastructure and quantum computing, 
               we deliver enterprise-grade solutions with agility and compliance. Explore our complete 
-              service catalog covering 26+ specialized technology domains.
+              service catalog covering 60+ specialized technology domains.
             </p>
           </motion.div>
         </div>
@@ -359,7 +787,7 @@ const ServicesPage = () => {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                <span className="text-gradient">{category.name}</span> Services
+                <span className="text-gradient">{category.name}</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 {category.description}
@@ -376,7 +804,7 @@ const ServicesPage = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.15 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <Link to={`/services/${service.slug}`}>
                       <motion.div

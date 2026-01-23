@@ -9,32 +9,34 @@ import managedImg from "@/assets/services/cloud-managed.jpg";
 import cyberImg from "@/assets/services/cybersecurity.jpg";
 import appImg from "@/assets/services/appimg.jpg";
 import devsecopsImg from "@/assets/services/devsecops.jpg";
+import devopsImg from "@/assets/services/devops.jpg";
+import softwareDevelopmentImg from "@/assets/services/software-development.jpg";
 import { ArrowRight } from "lucide-react";
 import itInfrastructureImg from "@/assets/services/it-infrastructure.jpg";
 
+
 const services = [
-   {
-  image: aiImg,
-  title: "Artificial Intelligence",
-  description: "Production-grade AI systems leveraging LLMs, agents, and automation to drive intelligent decision-making and real business outcomes.",
-  features: ["LLM Engineering", "AI Agents & Automation", "Model Deployment", "AI Governance & Security"],
-  gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
-  slug: "artificial-intelligence",
-},
-{
-  image: datascience,
-  title: "Data Science",
-  description: "Scalable data platforms transforming raw data into actionable insights through analytics, modeling, and decision intelligence.",
-  features: ["Data Pipelines & ETL", "Statistical Modeling", "Predictive Analytics", "Data Quality & Observability"],
-  gradient: "from-cyan-500 via-sky-500 to-blue-500",
-  slug: "data-science",
-},
+  {
+    image: aiImg,
+    title: "Artificial Intelligence",
+    description: "Production-grade AI systems leveraging LLMs, agents, and automation to drive intelligent decision-making and real business outcomes.",
+    features: ["LLM Engineering", "AI Agents & Automation", "Model Deployment", "AI Governance & Security"],
+    gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
+    slug: "artificial-intelligence",
+  },
+  {
+    image: datascience,
+    title: "Data Science",
+    description: "Scalable data platforms transforming raw data into actionable insights through analytics, modeling, and decision intelligence.",
+    features: ["Data Pipelines & ETL", "Statistical Modeling", "Predictive Analytics", "Data Quality & Observability"],
+    gradient: "from-cyan-500 via-sky-500 to-blue-500",
+    slug: "data-science",
+  },
   {
     image: cloudImg,
-   title: "Cloud services",
+    title: "Cloud Services",
     description: "Seamless hybrid cloud transitions with On-Prem modernization, secure migrations, and cost optimization.",
     features: ["AWS / Azure / GCP", "Hybrid Cloud Migration", "Cloud Cost Optimization", "On-Premises Refurbishment"],
-   
     gradient: "from-cyan-400 via-sky-500 to-blue-600",
     slug: "cloud-infrastructure",
   },
@@ -43,70 +45,79 @@ const services = [
     title: "Cybersecurity & Resilience",
     description: "Defense-in-Depth strategy with Zero Trust architecture, MDR, and Quantum-Safe encryption for complete protection.",
     features: ["Zero Trust Implementation", "CNAPP & CSPM", "Managed Detection & Response", "Quantum-Safe Cryptography"],
-   
     gradient: "from-rose-500 via-red-500 to-orange-500",
     slug: "cybersecurity",
   },
-   {
+  {
     image: devsecopsImg,
-   title: "DevSecOps Engineering",
+    title: "DevSecOps Engineering",
     description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
     features: ["Kubernetes & Docker", "Automated CI/CD Pipelines", "Security Integration", "Infrastructure as Code"],
-     gradient: "from-emerald-500/20 to-green-500/5",
+    gradient: "from-emerald-500 via-green-500 to-teal-500",
     slug: "devsecops"
   },
- {
-  image: itInfrastructureImg,
-  title: "IT Infrastructure",
-  description: "Robust and scalable infrastructure foundations covering compute, storage, networking, and enterprise systems reliability.",
-  features: [
-    "Server & Network Management",
-    "Storage & Backup Solutions",
-    "Infrastructure Monitoring",
-    "Capacity & Performance Planning"
-  ],
-  gradient: "from-blue-400 via-indigo-500 to-purple-600",
-  slug: "it-infrastructure",
-},
-
+  {
+    image: devopsImg,
+    title: "DevOps",
+    description: "Continuous integration and delivery pipelines with infrastructure as code and automated deployment workflows.",
+    features: ["CI/CD Automation", "Infrastructure as Code", "Configuration Management", "Deployment Automation"],
+    gradient: "from-orange-500 via-amber-500 to-yellow-500",
+    slug: "devops"
+  },
+  {
+    image: itInfrastructureImg,
+    title: "IT Infrastructure",
+    description: "Robust and scalable infrastructure foundations covering compute, storage, networking, and enterprise systems reliability.",
+    features: [
+      "Server & Network Management",
+      "Storage & Backup Solutions",
+      "Infrastructure Monitoring",
+      "Capacity & Performance Planning"
+    ],
+    gradient: "from-blue-400 via-indigo-500 to-purple-600",
+    slug: "it-infrastructure",
+  },
   {
     image: managedImg,
-     title: "24×7 Managed Services",
+    title: "24×7 Managed Services",
     description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
     features: ["Proactive Infrastructure Monitoring", "Automated Patch Management", "Level 1-3 Technical Support", "Performance Optimization"],
-    
     gradient: "from-blue-400 via-indigo-500 to-purple-600",
     slug: "managed-services",
   },
-  
   {
-  image: appImg,
-  title: "Application Services",
-  description: "End-to-end application development, modernization, and lifecycle management aligned to business outcomes.",
-  features: [
-    "Custom Application Development",
-    "Legacy Modernization",
-    "API & Microservices Architecture",
-    "Application Maintenance & Support"
-  ],
-  gradient: "from-indigo-400 via-purple-500 to-pink-500",
-  slug: "application-services",
-},
+    image: appImg,
+    title: "Application Services",
+    description: "End-to-end application development, modernization, and lifecycle management aligned to business outcomes.",
+    features: [
+      "Custom Application Development",
+      "Legacy Modernization",
+      "API & Microservices Architecture",
+      "Application Maintenance & Support"
+    ],
+    gradient: "from-indigo-400 via-purple-500 to-pink-500",
+    slug: "application-services",
+  },
+  {
+    image: softwareDevelopmentImg,
+    title: "Software Development",
+    description: "Custom software solutions with modern frameworks, agile methodologies, and full-stack development expertise.",
+    features: [
+      "Full-Stack Development",
+      "Mobile App Development",
+      "Agile & Scrum Methodologies",
+      "Quality Assurance & Testing"
+    ],
+    gradient: "from-indigo-500 via-violet-500 to-purple-500",
+    slug: "software-development",
+  },
 ];
-// {
-  //   image: quantumImg,
-  //   title: "Quantum Computing",
-  //   description: "Strategic roadmap for quantum readiness including consulting, quantum-safe cryptography, and hybrid workflows.",
-  //   features: ["Quantum Readiness Consulting", "Post-Quantum Encryption", "Hybrid Quantum-Classical", "Future-Proof Strategy"],
-   
-  //   gradient: "from-indigo-400 via-purple-500 to-pink-500",
-  //   slug: "quantum-computing",
-  // },
+
 
 export const ServicesSection = () => {
   return (
     <section id="services" className="py-16  bg-background relative overflow-hidden">
-      <div className=" mx-16 relative z-10">
+      <div className=" mx-12 relative z-10">
 
         {/* Header */}
         <FadeInUp className="text-center mb-20">
@@ -115,7 +126,7 @@ export const ServicesSection = () => {
             <span className="text-foreground">Scalable.</span>{" "}
             <span className="text-primary">Intelligent.</span>
           </h2>
-           <span className="text-3xl md:text-5xl text-gradient font-extrabold "> Technology Solutions</span>
+          <span className="text-3xl md:text-5xl text-gradient font-extrabold "> Technology Solutions</span>
          
           <p className="mt-6 text-muted-foreground max-w-3xl mx-auto text-lg">
             Enterprise technology services spanning AI, Cloud, Cybersecurity,
@@ -124,14 +135,14 @@ export const ServicesSection = () => {
         </FadeInUp>
 
         {/* Grid */}
-        <StaggerContainer className="grid  sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <StaggerContainer className="grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-           <motion.div
-                    key={service.slug}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.15 }}
+            <motion.div
+              key={service.slug}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
             >
               <Link to={`/services/${service.slug}`}>
                 <motion.div
@@ -148,7 +159,6 @@ export const ServicesSection = () => {
                         alt={service.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" /> */}
                     </div>
 
                     {/* Content */}
@@ -199,26 +209,26 @@ export const ServicesSection = () => {
         </StaggerContainer>
       </div>
       {/* See All Services */}
-<FadeInUp className="mt-12 text-center">
-  <Link to="/services">
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.98 }}
-      className="
-        inline-flex items-center gap-3
-        px-8 py-4 rounded-xl
-        bg-primary text-primary-foreground
-        font-semibold text-md
-        shadow-lg shadow-primary/25
-        hover:shadow-primary/40
-        transition-all
-      "
-    >
-      See all services
-      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-6 transition-transform" />
-    </motion.button>
-  </Link>
-</FadeInUp>
+      <FadeInUp className="mt-12 text-center">
+        <Link to="/services">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="
+              inline-flex items-center gap-3
+              px-8 py-4 rounded-xl
+              bg-primary text-primary-foreground
+              font-semibold text-md
+              shadow-lg shadow-primary/25
+              hover:shadow-primary/40
+              transition-all
+            "
+          >
+            See all services
+            <ArrowRight className="w-4 h-4 group-hover/link:translate-x-6 transition-transform" />
+          </motion.button>
+        </Link>
+      </FadeInUp>
 
     </section>
   );

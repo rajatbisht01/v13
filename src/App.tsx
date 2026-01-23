@@ -52,6 +52,7 @@ import VulnerabilityScanning from "./pages/services/VulnerabilityScanning";
 // import { Merge } from "lucide-react";
 import MergerAcquisition from "./pages/services/MergerAcquisition";
 import AIRiskMitigation from "./pages/services/AIRiskMitigation";
+import CloudAdoption from "./pages/services/CloudAdoption";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -90,6 +91,7 @@ const App = () => (
           <Route path="/services/vulnerability-scanning" element={<VulnerabilityScanning />} />
           <Route path="/services/merger-acquisition" element={<MergerAcquisition />} />
 
+<Route path="/services/cloud-adoption" element={<CloudAdoption/>} />
 
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
