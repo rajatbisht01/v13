@@ -1,12 +1,31 @@
 import { FadeIn } from "@/components/ui/FadeIn";
 import { InfiniteScroll } from "@/components/ui/InfiniteScroll";
 import { FadeInUp } from "./ui/motion";
+import redington from "@/assets/partners/redington.jpeg";
+import flexera from "@/assets/partners/flexera.jpeg";
+import fortinet from "@/assets/partners/fortinet.jpeg";
+import ibm from "@/assets/partners/ibm.jpeg";
+import salesforce from "@/assets/partners/salesforce.jpeg";
+import rsa from "@/assets/partners/rsa.jpeg";
+import databricks from "@/assets/partners/databricks.jpeg";
+import accunox from "@/assets/partners/accunox.jpeg";
+import corporatestack from "@/assets/partners/corporatestack.jpeg";
+
+
 
 const partners = [
   { 
     name: "IBM", 
-    logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg"
+    logo: ibm
   },
+  { 
+    name: "Salesforce", 
+    logo: salesforce
+  },
+  { 
+    name: "Fortinet", 
+    logo: fortinet  },
+    {name: "RSA", logo: rsa},
   { 
     name: "Nutanix", 
     logo: "https://logos-world.net/wp-content/uploads/2022/04/Nutanix-Logo.png"
@@ -14,7 +33,7 @@ const partners = [
  
   { 
     name: "AccuKnox", 
-    logo: "https://www.ycombinator.com/companies/accuknox/card_image-1678764426660.png"
+    logo: accunox
   },
   { 
     name: "Google Cloud", 
@@ -30,15 +49,14 @@ const partners = [
   },
   { 
     name: "CoreStack", 
-    logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1489722дето/qm4wtbrlixrhqy3grgog.png"
-  },
+    logo: corporatestack},
   { 
     name: "Databricks", 
-    logo: "https://www.vectorlogo.zone/logos/databricks/databricks-ar21.svg"
+    logo: databricks
   },
   { 
     name: "Flexera", 
-    logo: "https://www.vectorlogo.zone/logos/flexera/flexera-ar21.svg"
+    logo: flexera
   },
   { 
     name: "Zoho", 
@@ -46,7 +64,7 @@ const partners = [
   },
    { 
     name: "Redington", 
-    logo: "https://seeklogo.com/images/R/redington-logo-D8B0889AB5-seeklogo.com.png"
+    logo: redington
   },
   { 
     name: "ServiceNow", 

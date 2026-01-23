@@ -1,6 +1,6 @@
 import React from "react";
 import { FadeInUp, motion, StaggerContainer } from "./ui/motion";
-import { Brain, Shield, Clock, Cloud } from "lucide-react";
+import { Brain,Lightbulb, Shield, Clock, Cloud } from "lucide-react";
 
 const operationalModel = [
   {
@@ -40,6 +40,12 @@ const CorePillars = () => {
         "We don't just build for today. We design systems using AI and Containerization that grow seamlessly with your business.",
     },
     {
+    icon: Lightbulb,
+    title: "Innovation at the Core",
+    description:
+      "Innovation is engineered into our process. We continuously adopt emerging technologies, automation, and AI-driven insights to keep your systems ahead of the curve.",
+  },
+    {
       icon: Clock,
       title: "Unwavering Support",
       description:
@@ -47,22 +53,22 @@ const CorePillars = () => {
     },
     {
       icon: Cloud,
-      title: "Hybrid Agility",
+      title: "Agility",
       description:
         "We respect the power of On-Premises control while leveraging the infinite scale of the Cloud, providing a balanced, modernization-focused approach.",
     },
   ];
   return (
-    <section className="px-4 lg:px-40 pt-20 bg-background">
+    <section className="px-4 lg:px-20 pt-20 bg-background">
       <FadeInUp className="text-center mb-10">
         <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
           Our <span className="text-primary">Core Pillars</span>
         </h3>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          These four values guide every project we undertake
+          These values guide every project we undertake
         </p>
       </FadeInUp>
-      <StaggerContainer className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <StaggerContainer className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
         {corePillars.map((pillar, index) => (
           <motion.div             className="gradient-border"
             key={pillar.title}
