@@ -122,7 +122,7 @@ import cicdImg from "@/assets/services/cicd.jpg";
 import integrationImg from "@/assets/services/integration.jpg";
 import blockchainImg from "@/assets/services/blockchain.jpg";
 import iotImg from "@/assets/services/iot.jpg";
-
+import serviceDeliveryImg from "@/assets/services/service-delivery.jpg";
 
 import { Header } from "@/components/Header";
 
@@ -467,6 +467,15 @@ const allServices = [
     slug: "aiops",
     description: "AI-powered IT operations with automated monitoring, anomaly detection, and self-healing systems.",
     image: aiopsImg,
+    gradient: "from-lime-500/20 to-green-500/5",
+    category: "Digital Transformation"
+  },
+   {
+    icon: Activity,
+    title: "Service Delivery",
+    slug: "service-delivery",
+    description: "service delivery optimization using AI-driven insights and process automation.",
+    image: serviceDeliveryImg,
     gradient: "from-lime-500/20 to-green-500/5",
     category: "Digital Transformation"
   },
