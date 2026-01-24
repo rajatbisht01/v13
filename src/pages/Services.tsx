@@ -119,9 +119,9 @@ import serviceIprovementImg from "@/assets/services/service-improvement-service.
 import continuousServiceImprovementImg from "@/assets/services/continuous-improvement-service.png";
 import secureCloudImg from "@/assets/services/secure-cloud-service.jpg";
 import cicdImg from "@/assets/services/cicd.jpg";
-import integrationImg from "@/assets/services/integration-deployment.jpg";
-import blockchainImg from "@/assets/services/blockchain-service.jpg";
-import iotImg from "@/assets/services/iot-service.jpg";
+import integrationImg from "@/assets/services/integration.jpg";
+import blockchainImg from "@/assets/services/blockchain.jpg";
+import iotImg from "@/assets/services/iot.jpg";
 
 
 import { Header } from "@/components/Header";
