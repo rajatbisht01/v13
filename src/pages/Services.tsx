@@ -123,7 +123,8 @@ import integrationImg from "@/assets/services/integration.jpg";
 import blockchainImg from "@/assets/services/blockchain.jpg";
 import iotImg from "@/assets/services/iot.jpg";
 import serviceDeliveryImg from "@/assets/services/service-delivery.jpg";
-
+import dataMigrationImg from "@/assets/services/data-migration.jpg";
+import dataBackupIMg from "@/assets/services/backup-restore-service.jpg";
 import { Header } from "@/components/Header";
 
 
@@ -280,11 +281,29 @@ const allServices = [
     category: "Data & Analytics"
   },
   {
+    icon: Database,
+    title: "Data Migration",
+    slug: "data-migration",
+    description: "Seamless data migration services ensuring data integrity, minimal downtime, and successful transformation.",
+    image: dataMigrationImg,
+    gradient: "from-cyan-500/20 to-blue-500/5",
+    category: "Data & Analytics"
+  },
+  {
     icon: BarChart3,
     title: "Big Data",
     slug: "big-data",
     description: "Big data analytics and processing solutions for extracting insights from massive datasets.",
     image: bigData,
+    gradient: "from-purple-500/20 to-indigo-500/5",
+    category: "Data & Analytics"
+  },
+   {
+    icon: BarChart3,
+    title: "Data Backup & Restoration",
+    slug: "data-backup-restoration",
+    description: "Comprehensive data backup and restoration services ensuring business continuity and data protection.",
+    image: dataBackupIMg,
     gradient: "from-purple-500/20 to-indigo-500/5",
     category: "Data & Analytics"
   },
