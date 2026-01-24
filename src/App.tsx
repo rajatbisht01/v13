@@ -8,16 +8,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-// import AIServices from "./pages/service/AIServices";
-// import CloudServices from "./pages/service/CloudServices";
-// import DataAnalyticsServices from "./pages/service/DataAnalyticsServices";
-// import DevOpsServices from "./pages/service/DevOpsServices";
-// import CyberSecurityServices from "./pages/service/CyberSecurityServices";
-// import ApplicationServices from "./pages/service/ApplicationServices";
-// import AutomationServices from "./pages/service/AutomationServices";
-// import InfrastructureServices from "./pages/service/InfrastructureServices";
-// import ContainerizationServices from "./pages/service/ContainerizationServices";
-// import QuantumServices from "./pages/service/QuantumServices";
+import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
 import Resources from "./pages/Resources";
 import ManagedServices from "./pages/services/ManagedServices";
 import Cybersecurity from "./pages/services/CyberSecurity";
@@ -53,6 +44,19 @@ import VulnerabilityScanning from "./pages/services/VulnerabilityScanning";
 import MergerAcquisition from "./pages/services/MergerAcquisition";
 import AIRiskMitigation from "./pages/services/AIRiskMitigation";
 import CloudAdoption from "./pages/services/CloudAdoption";
+import DataWarehouse from "./pages/services/DataWarehouse";
+import CloudCostOptimization from "./pages/services/CloudCostOptimization";
+import CloudMigration from "./pages/services/CloudMigration";
+import CloudModernization from "./pages/services/CloudModernization";
+import CloudOperations from "./pages/services/CloudOperations";
+import CloudOrchestration from "./pages/services/CloudOrchestration";
+import CloudSecurity from "./pages/services/CloudSecurity";
+import CloudStrategic from "./pages/services/CloudStrategic";
+import HybridCloud from "./pages/services/HybridCloud";
+import PrivateCloud from "./pages/services/PrivateCloud";
+import BigData from "./pages/services/BigData";
+import DataLake from "./pages/services/DataLake";
+import DataMigration from "./pages/services/DataMigration";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -92,6 +96,18 @@ const App = () => (
           <Route path="/services/merger-acquisition" element={<MergerAcquisition />} />
 
 <Route path="/services/cloud-adoption" element={<CloudAdoption/>} />
+<Route path="/services/software-development" element={<SoftwareDevelopment/>} />
+<Route path="/services/data-warehouse" element={<DataWarehouse/>} />
+<Route path="/services/cloud-cost-optimization" element={<CloudCostOptimization/>} />
+<Route path="/services/cloud-modernization" element={<CloudModernization/>} />
+<Route path="/services/cloud-orchestration" element={<CloudOrchestration/>} />
+<Route path="/services/cloud-security" element={<CloudSecurity/>} />
+<Route path="/services/cloud-strategic" element={<CloudStrategic/>} />
+<Route path="/services/hybrid-cloud" element={<HybridCloud/>} />
+<Route path="/services/private-cloud" element={<PrivateCloud/>} />
+<Route path="/services/big-data" element={<BigData/>} />
+<Route path="/services/data-lake" element={<DataLake/>} />
+<Route path="/services/data-migration" element={<DataMigration/>} />
 
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
