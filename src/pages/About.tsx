@@ -142,7 +142,7 @@ const About = () => {
       </section>
 
       {/* ---------- STATS ---------- */}
-      <section className="py-20 bg-hero">
+      <section className="py-8 bg-hero">
         <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s, i) => (
             <FadeIn key={s.label} delay={i * 0.1}>
