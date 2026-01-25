@@ -48,15 +48,7 @@ const services = [
     gradient: "from-rose-500 via-red-500 to-orange-500",
     slug: "cybersecurity",
   },
-  {
-    image: devsecopsImg,
-    title: "DevSecOps Engineering",
-    description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
-    features: ["Kubernetes & Docker", "Automated CI/CD Pipelines", "Security Integration", "Infrastructure as Code"],
-    gradient: "from-emerald-500 via-green-500 to-teal-500",
-    slug: "devsecops"
-  },
-  {
+   {
     image: devopsImg,
     title: "DevOps",
     description: "Continuous integration and delivery pipelines with infrastructure as code and automated deployment workflows.",
@@ -64,6 +56,15 @@ const services = [
     gradient: "from-orange-500 via-amber-500 to-yellow-500",
     slug: "devops"
   },
+  {
+    image: devsecopsImg,
+    title: "DevSecOps",
+    description: "Modern engineering practices with containerization, Kubernetes orchestration, and security-integrated CI/CD pipelines.",
+    features: ["Kubernetes & Docker", "Automated CI/CD Pipelines", "Security Integration", "Infrastructure as Code"],
+    gradient: "from-emerald-500 via-green-500 to-teal-500",
+    slug: "devsecops"
+  },
+ 
   {
     image: itInfrastructureImg,
     title: "IT Infrastructure",
