@@ -57,6 +57,35 @@ import PrivateCloud from "./pages/services/PrivateCloud";
 import BigData from "./pages/services/BigData";
 import DataLake from "./pages/services/DataLake";
 import DataMigration from "./pages/services/DataMigration";
+import BackupRestore from "./pages/services/BackupRestore";
+import DevOps from "./pages/services/DevOps";
+import CICD from "./pages/services/CICD";
+import Integration from "./pages/services/Integration";
+import ERP from "./pages/services/ERP";
+import GCCServices from "./pages/services/GCCServices";
+import Blockchain from "./pages/services/BlockChain";
+import IoT from "./pages/services/IOT";
+import { Cloud } from "lucide-react";
+import DeploymentMigration from "./pages/services/DeploymentMigration";
+import ServiceImprovement from "./pages/services/ServiceImprovement";
+import ContinuousImprovement from "./pages/services/ContinuousImprovements";
+import Database from "./pages/services/Database";
+import DatacenterConsolidation from "./pages/services/DatacenterConsolidation";
+import Networking from "./pages/services/Networking";
+import Storage from "./pages/services/Storage";
+import Servers from "./pages/services/Servers";
+import TechnologyAdvisory from "./pages/services/TechnologyAdvisory";
+import DisasterRecovery from "./pages/services/DisasterRecovery";
+import DataCenter from "./pages/services/DataCenter";
+import ServiceDelivery from "./pages/services/ServiceDelivery";
+import DigitalIdentity from "./pages/services/DigitalIdentity";
+import EnterpriseSecurity from "./pages/services/EnterpriseSecurity";
+import GRC from "./pages/services/GRC";
+import ThreatDetection from "./pages/services/ThreatDetection";
+import VAPT from "./pages/services/VAPT";
+import SecureCloud from "./pages/services/SecureCloud";
+import ServiceAssurance from "./pages/services/ServiceAssurance";
+import PKI from "./pages/services/PKI";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -81,20 +110,20 @@ const App = () => (
           <Route path="/services/agentic-ai" element={<AgenticAI />} />
           <Route path="/services/aiops" element={<AIOps />} />
           <Route path="/services/application-security" element={<ApplicationSecurity />} />
-          <Route path="/services/staff-management" element={<StaffManagement />} />
+          <Route path="/services/hr-staffing" element={<StaffManagement />} />
           <Route path="/services/project-management" element={<ProjectManagement />} />
           <Route path="/services/quality-assurance" element={<QualityAssurance />} />
           <Route path="/services/workflow-automation" element={<WorkflowAutomation />} />
           <Route path="/services/it-infrastructure" element={<ITInfrastructure />} />
           <Route path="/services/architecture" element={<Architecture />} />
           <Route path="/services/data-science" element={<DataScience />} />
-          <Route path="/services/application-services" element={<ApplicationServices />} />
-          
+          <Route path="/services/application-services" element={<ApplicationServices />} />         
                     <Route path="/services/ai-risk-mitigation" element={<AIRiskMitigation />} />
           <Route path="/services/audit-reporting" element={<AuditReporting />} />
           <Route path="/services/vulnerability-scanning" element={<VulnerabilityScanning />} />
           <Route path="/services/merger-acquisition" element={<MergerAcquisition />} />
-
+<Route path="/services/cloud-Operations" element={<CloudOperations/>} />
+<Route path="/services/cloud-migration" element={<CloudMigration/>} />
 <Route path="/services/cloud-adoption" element={<CloudAdoption/>} />
 <Route path="/services/software-development" element={<SoftwareDevelopment/>} />
 <Route path="/services/data-warehouse" element={<DataWarehouse/>} />
@@ -108,7 +137,41 @@ const App = () => (
 <Route path="/services/big-data" element={<BigData/>} />
 <Route path="/services/data-lake" element={<DataLake/>} />
 <Route path="/services/data-migration" element={<DataMigration/>} />
+<Route path= "/services/data-backup-restoration" element={<BackupRestore/>}/>
+<Route path= "/services/devops" element={<DevOps/>}/>
+<Route path= "/services/cicd-pipelines" element={<CICD/>}/>
+<Route path= "/services/integration-deployment" element={<Integration/>}/>
+<Route path= "/services/erp" element={<ERP/>}/>
+<Route path= "/services/gcc-services" element={<GCCServices/>}/>
+<Route path= "/services/iot-services" element={<IoT/>}/>
+<Route path= "/services/blockchain-services" element={<Blockchain/>}/>
+<Route path= "/services/deployment-migration" element={<DeploymentMigration/>}/>
+        <Route path= "/services/service-improvement" element={<ServiceImprovement/>}/>
+<Route path= "/services/continuous-improvement" element={<ContinuousImprovement/>}/>
+<Route path= "/services/database" element={<Database/>}/>
+<Route path= "/services/continuous-improvement" element={<ContinuousImprovement/>}/>
+<Route path= "/services/datacenter-consolidation" element={<DatacenterConsolidation/>}/>
+<Route path= "/services/backup-restore" element={<BackupRestore/>}/>
+<Route path= "/services/networking" element={<Networking/>}/>
+<Route path= "/services/storage" element={<Storage/>}/>
+<Route path= "/services/servers" element={<Servers/>}/>
+<Route path= "/services/technology-advisory" element={<TechnologyAdvisory/>}/>
+<Route path= "/services/disaster-recovery" element={<DisasterRecovery/>}/>
+<Route path= "/services/datacenter" element={<DataCenter/>}/>
+<Route path= "/services/service-delivery" element={<ServiceDelivery/>}/>
+<Route path= "/services/digital-identity" element={<DigitalIdentity/>}/>
+<Route path= "/services/enterprise-security" element={<EnterpriseSecurity/>}/>
+<Route path= "/services/grc" element={<GRC/>}/>
+<Route path= "/services/threat-detection" element={<ThreatDetection/>}/>
+<Route path= "/services/vapt" element={<VAPT/>}/>
 
+<Route path= "/services/Secure-cloud" element={<SecureCloud/>}/>
+<Route path= "/services/Service Assurance" element={<ServiceAssurance/>}/>
+<Route path= "/services/pki" element={<PKI/>}/>
+
+
+        
+        
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
