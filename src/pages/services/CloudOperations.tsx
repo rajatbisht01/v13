@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import cloudOperationsImg from "@/assets/services/cloud-operations.jpg";
+import cloudOperationImg from "@/assets/services/cloud-operations-service.jpg";
 
 const CloudOperations = () => {
   return (
@@ -7,7 +7,7 @@ const CloudOperations = () => {
       title="Cloud Operations"
       subtitle="Cloud Services"
       description="24/7 cloud operations, monitoring, and management services. We provide comprehensive managed cloud services to ensure optimal performance, availability, and security."
-      image={cloudOperationsImg}
+      image={cloudOperationImg}
       features={[
         { title: "24/7 Monitoring", description: "Round-the-clock cloud infrastructure monitoring and alerting." },
         { title: "Incident Management", description: "Rapid incident response and resolution with defined SLAs." },

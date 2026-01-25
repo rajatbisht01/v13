@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import cloudMigrationImg from "@/assets/services/cloud-migration.jpg";
+import cloudSecureImg from "@/assets/services/cloud-migration-service.jpg";
 
 const CloudMigration = () => {
   return (
@@ -7,7 +7,7 @@ const CloudMigration = () => {
       title="Cloud Migration"
       subtitle="Cloud Services"
       description="Secure and seamless migration to cloud platforms with zero downtime. We execute comprehensive migration programs that minimize risk and maximize value realization."
-      image={cloudMigrationImg}
+      image={cloudSecureImg}
       features={[
         { title: "Migration Assessment", description: "Comprehensive application and infrastructure assessment for migration planning." },
         { title: "Lift & Shift", description: "Rapid rehosting of applications to cloud with minimal changes." },

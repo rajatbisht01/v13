@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import serviceAssuranceImg from "@/assets/services/service-assurance.jpg";
+import serviceAssuranceImg from "@/assets/services/service-assurance-service.jpg";
 
 const ServiceAssurance = () => {
   return (

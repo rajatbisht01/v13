@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import secureCloudImg from "@/assets/services/secure-cloud.jpg";
+import secureCloudImg from "@/assets/services/secure-cloud-service.jpg";
 
 const SecureCloud = () => {
   return (

@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import serviceImprovementImg from "@/assets/services/service-improvement.jpg";
+import serviceIprovementImg from "@/assets/services/service-improvement-service.jpg";
 
 const ServiceImprovement = () => {
   return (
@@ -7,7 +7,7 @@ const ServiceImprovement = () => {
       title="Service Improvement"
       subtitle="Deliver Better. Perform Stronger."
       description="Enhancing service quality, reliability, and customer satisfaction through structured service improvement practices."
-      image={serviceImprovementImg}
+      image={serviceIprovementImg}
       features={[
         {
           title: "Service Performance Review",

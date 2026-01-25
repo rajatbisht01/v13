@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import vaptImg from "@/assets/images/services/vapt.jpg";
+import vaptImg from "@/assets/services/vapt-service.jpg";
 
 const VAPT = () => {
   return (

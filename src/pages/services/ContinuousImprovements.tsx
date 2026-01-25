@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import continuousImprovementImg from "@/assets/services/continuous-improvement.jpg";
+import continuousServiceImprovementImg from "@/assets/services/continuous-improvement-service.png";
 
 const ContinuousImprovement = () => {
   return (
@@ -7,7 +7,7 @@ const ContinuousImprovement = () => {
       title="Continuous Improvement"
       subtitle="Optimize. Adapt. Evolve."
       description="A structured, data-driven approach to continuously enhance processes, systems, and performance across your organization."
-      image={continuousImprovementImg}
+      image={continuousServiceImprovementImg}
       features={[
         {
           title: "Process Assessment",

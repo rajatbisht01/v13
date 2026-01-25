@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import technologyAdvisoryImg from "@/assets/services/technology-advisory.jpg";
+import technologyAdvisoryImg from "@/assets/services/technology-advisory-service.jpg";
 
 const TechnologyAdvisory = () => {
   return (

@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import pkiImg from "@/assets/services/pki.jpg";
+import pkiImg from "@/assets/services/pki-service.jpg";
 
 const PKI = () => {
   return (

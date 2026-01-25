@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import enterpriseSecurityImg from "@/assets/images/services/enterprise-security.jpg";
+import EnterpriseSecurityImg from "@/assets/services/enterprise-security-service.jpg";
 
 const EnterpriseSecurity = () => {
   return (
@@ -7,7 +7,7 @@ const EnterpriseSecurity = () => {
       title="Enterprise Security"
       subtitle="Cybersecurity"
       description="Comprehensive enterprise security architecture and implementation. We design and deploy defense-in-depth security strategies that protect your organization from evolving threats."
-      image={enterpriseSecurityImg}
+      image={EnterpriseSecurityImg}
       features={[
         { title: "Security Architecture", description: "Enterprise security architecture design and assessment." },
         { title: "Zero Trust Implementation", description: "Zero Trust security model implementation across the organization." },

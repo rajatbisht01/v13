@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import digitalIdentityImg from "@/assets/images/services/digital-identity.jpg";
+import digitalIdentityImg from "@/assets/services/digital-identity-service.jpg";  
 
 const DigitalIdentity = () => {
   return (

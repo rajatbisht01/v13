@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import grcImg from "@/assets/images/services/grc.jpg";
+import grcImg from "@/assets/services/grc-service.jpg";
 
 const GRC = () => {
   return (

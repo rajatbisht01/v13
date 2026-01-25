@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import threatDetectionImg from "@/assets/images/services/threat-detection.jpg";
+import threatDetectionImg from "@/assets/services/threat-detection-service.jpg";
 
 const ThreatDetection = () => {
   return (
