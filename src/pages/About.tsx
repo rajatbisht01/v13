@@ -24,6 +24,7 @@ import { Team } from "@/components/Teams";
 import { Founders } from "@/components/Founders";
 import { KeyStrengths } from "@/components/KeyStrengths";
 import CorePillars from "@/components/CorePillars";
+import { WhatSetsusApart } from "@/components/WhatSetsusApart";
 
 /* ---------- UPDATED STATS ---------- */
 const stats = [
@@ -156,7 +157,7 @@ const About = () => {
           ))}
         </div>
       </section>
-
+<WhatSetsusApart/>
 <CorePillars/>
 <KeyStrengths/>
      <Founders/>
