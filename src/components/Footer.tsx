@@ -9,27 +9,25 @@ import {
   MapPin,
   ArrowUp,
 } from "lucide-react";
+import { servicesConfig, categoriesConfig, categoryIdMap } from "@/config/serviceConfig";
+
+// Get featured services for footer (first 8 from Core category)
+const footerServices = servicesConfig
+  .filter(s => s.category === "Core")
+  .slice(0, 8)
+  .map(s => ({ label: s.title, href: `/services/${s.slug}` }));
+
+// Get quick links from categories
+const quickLinks = Object.entries(categoryIdMap).slice(0,9).map(
+  ([name, slug]) => ({
+    label: name,
+    href: `/services#${slug}`
+  })
+);
 
 const footerLinks = {
-  services: [
-    { label: "Artificial Intelligence", href: "/services/artificial-intelligence" },
-    { label: "Data Science", href: "/services/data-science" },
-    { label: "Cloud Services", href: "/services/cloud-infrastructure" },
-    { label: "Cybersecurity & Resilience", href: "/services/cybersecurity" },
-    { label: "DevSecOps Engineering", href: "/services/devsecops" },
-    { label: "24×7 Managed Services", href: "/services/managed-services" },
-    { label: "IT Infrastructure", href: "/services/it-infrastructure" },
-    { label: "Application Services", href: "/services/application-services" },
-  ],
-  quickLinks: [
-    { label: "Core Technology Services", href: "/services#core" },
-    { label: "AI & Automation", href: "/services#ai-automation" },
-    { label: "High-Tech Solutions", href: "/services#hightech-solutions" },
-    { label: "Security Services", href: "/services#security-services" },
-    { label: "Operations", href: "/services#operations" },
-    { label: "Business Solutions", href: "/services#business-solutions" },
-    { label: "Management", href: "/services#management" },
-  ],
+  services: footerServices,
+  quickLinks: quickLinks,
   company: [
     { label: "About Us", href: "/about" },
     { label: "Contact Us", href: "/contact" },
@@ -59,18 +57,16 @@ export const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Handle navigation with scroll
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const url = new URL(href, window.location.origin);
     
-    // Check if this is a hash link on the current page
     if (url.pathname === window.location.pathname && url.hash) {
       e.preventDefault();
       const targetId = url.hash.substring(1);
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {
-        const headerOffset = 100; // Account for fixed header
+        const headerOffset = 100;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -80,7 +76,6 @@ export const Footer = () => {
         });
       }
     } else if (url.hash) {
-      // If navigating to a different page with hash, store the hash for later
       sessionStorage.setItem('scrollToSection', url.hash);
     }
   };

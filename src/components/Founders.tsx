@@ -162,14 +162,14 @@ const StatItem = ({ value, suffix, label, sublabel, delay }) => {
             >
               <div className={`relative group h-full max-w-4xl` }>
                 {/* Featured badge */}
-                {founder.featured && (
+                {/* {founder.featured && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
                     <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
                       <Sparkles className="w-4 h-4" />
                       Principal Founder
                     </div>
                   </div>
-                )}
+                )} */}
 
                 {/* Animated gradient border */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl opacity-0 group-hover:opacity-100 blur transition-all duration-500" />

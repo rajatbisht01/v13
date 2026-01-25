@@ -149,7 +149,6 @@ const App = () => (
         <Route path= "/services/service-improvement" element={<ServiceImprovement/>}/>
 <Route path= "/services/continuous-improvement" element={<ContinuousImprovement/>}/>
 <Route path= "/services/database" element={<Database/>}/>
-<Route path= "/services/continuous-improvement" element={<ContinuousImprovement/>}/>
 <Route path= "/services/datacenter-consolidation" element={<DatacenterConsolidation/>}/>
 <Route path= "/services/backup-restore" element={<BackupRestore/>}/>
 <Route path= "/services/networking" element={<Networking/>}/>
@@ -165,8 +164,8 @@ const App = () => (
 <Route path= "/services/threat-detection" element={<ThreatDetection/>}/>
 <Route path= "/services/vapt" element={<VAPT/>}/>
 
-<Route path= "/services/Secure-cloud" element={<SecureCloud/>}/>
-<Route path= "/services/Service Assurance" element={<ServiceAssurance/>}/>
+<Route path= "/services/secure-cloud" element={<SecureCloud/>}/>
+<Route path= "/services/service-assurance" element={<ServiceAssurance/>}/>
 <Route path= "/services/pki" element={<PKI/>}/>
 
 

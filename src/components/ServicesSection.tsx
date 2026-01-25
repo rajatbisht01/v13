@@ -20,7 +20,7 @@ const services = [
     image: aiImg,
     title: "Artificial Intelligence",
     description: "Production-grade AI systems leveraging LLMs, agents, and automation to drive intelligent decision-making and real business outcomes.",
-    features: ["LLM Engineering", "AI Agents & Automation", "Model Deployment", "AI Governance & Security"],
+    features: ["Agentic AI", "AI Agents & Automation", "AI Workflows & Model Deployment", "LLM & Machine Learning"],
     gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
     slug: "artificial-intelligence",
   },
@@ -67,7 +67,7 @@ const services = [
  
   {
     image: itInfrastructureImg,
-    title: "IT Infrastructure",
+    title: "Enterprise IT Infrastructure",
     description: "Robust and scalable infrastructure foundations covering compute, storage, networking, and enterprise systems reliability.",
     features: [
       "Server & Network Management",

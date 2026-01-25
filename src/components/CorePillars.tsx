@@ -1,37 +1,53 @@
 import React from "react";
 import { FadeInUp, motion, StaggerContainer } from "./ui/motion";
-import { Brain,Lightbulb, Shield, Clock, Cloud } from "lucide-react";
+import { Brain, Lightbulb, Shield, Clock, Cloud } from "lucide-react";
 
 const operationalModel = [
   {
     phase: "01",
     title: "Assessment",
-    action: "Evaluation of business goals, technical requirements, and risk factors. Stakeholder alignment, feasibility analysis, dependency mapping, and a clear execution roadmap with measurable ROI targets.",
+    action:
+      "Evaluation of business goals, technical requirements, and risk factors. Stakeholder alignment, feasibility analysis, dependency mapping, and a clear execution roadmap with measurable ROI targets.",
   },
   {
     phase: "02",
     title: "Architecture",
-    action: "Design of secure, scalable, and cost-efficient system blueprints. Technology selection, data flow design, integration planning, and a resilient foundation built for future growth.",
+    action:
+      "Design of secure, scalable, and cost-efficient system blueprints. Technology selection, data flow design, integration planning, and a resilient foundation built for future growth.",
   },
   {
     phase: "03",
     title: "Engineering",
-    action: "End-to-end development, system integration, and automation delivery. Quality assurance, performance optimization, release management, and a production-ready high-performance technology stack.",
+    action:
+      "End-to-end development, system integration, and automation delivery. Quality assurance, performance optimization, release management, and a production-ready high-performance technology stack.",
   },
   {
     phase: "04",
     title: "Scalability",
-    action: "Continuous scaling, performance optimization, and infrastructure tuning. Capacity forecasting, resilience planning, cost control, and zero-downtime operations at scale.",
-  }
+    action:
+      "Continuous scaling, performance optimization, and infrastructure tuning. Capacity forecasting, resilience planning, cost control, and zero-downtime operations at scale.",
+  },
 ];
 
 const CorePillars = () => {
   const corePillars = [
     {
+      icon: Lightbulb,
+      title: "Innovation at the Core",
+      description:
+        "Innovation is engineered into our process. We continuously adopt emerging technologies, automation, and AI-driven insights to keep your systems ahead of the curve.",
+    },
+    {
       icon: Shield,
-      title: "Security-First DNA",
+      title: "Secure by Design",
       description:
         "We believe security is not an add-on; it is the foundation. Every line of code and every server migration starts with a defense-in-depth strategy.",
+    },
+    {
+      icon: Clock,
+      title: "Unwavering Support",
+      description:
+        "Reliability is our hallmark. With 24/7 monitoring and proactive optimization, we ensure your business never sleeps.",
     },
     {
       icon: Brain,
@@ -39,18 +55,7 @@ const CorePillars = () => {
       description:
         "We don't just build for today. We design systems using AI and Containerization that grow seamlessly with your business.",
     },
-    {
-    icon: Lightbulb,
-    title: "Innovation at the Core",
-    description:
-      "Innovation is engineered into our process. We continuously adopt emerging technologies, automation, and AI-driven insights to keep your systems ahead of the curve.",
-  },
-    {
-      icon: Clock,
-      title: "Unwavering Support",
-      description:
-        "Reliability is our hallmark. With 24/7 monitoring and proactive optimization, we ensure your business never sleeps.",
-    },
+
     {
       icon: Cloud,
       title: "Agility",
@@ -70,12 +75,17 @@ const CorePillars = () => {
       </FadeInUp>
       <StaggerContainer className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
         {corePillars.map((pillar, index) => (
-          <motion.div             className="gradient-border"
+          <motion.div
+            className="gradient-border"
             key={pillar.title}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.2 },
+              transitionBehavior: "startToEnd",
+            }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
             <div className="group bg-white border  border-border glass rounded-2xl p-6 h-full hover:border-transparent transition-all duration-300 text-center">
@@ -106,7 +116,7 @@ const CorePillars = () => {
 
       <FadeInUp className="text-center mb-10">
         <h3 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
-          Vi-3 <span className="text-primary">Operational Model</span>
+          Vi-3 Technologies<span className="text-primary"> Operating Model</span>
         </h3>
         <p className="text-muted-foreground max-w-2xl mx-auto">
           We follow a high-touch, disciplined methodology to ensure project
@@ -117,13 +127,16 @@ const CorePillars = () => {
       <div className="grid mb-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {operationalModel.map((step, index) => (
           <motion.div
-          className="gradient-border "
+            className="gradient-border "
             key={step.phase}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-                        whileHover={{scale: 1.05, transition: { duration: 0.2 }, transitionBehavior: "startToEnd"}}
-
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.2 },
+              transitionBehavior: "startToEnd",
+            }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
             <div className="glass group bg-white border border-border rounded-2xl p-6 h-full hover:border-transparent transition-all duration-300 relative overflow-hidden">
@@ -140,7 +153,6 @@ const CorePillars = () => {
                 <p className="text-sm text-muted-foreground mb-3">
                   {step.action}
                 </p>
-                
               </div>
             </div>
           </motion.div>

@@ -7,28 +7,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-
+import { servicesConfig } from "@/config/serviceConfig";
 export const ContactSection = () => {
   
-const services = [
-  "24×7 Managed Services",
-  "Cybersecurity & Resilience",
-  "AI & Data Science",
-  "Cloud & Infrastructure",
-  "DevSecOps Engineering",
-  "Quantum Computing",
-  "AI Governance",
-  "Agentic AI & AI Agents",
-  "AI Workflow Automation",
-  "Digital Transformation",
-  "Web 3.0 Solutions",
-  "AIOps",
-  "Application Security",
-  "Quality Assurance & Audit",
-  "IT Infrastructure Management",
-  "Staff Management",
-  "Project Management",
-];
+
+
+// Generate service list from config
+const services = servicesConfig.map(s => s.title).sort();
  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({

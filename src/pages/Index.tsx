@@ -14,6 +14,7 @@ import { Team } from "@/components/Teams";
 import { Founders } from "@/components/Founders";
 import { KeyStrengths } from "@/components/KeyStrengths";
 import CorePillars from "@/components/CorePillars";
+import { WhatSetsusApart } from "@/components/WhatSetsusApart";
 
 const Index = () => {
   return (
@@ -25,6 +26,7 @@ const Index = () => {
 
       <CorePillars/>
       <ServicesSection />
+      <WhatSetsusApart/>
       <Industries/>
       <KeyStrengths/>
       <StatsSection />
