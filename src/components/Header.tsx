@@ -122,7 +122,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <img src={logo} alt="Vi-3 Technology" className="w-20 h-20" />
+            <img src={logo} alt="Vi-3 Technology" className="w-12 h-12" />
           </a>
 
           {/* Desktop Navigation */}

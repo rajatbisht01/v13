@@ -4,12 +4,11 @@ import {
   Twitter,
   Facebook,
   Youtube,
-  Mail,
-  Phone,
-  MapPin,
+
   ArrowUp,
 } from "lucide-react";
 import { servicesConfig, categoriesConfig, categoryIdMap } from "@/config/serviceConfig";
+import logo from "@/assets/logo.png";
 
 // Get featured services for footer (first 8 from Core category)
 const footerServices = servicesConfig
@@ -96,9 +95,9 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">Vi-3</span>
-              </div>
+               <a href="/" className="flex items-center gap-2">
+            <img src={logo} alt="Vi-3 Technology" className="w-12 h-12" />
+          </a>
               <span className="text-xl font-bold text-foreground">
                 <span className="text-primary">Technology</span>
               </span>
