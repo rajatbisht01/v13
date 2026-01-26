@@ -1,7 +1,7 @@
 // src/config/servicesConfig.ts - Complete Services Configuration File
 // This file centralizes all service definitions for easy management
 
-import { LucideIcon } from "lucide-react";
+import { Accessibility, HeadphonesIcon, LucideIcon } from "lucide-react";
 import {
   Shield, Brain, Cloud, Code, Atom, Headphones, Scale, Rocket, Globe, Bot, Activity, Lock,
   Users, ClipboardCheck, CheckCircle, Workflow, Server, Layers, BarChart3, Monitor, UserCog,
@@ -82,6 +82,17 @@ import iotImg from "@/assets/services/iot.jpg";
 import serviceDeliveryImg from "@/assets/services/service-delivery.jpg";
 import dataMigrationImg from "@/assets/services/data-migration.jpg";
 import dataBackupIMg from "@/assets/services/backup-restore-service.jpg";
+import itsmImg from "@/assets/services/itsm.jpg"
+import itomImg from "@/assets/services/itom.jpg"
+import apmImg from "@/assets/services/apm.jpg"
+import serviceDeskImg from "@/assets/services/service-desk.jpg"
+import itServiceDeskImg from "@/assets/services/it-service-desk.jpg"
+import inclusiveComputingImg from "@/assets/services/inclusive-computing.jpg"
+import enterpriseOperationImg from "@/assets/services/enterprise-operation.jpg"
+
+
+
+
 
 // Type Definitions
 export interface Service {
@@ -816,6 +827,79 @@ export const servicesConfig: Service[] =
     keywords: ["data center", "datacenter", "DC", "data center design", "data center management", "colocation", "colo", "data center operations", "facility management", "data center infrastructure", "DC services", "tier 3", "tier 4", "data center build", "modular data center", "edge data center"]
   },
 
+  // management services
+  
+  { 
+    icon: Building, 
+    title: "Enterprise Operation", 
+    slug: "enterprise-operation", 
+    description: "End-to-end enterprise operations management and NOC services.",
+    image: enterpriseOperationImg,
+    gradient: "from-purple-500/20 to-violet-500/5",
+    category: "Management",
+    keywords: ["enterprise operations", "NOC", "network operations center", "enterprise management", "24/7 monitoring", "operations center", "incident management", "managed operations", "enterprise IT operations", "operations management", "business operations", "IT operations", "NOC services", "enterprise monitoring", "operations support", "managed NOC"]
+  },
+  { 
+    icon: Settings, 
+    title: "ITSM", 
+    slug: "itsm", 
+    description: "IT Service Management with ITIL best practices.",
+    image: itsmImg,
+    gradient: "from-indigo-500/20 to-blue-500/5",
+    category: "Management",
+    keywords: ["ITSM", "IT service management", "ITIL", "service desk", "incident management", "change management", "problem management", "service catalog", "service lifecycle", "ITIL framework", "service management", "IT governance", "ITIL v3", "ITIL v4", "service strategy", "ITSM platform"]
+  },
+  { 
+    icon: Activity, 
+    title: "ITOM", 
+    slug: "itom", 
+    description: "IT Operations Management with AIOps and unified monitoring.",
+    image: itomImg,
+    gradient: "from-cyan-500/20 to-teal-500/5",
+    category: "Management",
+    keywords: ["ITOM", "IT operations management", "AIOps", "monitoring", "observability", "infrastructure monitoring", "performance monitoring", "unified monitoring", "operations analytics", "IT automation", "predictive analytics", "event management", "log management", "ITOM platform", "operational intelligence", "IT ops"]
+  },
+  { 
+    icon: Monitor, 
+    title: "APM", 
+    slug: "apm", 
+    description: "Application Performance Management and real-time analytics.",
+    image: apmImg,
+    gradient: "from-green-500/20 to-emerald-500/5",
+    category: "Management",
+    keywords: ["APM", "application performance monitoring", "performance management", "real-time analytics", "application monitoring", "performance metrics", "user experience monitoring", "transaction monitoring", "app performance", "performance analytics", "end-user monitoring", "APM tools", "application analytics", "performance optimization", "real-time APM", "distributed tracing"]
+  },
+  { 
+    icon: HeadphonesIcon, 
+    title: "Service Desk", 
+    slug: "service-desk", 
+    description: "Multi-channel IT service desk with AI-powered support.",
+    image: serviceDeskImg,
+    gradient: "from-orange-500/20 to-amber-500/5",
+    category: "Management",
+    keywords: ["service desk", "help desk", "IT support", "ticketing system", "multi-channel support", "AI support", "automated support", "ticket management", "IT helpdesk", "support services", "service management", "chatbot support", "self-service portal", "ITSM service desk", "omnichannel support", "AI-powered helpdesk"]
+  },
+  { 
+    icon: HeadphonesIcon, 
+    title: "IT Service Desk", 
+    slug: "it-service-desk", 
+    description: "Tiered IT support with L1, L2, L3 coverage.",
+    image: itServiceDeskImg,
+    gradient: "from-rose-500/20 to-pink-500/5",
+    category: "Management",
+    keywords: ["IT service desk", "L1 support", "L2 support", "L3 support", "tiered support", "technical support", "IT assistance", "escalation management", "help desk services", "IT helpdesk", "support tiers", "multi-tier support", "level 1 support", "level 2 support", "level 3 support", "IT support levels"]
+  },
+  { 
+    icon: Accessibility, 
+    title: "Inclusive Computing", 
+    slug: "inclusive-computing", 
+    description: "Accessibility-focused IT support and assistive technology.",
+    image: inclusiveComputingImg,
+    gradient: "from-sky-500/20 to-blue-500/5",
+    category: "Management",
+    keywords: ["inclusive computing", "accessibility", "assistive technology", "accessible IT", "inclusive technology", "disability support", "screen readers", "adaptive technology", "WCAG", "ADA compliance", "digital accessibility", "accessible computing", "accessibility services", "inclusive design", "assistive devices", "accessibility support"]
+  },
+
   // Value Add Services Category
   {
     icon: Sparkles,
@@ -866,6 +950,10 @@ export const categoriesConfig: Category[] = [
     description: "Advanced emerging technologies",
     id: "hightech-solutions"
   },
+  {name:"Management",
+    description: "Leadership-driven strategies, governance frameworks, and operational excellence to align technology, processes, and business goals.",
+    id:"management"
+  },
   { 
     name: "Security & Quality", 
     description: "Protection, compliance, and quality",
@@ -914,6 +1002,7 @@ export const categoryIdMap: Record<string, string> = {
   "Business": "business-services",
   "Digital Transformation": "digital-transformation",
   "Cloud 3.0": "cloud-services",
+  "Management":"management",
   "Cybersecurity": "cybersecurity",
   "IT Infrastructure": "it-infrastructure",
   "Value Add": "value-add-services",

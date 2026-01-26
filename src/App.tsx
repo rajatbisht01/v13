@@ -94,6 +94,14 @@ const servicePageMap: Record<string, () => Promise<any>> = {
   "secure-cloud": () => import("./pages/services/SecureCloud"),
   "service-assurance": () => import("./pages/services/ServiceAssurance"),
   "pki": () => import("./pages/services/PKI"),
+  
+  "enterprise-operation": () => import("./pages/services/EnterpriseOperation"),
+  "itsm": () => import("./pages/services/ITSM"),
+  "itom": () => import("./pages/services/ITOM"),
+  "apm":  () => import("./pages/services/APM"),
+  "service-desk":  () => import("./pages/services/ServiceDesk"),
+  "it-service-desk": () => import("./pages/services/ITServiceDesk"),
+  "inclusive-computing": () => import("./pages/services/InclusiveComputing"),
 };
 
 // Create lazy-loaded service components
