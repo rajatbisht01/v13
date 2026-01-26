@@ -211,13 +211,13 @@ export const servicesConfig: Service[] =
   },
   {
     icon: Monitor,
-    title: "Software Development",
+    title: "Software Lifecycle Development",
     slug: "software-development",
     description: "Custom software solutions with modern frameworks, agile methodologies, and full-stack development expertise.",
     image: softwareDevelopmentImg,
     gradient: "from-indigo-500/20 to-violet-500/5",
     category: "Core",
-    keywords: ["software development", "custom software", "software engineering", "full stack", "frontend", "backend", "web development", "mobile development", "agile", "scrum", "software design", "coding", "programming", "React", "Angular", "Node.js", "Python", "Java", "development team", "SDLC"]
+    keywords: ["software development", "custom software", "software engineering", "lifecycle", "full stack", "frontend", "backend", "web development", "mobile development", "agile", "scrum", "software design", "coding", "programming", "React", "Angular", "Node.js", "Python", "Java", "development team", "SDLC"]
   },
   
   // AI & Automation 

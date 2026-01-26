@@ -1,16 +1,72 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, User, Loader2, Phone, Mail, Sparkles, ExternalLink, Building2, MapPin, ArrowRight, BookOpen } from "lucide-react";
+import { MessageCircle, X, Send, User, Loader2, Phone, Mail, ExternalLink, Building2, MapPin } from "lucide-react";
+
+
+import { servicesConfig, categoriesConfig } from "@/config/serviceConfig";
+
 
 interface Message {
   role: "user" | "assistant";
   content: string;
   timestamp?: Date;
-  hasServiceLinks?: boolean;
-  services?: string[];
 }
 
-const SYSTEM_PROMPT = `You are a business consultant representing Vi-3 Technologies Private Limited, a premier enterprise IT solutions provider based in Chennai, India.
+// Type definition matching your servicesConfig
+interface Service {
+  title: string;
+  slug: string;
+  category: string | string[];
+  description: string;
+  keywords?: string[];
+}
+
+interface Category {
+  name: string;
+  description: string;
+  id: string;
+}
+
+const Chatbot: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      role: "assistant",
+      content: "Vi-3 Welcomes you, How can I assist you?",
+      timestamp: new Date()
+    }
+  ]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // DYNAMIC SYSTEM PROMPT - Generated from servicesConfig
+  const systemPrompt = useMemo(() => {
+     const services: Service[] = servicesConfig || [];
+const categories: Category[] = categoriesConfig || [];
+    // Group services by category
+    const servicesByCategory: Record<string, Service[]> = {};
+    services.forEach(service => {
+      const cats = Array.isArray(service.category) ? service.category : [service.category];
+      cats.forEach(cat => {
+        if (!servicesByCategory[cat]) servicesByCategory[cat] = [];
+        servicesByCategory[cat].push(service);
+      });
+    });
+
+    // Build service listing dynamically
+    let servicesList = "";
+    categories.forEach((cat, idx) => {
+      const categoryServices = servicesByCategory[cat.name] || [];
+      if (categoryServices.length > 0) {
+        servicesList += `\n**${cat.name.toUpperCase()}:**\n`;
+        categoryServices.forEach((svc, sIdx) => {
+          servicesList += `${idx * 10 + sIdx + 1}. ${svc.title} - ${svc.description}\n`;
+        });
+      }
+    });
+
+    return `You are a business consultant representing Vi-3 Technologies Private Limited, a premier enterprise IT solutions provider based in Chennai, India.
 
 COMPANY IDENTITY:
 - Founded: December 2025 
@@ -21,38 +77,8 @@ COMPANY IDENTITY:
 - Contact: +91-7010351330 | contact@vi3technologies.com
 - Website: vi3technologies.com
 
-COMPREHENSIVE SERVICE PORTFOLIO (19 Services across 6 Categories):
-
-**CORE SERVICES:**
-1. AI & Data Science - Enterprise AI Stacks, Agentic AI, Multi-Agent Systems, MLOps, LLM Integration, Predictive Analytics
-2. Cybersecurity & Resilience - Zero Trust Architecture, SOC 24/7, CNAPP, MDR, Quantum-Safe Encryption, Vulnerability Assessment
-3. DevSecOps Engineering - Kubernetes, Docker, CI/CD pipelines with security integration
-4. 24×7 Managed Services - Proactive monitoring, SLA-driven support, Automated patching, Help Desk
-5. Cloud & Infrastructure - AWS, Azure, GCP (Migration, Optimization, Hybrid Solutions, On-Prem modernization)
-6. Quantum Computing - Readiness consulting, Quantum-Safe cryptography, Hybrid quantum-classical workflows
-
-**AI & AUTOMATION:**
-7. AI Governance - Responsible AI frameworks, compliance, ethics
-8. Agentic AI & AI Agents - Autonomous systems with planning and decision-making
-9. AI Workflow Automation - Intelligent process automation, end-to-end orchestration
-10. Data Science - AutoML, real-time analytics, privacy-preserving solutions
-
-**BUSINESS SOLUTIONS:**
-11. Digital Transformation - AI-driven business transformation, cloud adoption
-12. Web 3.0 Solutions - Blockchain, smart contracts, decentralized applications
-
-**OPERATIONS:**
-13. AIOps - AI-powered IT operations, anomaly detection, self-healing
-14. IT Infrastructure - Enterprise infrastructure management, hybrid orchestration
-15. Architecture & Engineering - Cloud-native, event-driven, security-first design
-
-**SECURITY & QUALITY:**
-16. Application Security - DevSecOps, RASP, continuous security testing
-17. Quality Assurance & Audit - Automated testing, compliance auditing
-
-**MANAGEMENT:**
-18. Staff Management - IT workforce solutions, AI-driven talent acquisition
-19. Project Management - AI analytics, automated workflows, agile delivery
+COMPREHENSIVE SERVICE PORTFOLIO (${services.length} Services across ${categories.length} Categories):
+${servicesList}
 
 INDUSTRIES SERVED:
 Banking & Finance, Healthcare, Manufacturing, Telecommunications, Automotive (IT systems), Public Sector, Retail, Insurance, Energy, Oil & Gas, Life Sciences, Aerospace & Defense, Real Estate, Professional Services, and more.
@@ -91,51 +117,28 @@ For questions completely unrelated to business or technology (recipes, sports, e
 Politely redirect: "I'm focused on helping with enterprise technology needs. Let me share what Vi-3 Technologies can do for your organization..." then briefly list relevant services.
 
 REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined founder experience serving global enterprises. Be helpful, informative, and professional.`;
+  }, []);
 
-const SERVICES_MAP: Record<string, string> = {
-  "AI": "artificial-intelligence",
-  "Cybersecurity": "cybersecurity",
-  "DevSecOps": "devsecops",
-  "Managed Services": "managed-services",
-  "Cloud": "cloud-infrastructure",
-  "Quantum Computing": "quantum-computing",
-  "AI Governance": "ai-governance",
-  "Agentic AI": "agentic-ai",
-  "AI Workflow Automation": "workflow-automation",
-  "Data Science": "data-science",
-  "Digital Transformation": "digital-transformation",
-  "Web 3.0": "web3",
-  "AIOps": "aiops",
-  "IT Infrastructure": "it-infrastructure",
-  "Architecture": "architecture",
-  "Application Security": "application-security",
-  "Quality Assurance": "quality-assurance",
-  "Staff Management": "staff-management",
-  "Project Management": "project-management"
-};
-
-// const SUGGESTED_QUESTIONS = [
-//   "Tell me about Vi-3 Technologies",
-//   "What AI solutions do you offer?",
-//   "How does your cybersecurity work?",
-//   "Can you help with cloud migration?",
-//   "What industries do you serve?",
-//   "Tell me about your founders"
-// ];
-
-const Chatbot: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content: "Vi-3 Welcomes you, How can i assist you?",
-      timestamp: new Date()
+  // DYNAMIC SERVICE MAP - Generated from servicesConfig
+ const servicesMap = useMemo(() => {
+  const services: Service[] = servicesConfig || [];
+  const map: Record<string, string> = {};
+  
+  services.forEach(service => {
+    map[service.title] = service.slug;
+    
+    // Also add keywords as mappings
+    if (service.keywords) {
+      service.keywords.forEach(keyword => {
+        if (keyword.length > 2) { // Only meaningful keywords
+          map[keyword] = service.slug;
+        }
+      });
     }
-  ]);
-  const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [showSuggestions, setShowSuggestions] = useState(true);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  });
+  
+  return map;
+}, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -157,24 +160,14 @@ const Chatbot: React.FC = () => {
     window.open("http://vi3technologies.com", "_blank");
   };
 
-  const handleSuggestedQuestion = (question: string) => {
-    setInput(question);
-    setShowSuggestions(false);
-    setTimeout(() => sendMessage(question), 100);
-  };
-
-  const handleServiceClick = (serviceSlug: string) => {
-    window.open(`/services#${serviceSlug}`, "_blank");
-  };
-
   const extractServiceLinks = (content: string): string[] => {
     const foundServices: string[] = [];
-    Object.entries(SERVICES_MAP).forEach(([serviceName, slug]) => {
+    Object.entries(servicesMap).forEach(([serviceName, slug]) => {
       if (content.toLowerCase().includes(serviceName.toLowerCase())) {
         foundServices.push(slug);
       }
     });
-    return [...new Set(foundServices)]; // Remove duplicates
+    return [...new Set(foundServices)];
   };
 
   const cleanResponse = (content: string): string => {
@@ -219,7 +212,6 @@ const Chatbot: React.FC = () => {
     setMessages(conversationHistory);
     setInput("");
     setIsLoading(true);
-    setShowSuggestions(false);
 
     let assistantContent = "";
 
@@ -237,7 +229,7 @@ const Chatbot: React.FC = () => {
             messages: [
               {
                 role: "system",
-                content: SYSTEM_PROMPT
+                content: systemPrompt
               },
               ...conversationHistory.slice(-8).map(msg => ({
                 role: msg.role,
@@ -311,16 +303,13 @@ const Chatbot: React.FC = () => {
 
       if (assistantContent) {
         const cleanedContent = cleanResponse(assistantContent);
-        const serviceLinks = extractServiceLinks(cleanedContent);
         
         setMessages((prev) => {
           const updated = [...prev];
           updated[updated.length - 1] = {
             role: "assistant",
             content: cleanedContent,
-            timestamp: new Date(),
-            hasServiceLinks: serviceLinks.length > 0,
-            services: serviceLinks
+            timestamp: new Date()
           };
           return updated;
         });
@@ -548,35 +537,6 @@ const Chatbot: React.FC = () => {
                   </div>
                 </div>
               )}
-
-              {/* Suggested Questions */}
-              {/* {showSuggestions && messages.length === 1 && !isLoading && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="space-y-2 pt-2"
-                >
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold px-1 uppercase tracking-wide flex items-center gap-2">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Suggested Topics
-                  </p>
-                  <div className="grid grid-cols-1 gap-2">
-                    {SUGGESTED_QUESTIONS.map((question, idx) => (
-                      <motion.button
-                        key={idx}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.4 + idx * 0.08 }}
-                        onClick={() => handleSuggestedQuestion(question)}
-                        className="w-full text-left px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-700 dark:text-slate-300 hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 hover:shadow-md transition-all duration-200 font-medium"
-                      >
-                        {question}
-                      </motion.button>
-                    ))}
-                  </div>
-                </motion.div>
-              )} */}
 
               <div ref={messagesEndRef} />
             </div>
