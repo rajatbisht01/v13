@@ -1,5 +1,5 @@
 import { ServicePageLayout } from "@/components/ServicePageLayout";
-import apiIntegrationImg from "@/assets/services/api-integration-service.jpg";
+import apiIntegrationImg from "@/assets/services/api-integration.jpg";
 
 const ApiIntegration = () => {
   return (
