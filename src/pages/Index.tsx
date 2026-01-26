@@ -7,10 +7,8 @@ import { PartnersSection } from "@/components/PartnersSection";
 import { ResourcesSection } from "@/components/ResourcesSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
-import { NewsTicker } from "@/components/NewsTicker";
 import { Industries } from "@/components/Industries";
 import { AboutSection } from "@/components/AboutSection";
-import { Team } from "@/components/Teams";
 import { Founders } from "@/components/Founders";
 import { KeyStrengths } from "@/components/KeyStrengths";
 import CorePillars from "@/components/CorePillars";
@@ -19,21 +17,18 @@ import { WhatSetsusApart } from "@/components/WhatSetsusApart";
 const Index = () => {
   return (
     <main className="min-h-screen ">
-     
-        <Header />
-
+      <Header />
       <HeroSection />
-
-      <CorePillars/>
+      <CorePillars />
       <ServicesSection />
-      <WhatSetsusApart/>
-      <Industries/>
-      <KeyStrengths/>
+      <WhatSetsusApart />
+      <Industries />
+      <KeyStrengths />
       <StatsSection />
       <PartnersSection />
       <TestimonialsSection />
-      <AboutSection/>
-      <Founders/>
+      <AboutSection />
+      <Founders />
       <ResourcesSection />
       <ContactSection />
       <Footer />
