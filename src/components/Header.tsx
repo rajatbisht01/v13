@@ -101,7 +101,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/">
-            <img src={logo} alt="Logo" className="w-12 h-12" />
+            <img src={logo} alt="Logo" className="w-16 h-16" />
           </a>
 
           {/* Desktop Nav */}
