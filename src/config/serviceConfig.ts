@@ -1,7 +1,7 @@
 // src/config/servicesConfig.ts - Complete Services Configuration File
 // This file centralizes all service definitions for easy management
 
-import { Accessibility, HeadphonesIcon, LucideIcon } from "lucide-react";
+import { Accessibility, Box, HeadphonesIcon, LucideIcon } from "lucide-react";
 import {
   Shield, Brain, Cloud, Code, Atom, Headphones, Scale, Rocket, Globe, Bot, Activity, Lock,
   Users, ClipboardCheck, CheckCircle, Workflow, Server, Layers, BarChart3, Monitor, UserCog,
@@ -89,7 +89,10 @@ import serviceDeskImg from "@/assets/services/service-desk.jpg"
 import itServiceDeskImg from "@/assets/services/it-service-desk.jpg"
 import inclusiveComputingImg from "@/assets/services/inclusive-computing.jpg"
 import enterpriseOperationImg from "@/assets/services/enterprise-operation.jpg"
-
+import workloadDeploymentImg from "@/assets/services/workload-deployment.jpg"
+import hostingImg  from "@/assets/services/hosting-services.jpg";
+import dataCenterSupportImg from "@/assets/services/datacenter-support.jpg";
+import apiIntegrationImg from "@/assets/services/api-integration.jpg";
 
 
 
@@ -351,7 +354,7 @@ export const servicesConfig: Service[] =
     description: "Strategic roadmap for quantum readiness including consulting, quantum-safe cryptography, and hybrid workflows.",
     image: quantumComputingImg,
     gradient: "from-indigo-500/20 to-violet-500/5",
-    category: "High-Tech Solutions",
+    category: "High-Tech Industry 4.0",
     keywords: ["quantum computing", "quantum", "quantum algorithms", "quantum cryptography", "post-quantum", "quantum safe", "quantum readiness", "quantum consulting", "qubit", "quantum supremacy", "quantum simulation", "quantum machine learning", "QML", "quantum encryption", "quantum security"]
   },
   {
@@ -361,7 +364,7 @@ export const servicesConfig: Service[] =
     description: "Decentralized solutions with blockchain, smart contracts, and tokenized digital economies.",
     image: web3Img,
     gradient: "from-cyan-500/20 to-teal-500/5",
-    category: "High-Tech Solutions",
+    category: "High-Tech Industry 4.0",
     keywords: ["Web3", "Web 3.0", "blockchain", "decentralized", "DeFi", "NFT", "smart contracts", "cryptocurrency", "crypto", "dApp", "decentralized applications", "tokenization", "digital assets", "distributed ledger", "Ethereum", "Solidity", "metaverse", "DAO"]
   },
   {
@@ -371,7 +374,7 @@ export const servicesConfig: Service[] =
     description: "Enterprise Resource Planning implementation and optimization.",
     image: erpImg,
     gradient: "from-amber-500/20 to-orange-500/5",
-    category: "High-Tech Solutions",
+    category: "High-Tech Industry 4.0",
     keywords: ["ERP", "enterprise resource planning", "SAP", "Oracle", "ERP implementation", "ERP integration", "business management", "ERP systems", "enterprise software", "ERP optimization", "ERP modernization", "financial management", "supply chain", "CRM", "ERP consulting"]
   },
   {
@@ -381,7 +384,7 @@ export const servicesConfig: Service[] =
     description: "Global Capability Center setup and management services.",
     image: gccImg,
     gradient: "from-teal-500/20 to-cyan-500/5",
-    category: "High-Tech Solutions",
+    category: "High-Tech Industry 4.0",
     keywords: ["GCC", "Global Capability Center", "captive center", "offshore center", "delivery center", "shared services", "global delivery", "center of excellence", "COE", "offshore development", "global operations", "GIC", "Global In-house Center", "captive setup"]
   },
   {
@@ -391,7 +394,7 @@ export const servicesConfig: Service[] =
     description: "Blockchain development and integration services.",
     image: blockchainImg,
     gradient: "from-teal-500/20 to-cyan-500/5",
-    category: "High-Tech Solutions",
+    category: "High-Tech Industry 4.0",
     keywords: ["blockchain", "distributed ledger", "DLT", "blockchain development", "hyperledger", "private blockchain", "public blockchain", "blockchain integration", "cryptocurrency", "smart contracts", "consensus mechanism", "blockchain security", "blockchain consulting", "enterprise blockchain", "permissioned blockchain"]
   },
   {
@@ -401,7 +404,7 @@ export const servicesConfig: Service[] =
     description: "IoT solutions for connected devices and smart systems.",
     image: iotImg,
     gradient: "from-teal-500/20 to-cyan-500/5",
-    category: "High-Tech Solutions",
+    category: "High-Tech Industry 4.0",
     keywords: ["IoT", "Internet of Things", "connected devices", "smart devices", "IoT platform", "edge computing", "sensors", "IoT analytics", "industrial IoT", "IIoT", "smart city", "smart home", "IoT security", "device management", "IoT gateway", "M2M", "machine to machine", "IoT integration"]
   },
   
@@ -529,7 +532,7 @@ export const servicesConfig: Service[] =
     description: "Multi-cloud management and orchestration for seamless operations.",
     image: cloudOrchestrationImg,
     gradient: "from-cyan-500/20 to-blue-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["cloud orchestration", "multi-cloud", "cloud management", "orchestration platform", "cloud automation", "infrastructure orchestration", "workload orchestration", "cloud coordination", "hybrid cloud management", "cloud integration", "resource orchestration", "Kubernetes orchestration"]
   },
   {
@@ -539,7 +542,7 @@ export const servicesConfig: Service[] =
     description: "End-to-end cloud adoption frameworks and implementation strategies.",
     image: cloudAdoptionImg,
     gradient: "from-sky-500/20 to-cyan-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["cloud adoption", "cloud onboarding", "cloud implementation", "cloud transition", "cloud journey", "adoption framework", "cloud readiness", "cloud enablement", "cloud first", "cloud transformation", "cloud deployment", "cloud setup", "AWS adoption", "Azure adoption"]
   },
   {
@@ -549,7 +552,7 @@ export const servicesConfig: Service[] =
     description: "Secure and seamless migration to cloud platforms with zero downtime.",
     image: cloudSecureImg,
     gradient: "from-indigo-500/20 to-blue-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["cloud migration", "migration services", "lift and shift", "re-platforming", "cloud transition", "workload migration", "application migration", "data migration", "zero downtime migration", "secure migration", "migration strategy", "migration planning", "AWS migration", "Azure migration", "GCP migration"]
   },
   {
@@ -559,7 +562,7 @@ export const servicesConfig: Service[] =
     description: "Legacy system modernization using cloud-native technologies.",
     image: cloudModernizationImg,
     gradient: "from-violet-500/20 to-indigo-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["cloud modernization", "application modernization", "legacy modernization", "cloud native", "refactoring", "re-architecting", "containerization", "microservices migration", "serverless", "modernization services", "platform modernization", "infrastructure modernization", "12-factor apps"]
   },
   {
@@ -569,7 +572,7 @@ export const servicesConfig: Service[] =
     description: "FinOps practices and cloud cost management strategies.",
     image: cloudCostOptimizationImg,
     gradient: "from-green-500/20 to-emerald-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["cloud cost", "cost optimization", "FinOps", "cloud economics", "cost management", "cloud spending", "cost reduction", "resource optimization", "reserved instances", "spot instances", "right-sizing", "cost allocation", "cloud billing", "cost monitoring", "budget management", "cloud savings"]
   },
   {
@@ -579,7 +582,7 @@ export const servicesConfig: Service[] =
     description: "Comprehensive cloud security posture management and protection.",
     image: cloudSecurityImg,
     gradient: "from-red-500/20 to-orange-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["cloud security", "CSPM", "cloud security posture", "cloud protection", "security in cloud", "AWS security", "Azure security", "GCP security", "cloud compliance", "identity and access", "IAM", "cloud encryption", "security monitoring", "threat detection", "CASB", "cloud firewall"]
   },
   {
@@ -589,7 +592,7 @@ export const servicesConfig: Service[] =
     description: "24/7 cloud operations, monitoring, and management services.",
     image: cloudOperationImg,
     gradient: "from-slate-500/20 to-gray-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["cloud operations", "CloudOps", "cloud management", "cloud monitoring", "cloud maintenance", "operational support", "24/7 support", "cloud administration", "cloud performance", "cloud reliability", "incident management", "change management", "cloud observability", "managed cloud"]
   },
   {
@@ -599,7 +602,7 @@ export const servicesConfig: Service[] =
     description: "Private cloud design, deployment, and management solutions.",
     image: privateCloudImg,
     gradient: "from-purple-500/20 to-violet-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["private cloud", "on-premise cloud", "dedicated cloud", "enterprise cloud", "VMware", "OpenStack", "private infrastructure", "hosted private cloud", "cloud hosting", "isolated cloud", "internal cloud", "single-tenant", "private cloud services", "cloud deployment"]
   },
   {
@@ -609,7 +612,7 @@ export const servicesConfig: Service[] =
     description: "Hybrid cloud architecture connecting on-premise and cloud environments.",
     image: hybridCloudImg,
     gradient: "from-blue-500/20 to-purple-500/5",
-    category: "Cloud",
+    category: "Cloud 3.0",
     keywords: ["hybrid cloud", "hybrid infrastructure", "multi-cloud", "cloud hybrid", "on-prem and cloud", "hybrid architecture", "cloud bursting", "hybrid deployment", "hybrid integration", "edge to cloud", "distributed cloud", "hybrid connectivity", "hybrid management", "Azure Stack", "AWS Outposts"]
   },
 
@@ -826,6 +829,90 @@ export const servicesConfig: Service[] =
     category: "IT Infrastructure",
     keywords: ["data center", "datacenter", "DC", "data center design", "data center management", "colocation", "colo", "data center operations", "facility management", "data center infrastructure", "DC services", "tier 3", "tier 4", "data center build", "modular data center", "edge data center"]
   },
+{
+  icon: Box,
+  title: "Workload Deployment",
+  slug: "workload-deployment",
+  description: "End-to-end workload deployment across on-prem, cloud, and hybrid environments ensuring scalability, reliability, and performance optimization.",
+  image: workloadDeploymentImg,
+  gradient: "from-indigo-500/20 to-violet-500/5",
+  category: "IT Infrastructure",
+  keywords: [
+    "workload deployment",
+    "application deployment",
+    "cloud workload",
+    "hybrid workload",
+    "on-prem deployment",
+    "infrastructure deployment",
+    "workload migration",
+    "enterprise workloads",
+    "compute deployment"
+  ]
+},
+{
+  icon: Wrench,
+  title: "Data Center Support",
+  slug: "datacenter-support",
+  description: "Comprehensive data center support services covering operations, maintenance, monitoring, and infrastructure lifecycle management.",
+  image: dataCenterSupportImg,
+  gradient: "from-orange-500/20 to-amber-500/5",
+  category: "IT Infrastructure",
+  keywords: [
+    "data center support",
+    "datacenter operations",
+    "DC support",
+    "infrastructure maintenance",
+    "facility management",
+    "data center monitoring",
+    "hardware support",
+    "enterprise data center"
+  ]
+},
+{
+  icon: Cloud,
+  title: "Hosting Services",
+  slug: "hosting-services",
+  description: "Secure and scalable managed hosting and cloud hosting solutions designed for high availability, performance, and cost efficiency.",
+  image: hostingImg,
+  gradient: "from-cyan-500/20 to-blue-500/5",
+  category: "IT Infrastructure",
+  keywords: [
+    "hosting services",
+    "managed hosting",
+    "cloud hosting",
+    "enterprise hosting",
+    "application hosting",
+    "infrastructure hosting",
+    "secure hosting",
+    "high availability hosting"
+  ]
+},
+{
+  icon: Layers,
+  title: "API Integration",
+  slug: "api-integration",
+  description: "Secure and scalable API integration services enabling seamless system connectivity, data exchange, and platform interoperability.",
+  image: apiIntegrationImg,
+  gradient: "from-sky-500/20 to-blue-500/5",
+  category: "IT Infrastructure",
+  keywords: [
+    "API integration",
+    "system integration",
+    "REST API",
+    "third-party integration",
+    "enterprise integration",
+    "microservices integration",
+    "platform interoperability",
+    "data integration"
+  ]
+},
+
+
+
+
+
+
+
 
   // management services
   
@@ -997,7 +1084,7 @@ export const categoryIdMap: Record<string, string> = {
   "AI & Automation": "ai-automation",
   "Data & Analytics": "data-analytics",
   "DevOps & Engineering": "devops-engineering",
-  "High-Tech Solutions": "hightech-solutions",
+  "High-Tech Industry 4.0": "hightech-solutions",
   "Security & Quality": "security-quality",
   "Business": "business-services",
   "Digital Transformation": "digital-transformation",

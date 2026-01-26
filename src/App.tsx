@@ -102,6 +102,11 @@ const servicePageMap: Record<string, () => Promise<any>> = {
   "service-desk":  () => import("./pages/services/ServiceDesk"),
   "it-service-desk": () => import("./pages/services/ITServiceDesk"),
   "inclusive-computing": () => import("./pages/services/InclusiveComputing"),
+
+  "workload-deployment" : () => import("./pages/services/WorkloadDeployment"),
+  "datacenter-support" : () => import("./pages/services/DatacenterSupport"),
+  "hosting-services" : () => import("./pages/services/HostingServices"),
+  "api-integration" : () => import("./pages/services/ApiIntegration"),
 };
 
 // Create lazy-loaded service components
