@@ -1,18 +1,11 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, User, Loader2, Phone, Mail, ExternalLink, Building2, MapPin } from "lucide-react";
+import { MessageCircle, X, Send, User, Loader2, Phone, Mail, ExternalLink, Building2, MapPin, Link2 } from "lucide-react";
 
-
+// Import from serviceConfig - Single Source of Truth
 import { servicesConfig, categoriesConfig } from "@/config/serviceConfig";
 
-
-interface Message {
-  role: "user" | "assistant";
-  content: string;
-  timestamp?: Date;
-}
-
-// Type definition matching your servicesConfig
+// Type definitions matching serviceConfig
 interface Service {
   title: string;
   slug: string;
@@ -27,12 +20,19 @@ interface Category {
   id: string;
 }
 
+interface Message {
+  role: "user" | "assistant";
+  content: string;
+  timestamp?: Date;
+  serviceLinks?: string[];
+}
+
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Vi-3 Welcomes you, How can I assist you?",
+      content: "Vi-3 Welcomes you! How can I assist you today?",
       timestamp: new Date()
     }
   ]);
@@ -40,10 +40,11 @@ const Chatbot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // DYNAMIC SYSTEM PROMPT - Generated from servicesConfig
+  // DYNAMIC SYSTEM PROMPT - Generated entirely from servicesConfig
   const systemPrompt = useMemo(() => {
-     const services: Service[] = servicesConfig || [];
-const categories: Category[] = categoriesConfig || [];
+    const services: Service[] = servicesConfig || [];
+    const categories: Category[] = categoriesConfig || [];
+    
     // Group services by category
     const servicesByCategory: Record<string, Service[]> = {};
     services.forEach(service => {
@@ -54,7 +55,7 @@ const categories: Category[] = categoriesConfig || [];
       });
     });
 
-    // Build service listing dynamically
+    // Build service listing dynamically from servicesConfig
     let servicesList = "";
     categories.forEach((cat, idx) => {
       const categoryServices = servicesByCategory[cat.name] || [];
@@ -103,9 +104,15 @@ RESPONSE GUIDELINES:
 2. TONE: Professional, confident, consultative - speak as a senior enterprise advisor
 3. STRUCTURE: Lead with direct value, then provide 2-5 bullet points using "•"
 4. BREVITY: 1-2 sentences for simple queries, 3-4 for complex topics requiring detail
-5. SERVICE MENTIONS: When discussing specific services, mention them by name so they can be linked
+5. SERVICE MENTIONS: When discussing services:
+   - Use EXACT service names from the list (e.g., "Agentic AI & AI Agents", not just "AI")
+   - Mention specific services rather than generic categories
+   - For example, say "Artificial Intelligence" or "Agentic AI & AI Agents" instead of just "AI services"
+   - Say "Cloud Security" instead of just "security"
+   - Be specific: "DevSecOps Engineering" not "DevOps"
 6. EXAMPLES: Use concrete examples from relevant industries when helpful
 7. CALL-TO-ACTION: End with helpful next steps or questions
+8. RELEVANCE: Only mention services that directly relate to the user's question
 
 FORMATTING:
 - Use "•" for bullet points
@@ -118,27 +125,6 @@ Politely redirect: "I'm focused on helping with enterprise technology needs. Let
 
 REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined founder experience serving global enterprises. Be helpful, informative, and professional.`;
   }, []);
-
-  // DYNAMIC SERVICE MAP - Generated from servicesConfig
- const servicesMap = useMemo(() => {
-  const services: Service[] = servicesConfig || [];
-  const map: Record<string, string> = {};
-  
-  services.forEach(service => {
-    map[service.title] = service.slug;
-    
-    // Also add keywords as mappings
-    if (service.keywords) {
-      service.keywords.forEach(keyword => {
-        if (keyword.length > 2) { // Only meaningful keywords
-          map[keyword] = service.slug;
-        }
-      });
-    }
-  });
-  
-  return map;
-}, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -160,25 +146,78 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
     window.open("http://vi3technologies.com", "_blank");
   };
 
-  const extractServiceLinks = (content: string): string[] => {
-    const foundServices: string[] = [];
-    Object.entries(servicesMap).forEach(([serviceName, slug]) => {
-      if (content.toLowerCase().includes(serviceName.toLowerCase())) {
-        foundServices.push(slug);
-      }
-    });
-    return [...new Set(foundServices)];
-  };
+  // Smart service link extraction with scoring and relevance ranking
+ 
+  
+  // Helper function to escape special regex characters
+  const escapeRegex = (str: string): string => {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
+ const extractServiceLinks = (content: string): string[] => {
+  const services: Service[] = servicesConfig || [];
+  const contentLower = content.toLowerCase();
+
+  const scoredServices = services.map(service => {
+    let score = 0;
+    const titleLower = service.title.toLowerCase();
+
+    if (contentLower.includes(titleLower)) score += 1000;
+
+    const titleWords = titleLower.split(/\s+/);
+    if (
+      titleWords.length > 1 &&
+      titleWords.every(word =>
+        new RegExp(`\\b${escapeRegex(word)}\\b`, 'i').test(contentLower)
+      )
+    ) {
+      score += 800;
+    }
+
+    if (service.keywords) {
+      service.keywords.forEach(keyword => {
+        const kw = keyword.toLowerCase();
+        if (new RegExp(`\\b${escapeRegex(kw)}\\b`, 'i').test(contentLower)) {
+          score += 500;
+        } else if (keyword.includes(" ") && contentLower.includes(kw)) {
+          score += 100;
+        }
+      });
+    }
+
+    const slugWords = service.slug.split("-");
+    if (
+      slugWords.length > 1 &&
+      slugWords.every(word =>
+        new RegExp(`\\b${escapeRegex(word)}\\b`, 'i').test(contentLower)
+      )
+    ) {
+      score += 300;
+    }
+
+    return { service, score };
+  });
+
+  return scoredServices
+    .filter(s => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 4)
+    .map(s => s.service.slug);
+};
+
 
   const cleanResponse = (content: string): string => {
     let cleaned = content.trim();
     
+    // Remove markdown formatting
     cleaned = cleaned.replace(/\*\*([^*]+)\*\*/g, '$1');
     cleaned = cleaned.replace(/\*([^*]+)\*/g, '$1');
+    
+    // Normalize bullet points
     cleaned = cleaned.replace(/^[\-\*]\s+/gm, '• ');
     cleaned = cleaned.replace(/^\d+\.\s+/gm, '• ');
-    cleaned = cleaned.replace(/\n{3,}/g, '\n\n');
     
+    // Remove AI-specific phrases
     const aiPhrases = [
       /I'm (just )?an AI/gi,
       /As an AI/gi,
@@ -194,6 +233,7 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
       cleaned = cleaned.replace(phrase, '');
     });
     
+    // Clean up extra whitespace
     cleaned = cleaned.replace(/\n{3,}/g, '\n\n').trim();
     
     return cleaned;
@@ -208,6 +248,7 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
       content: messageText,
       timestamp: new Date()
     };
+    
     const conversationHistory = [...messages, userMessage];
     setMessages(conversationHistory);
     setInput("");
@@ -252,6 +293,7 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
         throw new Error("No response body");
       }
 
+      // Add placeholder message
       setMessages((prev) => [...prev, { 
         role: "assistant", 
         content: "",
@@ -262,6 +304,7 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
       const decoder = new TextDecoder();
       let buffer = "";
 
+      // Stream response
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
@@ -301,15 +344,18 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
         }
       }
 
+      // Final cleanup and service link extraction
       if (assistantContent) {
         const cleanedContent = cleanResponse(assistantContent);
+        const serviceLinks = extractServiceLinks(assistantContent);
         
         setMessages((prev) => {
           const updated = [...prev];
           updated[updated.length - 1] = {
             role: "assistant",
             content: cleanedContent,
-            timestamp: new Date()
+            timestamp: new Date(),
+            serviceLinks
           };
           return updated;
         });
@@ -337,6 +383,11 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
     }
   };
 
+  const handleServiceLinkClick = (slug: string) => {
+    const url = `/services/${slug}`;
+    window.location.href = url;
+  };
+
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -350,7 +401,7 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
       
       if (trimmedLine.startsWith('•')) {
         return (
-          <div key={i} className="flex gap-2.5 my-02 leading-relaxed">
+          <div key={i} className="flex gap-2.5 my-2 leading-relaxed">
             <span className="text-blue-600 dark:text-blue-400 mt-0.5 font-bold">•</span>
             <span className="flex-1 leading-relaxed">{trimmedLine.substring(1).trim()}</span>
           </div>
@@ -386,8 +437,8 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
       {/* Floating Chat Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center group"
-        whileHover={{ scale: 1.05, rotate: 5 }}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center group"
+        whileHover={{ scale: 1.1, rotate: 5 }}
         whileTap={{ scale: 0.95 }}
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
@@ -430,92 +481,110 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-20 right-6 z-50 w-[460px] max-w-[calc(100vw-3rem)] h-[760px] max-h-[88vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[460px] max-w-[calc(100vw-3rem)] h-[680px] max-h-[85vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
-            {/* Professional Header */}
-            <div className="bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 text-white p-5 flex items-start justify-between">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 text-white p-4 flex items-start justify-between">
               <div className="flex items-start gap-3 flex-1">
-                <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20">
-                  <Building2 className="w-6 h-6" />
+                <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20">
+                  <Building2 className="w-5 h-5" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-lg leading-tight">Vi-3 Technologies</h3>
-                  <p className="text-xs text-blue-100 mt-1 leading-relaxed">
-                    Innovative IT Solutions Provider
-                  </p>
-                  <div className="flex items-center gap-1.5 mt-1.5">
+                  <h3 className="font-bold text-base leading-tight">Vi-3 Technologies</h3>
+                  <p className="text-xs text-blue-100 mt-0.5">Enterprise IT Solutions</p>
+                  <div className="flex items-center gap-1.5 mt-1">
                     <motion.span 
-                      className="w-2 h-2 bg-emerald-400 rounded-full shadow-lg shadow-emerald-400/50"
+                      className="w-2 h-2 bg-emerald-400 rounded-full shadow-lg"
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     />
-                    <span className="text-xs text-emerald-300 font-medium">Available 24/7</span>
+                    <span className="text-xs text-emerald-300 font-medium">Online 24/7</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Quick Contact Actions */}
-            <div className="bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 p-3 border-b border-slate-200 dark:border-slate-700 flex gap-2">
+            <div className="bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 p-2.5 border-b border-slate-200 dark:border-slate-700 flex gap-2">
               <button
                 onClick={handleCall}
-                className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-white dark:bg-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-700 hover:text-emerald-700 dark:hover:text-emerald-400 transition-all shadow-sm hover:shadow border border-slate-200 dark:border-slate-600"
+                className="flex-1 flex items-center justify-center gap-1.5 px-2 py-2 bg-white dark:bg-slate-800 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-700 hover:text-emerald-700 transition-all shadow-sm border border-slate-200 dark:border-slate-600"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-3.5 h-3.5" />
                 <span>Call</span>
               </button>
               <button
                 onClick={handleEmail}
-                className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-white dark:bg-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 hover:text-blue-700 dark:hover:text-blue-400 transition-all shadow-sm hover:shadow border border-slate-200 dark:border-slate-600"
+                className="flex-1 flex items-center justify-center gap-1.5 px-2 py-2 bg-white dark:bg-slate-800 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 hover:text-blue-700 transition-all shadow-sm border border-slate-200 dark:border-slate-600"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-3.5 h-3.5" />
                 <span>Email</span>
               </button>
               <button
                 onClick={handleWebsite}
-                className="flex items-center justify-center gap-2 px-3 py-2.5 bg-white dark:bg-slate-800 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-slate-700 hover:text-purple-700 dark:hover:text-purple-400 transition-all shadow-sm hover:shadow border border-slate-200 dark:border-slate-600"
+                className="flex items-center justify-center gap-1.5 px-2 py-2 bg-white dark:bg-slate-800 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-purple-50 dark:hover:bg-slate-700 hover:text-purple-700 transition-all shadow-sm border border-slate-200 dark:border-slate-600"
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-3.5 h-3.5" />
               </button>
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">
               {messages.map((message, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className={`flex gap-3 ${
+                  className={`flex gap-2.5 ${
                     message.role === "user" ? "flex-row-reverse" : ""
                   }`}
                 >
                   <div
-                    className={`w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center shadow-md ${
+                    className={`w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center shadow-md ${
                       message.role === "user"
                         ? "bg-gradient-to-br from-slate-700 to-slate-800 text-white"
                         : "bg-gradient-to-br from-blue-600 to-blue-700 text-white ring-2 ring-blue-200 dark:ring-blue-900"
                     }`}
                   >
                     {message.role === "user" ? (
-                      <User className="w-5 h-5" />
+                      <User className="w-4 h-4" />
                     ) : (
-                      <Building2 className="w-5 h-5" />
+                      <Building2 className="w-4 h-4" />
                     )}
                   </div>
                   <div className="flex-1 max-w-[85%]">
                     <div
-                      className={`rounded-2xl px-4 py-3 shadow-md ${
+                      className={`rounded-2xl px-3.5 py-2.5 shadow-md ${
                         message.role === "user"
                           ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-br-md"
                           : "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-bl-md border border-slate-200 dark:border-slate-700"
                       }`}
                     >
-                      <div className="text-[15px] leading-relaxed">
+                      <div className="text-sm leading-relaxed">
                         {formatMessage(message.content)}
                       </div>
                     </div>
+                    
+                    {/* Service Links - dynamically extracted from servicesConfig */}
+                    {message.serviceLinks && message.serviceLinks.length > 0 && (
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {message.serviceLinks.slice(0, 4).map((slug, idx) => {
+                          const service = servicesConfig.find(s => s.slug === slug);
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => handleServiceLinkClick(slug)}
+                              className="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg text-xs font-medium hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all border border-blue-200 dark:border-blue-800"
+                            >
+                              <Link2 className="w-3 h-3" />
+                              <span>{service?.title || slug.replace(/-/g, ' ')}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                    
                     {message.timestamp && (
                       <div className={`text-[10px] text-slate-400 dark:text-slate-500 mt-1 px-1 ${
                         message.role === "user" ? "text-right" : "text-left"
@@ -528,12 +597,12 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
               ))}
 
               {isLoading && (
-                <div className="flex gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white flex items-center justify-center shadow-md ring-2 ring-blue-200 dark:ring-blue-900">
-                    <Building2 className="w-5 h-5" />
+                <div className="flex gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white flex items-center justify-center shadow-md ring-2 ring-blue-200 dark:ring-blue-900">
+                    <Building2 className="w-4 h-4" />
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-2xl rounded-bl-md px-4 py-3 border border-slate-200 dark:border-slate-700 shadow-md">
-                    <Loader2 className="w-5 h-5 animate-spin text-blue-600" />
+                  <div className="bg-white dark:bg-slate-800 rounded-2xl rounded-bl-md px-3.5 py-2.5 border border-slate-200 dark:border-slate-700 shadow-md">
+                    <Loader2 className="w-4 h-4 animate-spin text-blue-600" />
                   </div>
                 </div>
               )}
@@ -542,29 +611,29 @@ REMEMBER: You represent a B2B enterprise IT company with 58+ years of combined f
             </div>
 
             {/* Input Area */}
-            <div className="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+            <div className="p-3 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyPress}
-                  placeholder="Ask about our enterprise IT solutions..."
+                  placeholder="Ask about our services..."
                   disabled={isLoading}
-                  className="flex-1 px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 transition-all"
+                  className="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 transition-all"
                 />
                 <button
                   onClick={() => sendMessage()}
                   disabled={!input.trim() || isLoading}
-                  className="rounded-xl px-6 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-slate-300 disabled:to-slate-400 dark:disabled:from-slate-700 dark:disabled:to-slate-800 shadow-md hover:shadow-lg transition-all text-white font-semibold disabled:cursor-not-allowed"
+                  className="rounded-xl px-5 h-11 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-slate-300 disabled:to-slate-400 shadow-md hover:shadow-lg transition-all text-white font-semibold disabled:cursor-not-allowed"
                 >
-                  <Send className="w-5 h-5" />
+                  <Send className="w-4 h-4" />
                 </button>
               </div>
-              <div className="flex items-center justify-between mt-3 text-xs text-slate-400 dark:text-slate-500">
-                <span className="font-medium">Vi-3 Technologies © 2025</span>
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3 h-3" />
+              <div className="flex items-center justify-between mt-2 text-[10px] text-slate-400 dark:text-slate-500">
+                <span className="font-medium">© 2025 Vi-3 Technologies</span>
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-2.5 h-2.5" />
                   Chennai, India
                 </span>
               </div>
