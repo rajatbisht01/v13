@@ -150,10 +150,10 @@ export const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex  lg:items-center  gap-4">
+          <div className="hidden lg:flex  lg:items-center gap-4">
             <div ref={searchRef} className="relative">
               <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
-                <SearchIcon className="w-5 h-5 lg:mr-4" />
+              <SearchIcon className={`w-5 h-5 lg:mr-6  ${isScrolled? 'text-black': 'text-white'} `} /> 
               </button>
               {isSearchOpen && (
                 <div className="absolute right-0 mt-2 w-96 bg-card rounded-xl shadow-xl">
