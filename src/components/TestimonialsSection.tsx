@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "Vi-3 Technology's cloud expertise helped us seamlessly migrate our infrastructure and achieve 40% cost savings. Their team is professional and always delivers on time.",
+      "Vi-3 Technologies's cloud expertise helped us seamlessly migrate our infrastructure and achieve 40% cost savings. Their team is professional and always delivers on time.",
     author: "Rajesh Kumar",
     title: "CTO, TechVentures India",
     company: "TechVentures",
@@ -58,7 +58,7 @@ export const TestimonialsSection = () => {
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              The Vi-3 Technology edge:{" "}
+              The Vi-3 Technologies edge:{" "}
               <span className="text-gradient">What our clients say</span>
             </h2>
           </div>

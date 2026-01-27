@@ -97,7 +97,7 @@ export const PartnersSection = () => {
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
             Through powerful industry alliances and partnerships, we give you access to 
-            best-in-class tools, services and infrastructure for hybrid & multi-cloud operations.
+            best-in-class services, infrastructure, tools, compliance and security for hybrid & multi-cloud operations.
           </p>
         </FadeInUp>
 

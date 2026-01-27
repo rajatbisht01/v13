@@ -87,7 +87,7 @@ export const StatsSection = () => {
             Meet <span className="text-gradient">Vi-3 Technologies</span>
           </h2>
            <p className=" pt-4 text-muted-foreground max-w-3xl mx-auto text-lg">
-             Trusted partner to global enterprisesructure for hybrid & multi-cloud operations.
+             Trusted partner to global enterprise structure for hybrid & multi-cloud operations.
           </p>
          
         </FadeInUp>
