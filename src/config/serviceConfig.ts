@@ -135,13 +135,15 @@ import itsmImg from "@/assets/services/itsm.jpg";
 import itomImg from "@/assets/services/itom.jpg";
 import apmImg from "@/assets/services/apm.jpg";
 import itServiceDeskImg from "@/assets/services/it-service-desk.jpg";
-import inclusiveComputingImg from "@/assets/services/inclusive-computing.jpg";
+// import inclusiveComputingImg from "@/assets/services/inclusive-computing.jpg";
 import enterpriseOperationImg from "@/assets/services/enterprise-operation.jpg";
 import workloadDeploymentImg from "@/assets/services/workload-deployment.jpg";
 import hostingImg from "@/assets/services/hosting-services.jpg";
 import dataCenterSupportImg from "@/assets/services/datacenter-support.jpg";
 import apiIntegrationImg from "@/assets/services/api-integration.jpg";
 import eucImg from "@/assets/services/end-user-computing.jpg";
+import firewallImg from "@/assets/services/firewall-service.jpg";
+import vpnImg from "@/assets/services/vpn-service.jpg";
 // Type Definitions
 export interface Service {
   icon: LucideIcon;
@@ -1610,6 +1612,56 @@ export const servicesConfig: Service[] = [
       "compliance reporting",
     ],
   },
+  {
+  icon: Lock,
+  title: "VPN Services",
+  slug: "vpn-services",
+  description: "Secure and encrypted remote access solutions enabling safe connectivity for employees, partners, and distributed teams.",
+  image: vpnImg,
+  gradient: "from-indigo-500/20 to-blue-500/5",
+  category: "Cybersecurity",
+  keywords: [
+    "VPN services",
+    "virtual private network",
+    "remote access VPN",
+    "site-to-site VPN",
+    "enterprise VPN",
+    "secure connectivity",
+    "encrypted network access",
+    "remote workforce security",
+    "zero trust access",
+    "cloud VPN",
+    "business VPN",
+    "network encryption",
+    "secure tunneling"
+  ]
+},
+{
+  icon: Shield,
+  title: "Firewall Services",
+  slug: "firewall-services",
+  description: "Advanced firewall solutions designed to monitor, control, and protect enterprise networks from internal and external threats.",
+  image: firewallImg,
+  gradient: "from-red-500/20 to-orange-500/5",
+  category: "Cybersecurity",
+  keywords: [
+    "firewall services",
+    "network firewall",
+    "next generation firewall",
+    "NGFW",
+    "perimeter security",
+    "intrusion prevention",
+    "IDS/IPS",
+    "network traffic filtering",
+    "threat detection",
+    "cybersecurity",
+    "cloud firewall",
+    "enterprise security",
+    "network protection"
+  ]
+},
+
+
   {
     icon: AlertTriangle,
     title: "Incident Response & Recovery",

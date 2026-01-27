@@ -108,7 +108,8 @@ const servicePageMap: Record<string, () => Promise<any>> = {
   "hosting-services" : () => import("./pages/services/HostingServices"),
   "api-integration" : () => import("./pages/services/ApiIntegration"),
   "end-user-computing": () => import("./pages/services/EndUserComputing"),
-
+   "vpn-services" : () => import("./pages/services/VPNServices"),
+   "firewall-services" : () => import("./pages/services/FirewallServices"),
 };
 
 // Create lazy-loaded service components
