@@ -956,16 +956,16 @@ export const servicesConfig: Service[] =
     category: "Management",
     keywords: ["APM", "application performance monitoring", "performance management", "real-time analytics", "application monitoring", "performance metrics", "user experience monitoring", "transaction monitoring", "app performance", "performance analytics", "end-user monitoring", "APM tools", "application analytics", "performance optimization", "real-time APM", "distributed tracing"]
   },
-  { 
-    icon: HeadphonesIcon, 
-    title: "Service Desk", 
-    slug: "service-desk", 
-    description: "Multi-channel IT service desk with AI-powered support.",
-    image: serviceDeskImg,
-    gradient: "from-orange-500/20 to-amber-500/5",
-    category: "Management",
-    keywords: ["service desk", "help desk", "IT support", "ticketing system", "multi-channel support", "AI support", "automated support", "ticket management", "IT helpdesk", "support services", "service management", "chatbot support", "self-service portal", "ITSM service desk", "omnichannel support", "AI-powered helpdesk"]
-  },
+  // { 
+  //   icon: HeadphonesIcon, 
+  //   title: "Service Desk", 
+  //   slug: "service-desk", 
+  //   description: "Multi-channel IT service desk with AI-powered support.",
+  //   image: serviceDeskImg,
+  //   gradient: "from-orange-500/20 to-amber-500/5",
+  //   category: "Management",
+  //   keywords: ["service desk", "help desk", "IT support", "ticketing system", "multi-channel support", "AI support", "automated support", "ticket management", "IT helpdesk", "support services", "service management", "chatbot support", "self-service portal", "ITSM service desk", "omnichannel support", "AI-powered helpdesk"]
+  // },
   { 
     icon: HeadphonesIcon, 
     title: "IT Service Desk", 
