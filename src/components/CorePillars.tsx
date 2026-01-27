@@ -19,7 +19,7 @@ const operationalModel = [
     phase: "03",
     title: "Engineering",
     action:
-      "End-to-end development, system integration, and automation delivery. Quality assurance, performance optimization, release management, and a production-ready high-performance technology stack.",
+      "End-to-end planning, development, system integration, and automation delivery. Quality assurance, performance optimization, release management, and a production-ready high-performance technology stack.",
   },
   {
     phase: "04",
@@ -35,7 +35,7 @@ const CorePillars = () => {
       icon: Lightbulb,
       title: "Innovation at the Core",
       description:
-        "Innovation is engineered into our process. We continuously adopt emerging technologies, automation, and AI-driven insights to keep your systems ahead of the curve.",
+        "Innovation is engineered into our process. We continuously adopt emerging technologies AI-driven insights to keep your systems ahead of the curve, automation. ",
     },
     {
       icon: Shield,
@@ -60,7 +60,7 @@ const CorePillars = () => {
       icon: Cloud,
       title: "Agility",
       description:
-        "We respect the power of On-Premises control while leveraging the infinite scale of the Cloud, providing a balanced, modernization-focused approach.",
+        "We respect the power of AI control while leveraging the infinite scale of the Cloud, providing a balanced, modernization-focused approach.",
     },
   ];
   return (
