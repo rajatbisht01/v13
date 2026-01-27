@@ -23,7 +23,7 @@ const differentiators = [
     icon: TrendingUp,
     title: "Outcome-Based Pricing",
     subtitle: "Results That Matter",
-    description: "Our contracts are tied to real business results—like reducing customer churn by 10%—rather than labor hours or ticket counts. Your success is our success.",
+    description: "Our contracts are tied to real business results—like reducing customer churn rather than labor hours or ticket counts. Your success is our success.",
     highlight: "Pay for Results",
     gradient: "from-purple-500 to-pink-500",
   },
@@ -70,7 +70,7 @@ export const WhatSetsusApart = () => {
             className="inline-flex items-center gap-2 mb-6 px-5 py-2 rounded-full bg-primary/10 border border-primary/20"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-primary text-sm font-semibold tracking-wide">Why Choose Vi-3</span>
+            <span className="text-primary text-md font-semibold tracking-wide">Why Choose Vi-3</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
