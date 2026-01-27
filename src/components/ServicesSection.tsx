@@ -35,8 +35,8 @@ const services = [
   {
     image: cloudImg,
     title: "Cloud Services",
-    description: "Seamless hybrid cloud transitions with On-Prem modernization, secure migrations, and cost optimization.",
-    features: ["AWS / Azure / GCP", "Hybrid Cloud Migration", "Cloud Cost Optimization", "On-Premises Refurbishment"],
+    description: "Seamless cloud transitions with On-Prem modernization, secure migrations, and cost optimization.",
+    features: ["AWS / Azure / GCP", "Hybrid Cloud Migration", "Cloud Cost Optimization", "On-Premises Migration"],
     gradient: "from-cyan-400 via-sky-500 to-blue-600",
     slug: "cloud-infrastructure",
   },
@@ -70,9 +70,9 @@ const services = [
     title: "Enterprise IT Infrastructure",
     description: "Robust and scalable infrastructure foundations covering compute, storage, networking, and enterprise systems reliability.",
     features: [
-      "Server & Network Management",
+      "Hosting & Network Management",
       "Storage & Backup Solutions",
-      "Infrastructure Monitoring",
+      "Hosting Migration",
       "Capacity & Performance Planning"
     ],
     gradient: "from-blue-400 via-indigo-500 to-purple-600",
@@ -81,7 +81,7 @@ const services = [
   {
     image: managedImg,
     title: "24×7 Managed Services",
-    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and SLA-driven resolution.",
+    description: "Your 'Always-On' IT department with proactive monitoring, automated patch management, and XLA-driven resolution.",
     features: ["Proactive Infrastructure Monitoring", "Automated Patch Management", "Level 1-3 Technical Support", "Performance Optimization"],
     gradient: "from-blue-400 via-indigo-500 to-purple-600",
     slug: "managed-services",
@@ -89,7 +89,7 @@ const services = [
   {
     image: appImg,
     title: "Application Services",
-    description: "End-to-end application development, modernization, and lifecycle management aligned to business outcomes.",
+    description: "End-to-end application development, modernization, secure and lifecycle management aligned to business outcomes.",
     features: [
       "Custom Application Development",
       "Legacy Modernization",
