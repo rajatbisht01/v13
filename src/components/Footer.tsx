@@ -94,12 +94,12 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="/" className="flex items-center gap-2 mb-6">
+            <a href="/" className="flex items-center  mb-6">
                <a href="/" className="flex items-center gap-2">
             <img src={logo} alt="Vi-3 Technology" className="w-12 h-12" />
           </a>
               <span className="text-xl font-bold text-foreground">
-                <span className="text-primary">Technology</span>
+                <span className="text-primary -ml-2">-3 Technology</span>
               </span>
             </a>
             <p className="text-muted-foreground text-sm mb-6 max-w-sm">
