@@ -43,7 +43,7 @@ const founders = [
       "Enterprise Security"
     ],
 description:
-  "Gajendrakumar PK brings over 30 years of hands-on experience in building and operating large-scale enterprise systems. As Founder and Director, he defines the technical direction of the company and is directly involved in architecture decisions, platform stability, and engineering standards.",
+  "Gajendrakumar PK brings over 30 years of hands-on experience in building and operating large-scale enterprise systems and customers. As Founder and Director, he defines the leadership direction of the company and is directly involved in architecture decisions, platform stability, and engineering standards.",
     achievements: [
       "Led 100+ enterprise cloud migrations across global Fortune 500 companies",
       "Architected AI-driven infrastructure solutions serving millions of users",
@@ -61,9 +61,10 @@ description:
       "Digital Transformation",
       "Client Relationship Management",
       "IT Service Management",
-      "Cybersecurity & GRC"
+      "Cybersecurity & GRC",
+      "AI Stack"
     ],
-    description: "Baskar Maruthai is a visionary and strategic leader with over 28 years of experience bridging cutting-edge technologies with emerging market needs, he is responsible for translating our core vision into a scalable, secure, and resilient business.",
+    description: "Baskar Maruthai is a visionary and strategic leader with over 28 years of excellence bridging cutting-edge technologies with AI & emerging market needs, he is responsible for translating our core vision into a innovative, scalable, secure, and resilient business. ",
     achievements: [
       "Managed enterprise accounts worth $50M+",
       "Established strategic technology partnerships",
@@ -73,8 +74,8 @@ description:
 ];
 
 const stats = [
-  { value: 30, suffix: "+", label: "Years Combined", sublabel: "Leadership Experience" },
-  { value: 100, suffix: "+", label: "Enterprises Transformed", sublabel: "Across Global Markets" },
+  { value: 30, suffix: "+", label: "Years Combined", sublabel: "Leadership Excellence" },
+  { value: 100, suffix: "+", label: "Enterprises Transformation", sublabel: "Across Global Markets" },
   { value: 22, suffix: "+", label: "Industries Served", sublabel: "End-to-End Solutions" },
 ];
 
@@ -145,7 +146,7 @@ const StatItem = ({ value, suffix, label, sublabel, delay }) => {
           </h2>
           <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
             With 30+ years of combined industry experience, our founders bring deep expertise 
-            in enterprise technology, cloud computing, and digital transformation.
+            in enterprise technology, cloud computing, and digital transformation and Cyber Security.
           </p>
         </FadeInUp>
 
@@ -198,7 +199,7 @@ const StatItem = ({ value, suffix, label, sublabel, delay }) => {
                       <p className="text-primary font-semibold text-lg mb-3">{founder.role}</p>
                       <div className="flex items-center justify-center sm:justify-start gap-2 mb-3">
                         <Briefcase className="w-4 h-4 text-slate-500" />
-                        <span className="text-slate-600 text-sm font-medium">{founder.experience} Experience</span>
+                        <span className="text-slate-600 text-sm font-medium">{founder.experience} Excellence</span>
                       </div>
                       {founder.featured && (
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200">
