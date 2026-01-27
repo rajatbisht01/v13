@@ -34,19 +34,19 @@ const strengths = [
     icon: Shield,
     title: "Security-First Mindset",
     description: "Security is embedded in everything we do. From Zero Trust Architecture to Quantum-Safe Encryption, we protect your digital assets with enterprise-grade security at every layer.",
-    highlights: ["Zero Trust Security", "Compliance Expertise", "24/7 SOC Operations"]
+    highlights: ["Enterprise Security","Zero Trust Security", "Compliance Expertise", "24/7 SOC Operations"]
   },
   {
     icon: Zap,
     title: "Agile Delivery",
     description: "Our agile methodology ensures rapid deployment and continuous improvement. We deliver value incrementally, adapting quickly to changing requirements while maintaining quality.",
-    highlights: ["Sprint-Based Delivery", "Continuous Integration", "Rapid Time-to-Value"]
+    highlights: ["Sprint-Based Delivery", "Continuous Integration","Continuous Delivery", "Rapid Time-to-Value"]
   },
   {
     icon: Globe,
-    title: "Global Standards, Local Excellence",
-    description: "We combine international best practices with deep local market understanding. Our solutions meet global compliance standards while addressing region-specific requirements.",
-    highlights: ["ISO 27001 Certified", "GDPR Compliant", "Industry Standards"]
+    title: "Global Standards, Excellence",
+    description: "We combine international best practices with deep International market understanding. Our solutions meet global compliance standards while addressing region-specific requirements.",
+    highlights: ["NIST Standards","ISO 27001 Certified", "GDPR Compliant", "Other Industry Standards"]
   }
 ];
 
@@ -86,7 +86,7 @@ export const KeyStrengths = () => {
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <FadeInUp className="text-center mb-16">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm">Why Vi-3</span>
+          <span className="text-primary font-semibold tracking-wider uppercase text-sm">Why Vi-3 Technologies</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
             Our Key <span className="text-primary">Strengths</span>
           </h2>

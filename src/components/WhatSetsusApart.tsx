@@ -31,7 +31,7 @@ const differentiators = [
 
 const stats = [
   { value: "100%", label: "Outcome-Focused" },
-  { value: "XLA", label: "Certified Partner" },
+  { value: "XLA", label: "XLA - Outcome" },
   { value: "360°", label: "Experience View" },
 ];
 

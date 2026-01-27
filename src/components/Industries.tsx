@@ -73,7 +73,7 @@ export const Industries = () => {
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
             Delivering transformative IT solutions across 22+ industries,
-            helping businesses navigate digital transformation with confidence.
+            helping businesses navigate digital transformation with confidence and trust.
           </p>
         </FadeInUp>
 
